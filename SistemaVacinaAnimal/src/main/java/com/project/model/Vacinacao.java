@@ -1,13 +1,13 @@
 import java.time.LocalDate;
 
 class Vacinacao {
-    Animal animal ();
-    Vacina vacina ();
-    Veterinario veterinario ();
-    LocalDate dataAplicacao ();
-    String dosagem ();
-    String lote ();
-    String idFrasco();
+    private Animal animal ();
+    private Vacina vacina ();
+    private Veterinario veterinario ();
+    private LocalDate dataAplicacao ();
+    private String dosagem ();
+    private String lote ();
+    private String idFrasco();
 
     public void getAnimal();
     public void getVacina();
