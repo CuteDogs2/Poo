@@ -1,5 +1,3 @@
-import java.util.Random;
-
 class Pessoa{
     private String nome;
     private String cpf;
@@ -53,18 +51,6 @@ class Lista<T>{
 }
 
 class Clinica{
-    /* public Pessoa criaPessoa(){
-        String nome, cpf, telefone;
-        int rg;
-
-        rg = (int)(Math.random() * (10));
-        // for loop to create random cpf and telefone who are strings of numbers
-        // but a different loop to create nome with rules like every consonant must follow a vowel
-        
-        public Pessoa temp = new Pessoa();
-        return temp;
-    } */
-    
     public static void main(String args[]){
         Pessoa p = new Pessoa("Carlos","03786909148",1111,"99415147");
         System.out.println(p.toString());
