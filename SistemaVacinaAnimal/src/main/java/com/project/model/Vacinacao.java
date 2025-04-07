@@ -9,11 +9,11 @@ class Vacinacao {
     String lote ();
     String idFrasco();
 
-    1. getAnimal();
-    2. getVacina();
-    3. getVeterinario();
-    4. getDataAplicacao();
-    5. getDosagem();
-    6. getLote();
-    7. getidFrasco();
+    public void getAnimal();
+    public void getVacina();
+    public void getVeterinario();
+    public void getDataAplicacao();
+    public void getDosagem();
+    public void getLote();
+    public void getidFrasco();
 }
