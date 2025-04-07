@@ -2,11 +2,11 @@ class Vacina{
 
     //atributos
 
-    String nomeVacina;
-    String fabricante;
-    String lote;
-    LocalDate validadeDoLote;
-    float dosagemPorKg;
+    private String nomeVacina;
+    private String fabricante;
+    private String lote;
+    private LocalDate validadeDoLote;
+    private float dosagemPorKg;
 
     //construtor
     Vacina(String nomeVacina, String fabricante, String lote, LocalDate validadeDoLote, float dosagemPorKg){
