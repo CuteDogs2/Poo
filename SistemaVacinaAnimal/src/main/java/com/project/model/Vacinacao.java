@@ -28,4 +28,8 @@ class Vacinacao {
     public void getDosagem();
     public void getLote();
     public void getidFrasco();
+    
+    public void showVacinacao(){
+        System.out.println("Animal: "+this.animal+", recebeu a vacina "+this.vacina+"na data de "+this.dataAplicacao+". Id: "+this.idFrasco);
+    }
 }
