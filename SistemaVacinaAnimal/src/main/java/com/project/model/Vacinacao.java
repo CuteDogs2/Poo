@@ -18,12 +18,7 @@ class Vacinacao {
         this.lote = lote;
         this.idFrasc = idFrasc;
     }
-
-    createVacinacao{
-        addVacina
-        addAnimal 
-    }
-    
+   
     public Vacina addVacina();
     public Animal addAnimal();
     public void getAnimal();
