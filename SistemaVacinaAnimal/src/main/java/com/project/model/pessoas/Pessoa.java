@@ -18,7 +18,6 @@ public class Pessoa {
         this.sexo = sexo;
         this.email = email;
     }
-
     //METODOS ESPECIAIS
     //verifico se o cpf tem o tamanho correto
     public void verificarEmail(String email){
@@ -42,7 +41,6 @@ public class Pessoa {
             setCpf(cpf);
         }
     }
-
     //verifica se o número de telefone é valido
     public void verificaTelefone(String telefone) {
         if (telefone.length() != 11) {
