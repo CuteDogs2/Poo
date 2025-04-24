@@ -1,0 +1,547 @@
+Trabalho POO
+
+`animal` é uma classe abstrata. Criar subclasses para definir a família do animal, como caninos, felinos, equinos, etc…
+
+# Dúvidas da Reunião
+
+Verificar se métodos validadores como validar número de celular e email entre outras validações devem estar dentro da classe. Ou separadas como funções de utilidades.
+
+Criar um documento no docx para o envio da documentação, cada membro é responsável por sua própria documentação do código.
+
+# CLASSES E ATRIBUTOS
+
+## `Animal` - Ana
+
+```java
+import java.time.LocalDate;
+
+public class Animal {
+    private int ID;
+    private String nome;
+    private LocalDate dataNascimento;
+    private String sexo;
+    private float peso;
+    private Dono dono;
+    private Especie especie;
+
+    public enum Especie {
+        CANINO,
+        AVE,
+        FELINO,
+        BOVINO
+    }
+
+    public Animal(int ID, String nome, LocalDate dataNascimento, String sexo,
+                  float peso, Dono dono, Especie especie) {
+        this.ID = ID;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+        this.peso = peso;
+        this.dono = dono;
+        this.especie = especie;
+    }
+
+    public int getD() {
+        return ID;
+    }
+
+    public void setD(int D) {
+        this.ID = ID;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public Dono getDono() {
+        return dono;
+    }
+
+    public void setDono(Dono dono) {
+        this.dono = dono;
+    }
+
+    public Especie getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(Especie especie) {
+        this.especie = especie;
+    }
+
+    public String toString() {
+        return "Animal{" +
+                "ID=" + ID +
+                ", nome='" + nome + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", sexo='" + sexo + '\'' +
+                ", peso=" + peso +
+                ", dono=" + dono +
+                ", especie=" + especie +
+                '}';
+    }
+}
+```
+
+## `Pessoa` - Guthierrys
+
+```jsx
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class Pessoa {
+    //atributos
+    private String nome;
+    private String cpf;
+    private int idade;
+    private String telefone;
+    private String sexo;
+    private String email;
+    //contrutor
+    public Pessoa(String nome, String cpf, int idade, String telefone, String sexo, String email) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.idade = idade;
+        this.telefone = telefone;
+        this.sexo = sexo;
+        this.email = email;
+    }
+
+    //METODOS ESPECIAIS
+    //verifico se o cpf tem o tamanho correto
+    public void verificarEmail(String email){
+        //estou passando o formato do email para a variável regex
+        String formato = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        //compilando para que possa ser comparado posteiomente
+        Pattern pattern = Pattern.compile(formato);
+        //agora estou validadondo o email digitado
+        Matcher validar = pattern.matcher(email);
+        if(validar.matches()){
+            System.out.println("Email validado!");
+            setEmail(email);
+        }else{
+            System.out.println("Email inválido!!");
+        }
+    }
+    public void verificaCpf(String cpf) {
+        if (cpf.length() != 11) {
+            System.out.println("CPF inválido, tente novamente.");
+        } else {
+            setCpf(cpf);
+        }
+    }
+
+    //verifica se o número de telefone é valido
+    public void verificaTelefone(String telefone) {
+        if (telefone.length() != 11) {
+            System.out.println("Número de Telefone inválido, tente outro.");
+        } else {
+            setTelefone(telefone);
+        }
+    }
+    // verificando a validade do atrada do sexo
+    //compara as strings e o tamanho delas
+    public void verificarSexo(String sexo) {
+        if (!(sexo.toUpperCase().equals("MASCULINO") && sexo.length() == 9
+                || sexo.toUpperCase().equals("FEMININO") && sexo.length() == 8)) {
+            System.out.println("Sexo inválido!");
+        } else {
+            setSexo(sexo);
+        }
+    }
+    //funções gette e sette
+    public void setEmail(String email){
+        this.email = email;
+    }
+    public int getIdade() {
+        return idade;
+    }
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+    public String getSexo() {
+        return this.sexo;
+    }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    public String getTelefone() {
+        return this.telefone;
+    }
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+}
+```
+
+1. 
+
+### `Dono` ou `Cliente` (Subclasse de `Pessoa`)  - Alysson
+
+- idAnimais (array).
+
+---
+
+1. getAnimais();
+
+---
+
+```java
+package poo;
+public class Dono extends Pessoa{
+    //Atributos
+    private int idAnimal;
+
+    //Construtor
+    public Dono(String nome, String cpf, int idade, String telefone, String sexo, String email) {
+        super(nome, cpf, idade, telefone, sexo, email);
+    }
+
+    //Metodo getter e setter
+    public int getIdAnimal() {
+        return idAnimal;
+    }
+
+    public void setIdAnimal(int idAnimal) {
+        this.idAnimal = idAnimal;
+    }
+}
+
+```
+
+### `Funcionario` (Subclasse de `Pessoa`) - Alysson
+
+- dataContratacao (LocalDate (da biblioteca java.time.LocalDate)).
+- salario (Double).
+
+---
+
+1. getDatacontratacao();
+2. getSalario();
+
+---
+
+1. setSalario();
+
+```java
+package poo;
+public class Funcionarios extends Pessoa{
+    //Atrbutos
+    private String dataContratacao;
+    private float salario;
+    
+
+    //Metodo construtor
+    public Funcionarios(String nome, String cpf, int idade, String telefone, String sexo, String email) {
+        super(nome, cpf, idade, telefone, sexo, email);
+    }
+
+    //setter e get
+    public String getDataContratacao() {
+        return dataContratacao;
+    }
+
+    public void setDataContratacao(String dataContratacao) {
+        this.dataContratacao = dataContratacao;
+    }
+
+    public float getSalario() {
+        return salario;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
+}
+
+```
+
+### `Veterinario` (Subclasse de `Funcionario`) - Alysson
+
+- crmv (String).
+- especialidade (string).
+
+---
+
+1. getCrmv();
+2. getEspecialidade();
+
+---
+
+```java
+package poo;
+public class Veterinario extends Funcionarios{
+    //Atributos
+    private String crmv;
+    private String especialiade;
+    
+    //Construtor
+    public Veterinario(String nome, String cpf, int idade, String telefone, String sexo, 
+                       String email){
+        super(nome,cpf,idade,telefone,sexo,email);
+    }
+    
+    //set e get
+
+    public String getCrmv() {
+        return crmv;
+    }
+
+    public void setCrmv(String crmv) {
+        this.crmv = crmv;
+    }
+
+    public String getEspecialiade() {
+        return especialiade;
+    }
+
+    public void setEspecialiade(String especialiade) {
+        this.especialiade = especialiade;
+    }
+   
+}
+
+```
+
+## `Vacina` - João
+
+- nomeVacina (String) [nome da doença a qual a vacina imuniza].
+- fabricante (String).
+- lote (String).
+- validadeDoLote (LocalDate (da biblioteca java.time.LocalDate)).
+- dosagemPorKg (float).
+
+---
+
+1. getNomeVacina();
+2. getFabricante();
+3. getLote();
+4. getValidadeDoLote();
+5. getDosagemPorKg();
+
+---
+
+1. 
+
+## `Vacinacao` - Carlos
+
+```java
+import java.time.LocalDate;
+
+class Vacinacao {
+    private Animal animal;
+    private Vacina vacina;
+    private Veterinario veterinario;
+    private LocalDate dataAplicacao;
+    private String dosagem;
+    private String lote;
+    private String idFrasc;
+
+    Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, String dosagem, String lote, String idFrasc){
+        this.animal = animal;
+        this.vacina = vacina;
+        this.veterinario = veterinario;
+        this.dataAplicacao = dataAplicacao;
+        this.dosagem = dosagem;
+        this.lote = lote;
+        this.idFrasc = idFrasc;
+    }
+   
+    public Vacina addVacina();
+    public Animal addAnimal();
+    public Veterinario addVeterinario();
+    public void addDataAplicacao();
+    public void addDosagem();
+    public void addLote();
+    public void addidFrasco();
+    
+    public void showVacinacao(){
+        System.out.println("Animal: "+this.animal+", recebeu a vacina "+this.vacina+"na data de "+this.dataAplicacao+". Id: "+this.idFrasco);
+    }
+}
+```
+
+# INTERFACE GRÁFICA
+
+A interface gráfica será desenvolvida com a utilização do JavaFx.
+
+## TELAS
+
+- Visualização de vacinas aplicadas em um animal.
+- Cadastro/Listagem de clientes.
+- Cadastro/Listagem de animais.
+
+Primeira tela:
+
+Mostrar uma barra de pesquisa para buscar o nome do dono, a seguir abrir todos os animais dele
+
+Ao selecionar um dono, abre uma lista com as informações dele, juntamente com uma lista ao lado de todos os animais que ele pertence, em cima da lista haverá os botões de editar, excluir, adicionar pet o perfil do dono.  Ao clicar no animal, abre uma aba com as informações sobre ele juntamente com a lista de vacinas.
+
+Adicionar um + ao lado da barra de pesquisa em cima da tela para adicionar um novo cadastro do dono.
+
+# BANCO DE DADOS
+
+## LEVANTAMENTO DE REQUISITOS
+
+### OBJETIVO DO SISTEMA
+
+- Problema a ser resolvido pelo sistema
+    - ajuda para responder este questionamento (@Carlos Henrique Espindola Herebia @Alysson da Silva Machado @GUTHIERRYS Silva Costa @Ana Carolina )
+- Quem serão os usuários finais?
+    - Clinicas veterinárias.
+
+### FUNCIONALIDADES DO SISTEMA
+
+- Quais funcionalidades o sistema oferecerá?
+    - Cadastro de clientes.
+    - Emissão de relatórios (carteiras de vacinação por animal).
+    - …
+
+### PROCESSOS DO SISTEMA
+
+- Como os dados fluem no sistema?
+    - Usuário cadastra cliente → Entidade é criada → Dados contidos na entidade são armazenadas.
+    - Usuário busca cliente → Pedido é processado através do controller → Dados são retornados → Entidade é criada → Dados contidos na entidade são passados para view.
+    - …
+
+### COLETA DE DADOS
+
+- Informações que precisam ser armazenadas.
+    - Informações da classe Pessoa.
+        - Nome.
+        - Cpf.
+        - Idade.
+        - Telefone.
+        - Sexo.
+        - E-mail.
+    - Informações do Cliente “dono do animal”.
+        - Id do animal do cliente.
+    - Informações dos funcionários da clínica.
+        - Data de contratação.
+        - Salário.
+    - Informações dos veterinários da clínica.
+        - CRMV.
+        - Especialidade.
+    - Informações do Animal do dono.
+        - Id do animal.
+        - Nome.
+        - Data de nascimento.
+        - Sexo.
+        - Peso.
+        - Raça.
+        - Dono.
+    - Informações sobre a vacina.
+        - Nome da vacina.
+        - Fabricante.
+        - Lote.
+        - Validade do lote. ###
+        - Dosagem por kg do animal.
+    - Informações sobre a vacinação.
+        - Animal.
+            - objeto do tipo Animal, que representa o animal vacinado.
+        - Vacina.
+            - Objeto do tipo Vacina, que representa a vacina a ser aplicada no animal.
+        - Veterinario
+            - Objeto do tipo Veterinário que representa o profissional que irá aplicar a vacina.
+        - Data da aplicação da vacina.
+        - Dosagem utilizada na vacinação do animal.
+        - Lote da vacina
+        - Id do frasco da vacina.
+    - ADICIONAR AQUI CASO TENHAM MAIS ENTIDADES.
+- Como as informações se relacionam entre si?
+    - Cada dono por ter mais de 1 animal.
+    - Um animal não esta ligado permanentemente a 1 dono, portanto o dono do animal pode ser alterado.
+    - cada animal tem 1 única carteira de vacinação.
+    - …
+
+### IDENTIFICAÇÃO DE ENTIDADES E ATRIBUTOS
+
+- pessoa.
+    - nome.
+    - telefone.
+    - cpf.
+    - …
+- funcionario.
+    - data_contratacao.
+    - …
+- veterinario.
+    - crmv
+- animal.
+    - ….
+- vacina.
+    - …
+- vacinacao.
+    - …
+- …
+
+### DEFINIÇÃO DE RELACIONAMENTOS
+
+- Um para um (1:1)
+    - …
+- Um para muitos (1:N)
+    - Cada cliente pode ter vários animais.
+- Muitos para muitos(N:N)
+    - …
+
+### NORMALIZAÇÃO
+
+…
+
+### CRIAÇÃO DIAGRAMA ENTIDADE RELACIONAMENTO (DER)
+
+- Qual sistema iremos utilizar? @Carlos Henrique Espindola Herebia @Alysson da Silva Machado @GUTHIERRYS Silva Costa @Ana Carolina
+
+# ORGANIZAÇÃO GIT
+
+## PASTAS
+
+- Main : iniciação do sistema e integração entre componentes (código principal).
+- Model : classes que representarão entidades do sistema, como animal, vacina, pessoa. (todos os objetos do mundo real estarão nesta pasta).
+- Service : classes com lógica de negócio, como regras de vacinação, cálculos, vacinações, que envolvem múltiplas entidades do sistema. Tudo que esta relacionado aos serviços oferecidos, como por exemplo, aplicar vacina.
+- Repository : classes que fazem a persistência de dados, como salvamento e recuperação de dados em um banco de dados por exemplo.
+- Util : classes utilitárias, como validadores, formatadores, cálculos genéricos.
+- Controller : controla a interação entre interface do usuário e demais camadas como service, repository. (gerencia o fluxo de telas/menus), chama serviços, atualiza a view.
+- View : exibe informações para o usuário, captura entradas do usuário, tudo que relaciona como os dados serão exibidos ou capturados, como formatações de dados, cores no console, bordas, etc.
+- Exception : classes utilizadas para tratamento de erros do sistema.
