@@ -1,54 +1,204 @@
+import java.time.LocalDate;
+
+
+
+
+/**
+ * Esta classe representa uma pessoa, e contem as informações pessoais básicas da mesma.
+ * 
+ * <p>Armazena nome, CPF, data de nascimento, telefone, sexo, e-mail, e contém métodos de acesso.</p>
+ */
 public class Pessoa {
+
     //atributos
+
+    /** Nome da pessoa. */
     private String nome;
+
+    /** CPF da pessoa. */
     private String cpf;
-    private int idade;
+
+    /** Data de nascimento da pessoa. */
+    private LocalDate dataNascimento;
+
+    /** Telefone da pessoa. */
     private String telefone;
+
+    /** Sexo da pessoa. */
     private String sexo;
+
+    /** E-mail da pessoa. */
     private String email;
-    //contrutor
-    public Pessoa(String nome, String cpf, int idade, String telefone, String sexo, String email) {
+
+
+
+
+    /**
+     * Construtor da classe Pessoa.
+     * 
+     * @param nome                  Nome da pessoa.
+     * @param cpf                   CPF da pessoa.
+     * @param dataNascimento        Idade da pessoa.
+     * @param telefone              Telefone da pessoa.
+     * @param sexo                  Sexo da pessoa.
+     * @param email                 E-mail da pessoa
+     */
+    public Pessoa(String nome, String cpf, int dataNascimento, String telefone, String sexo, String email) {
         this.nome = nome;
         this.cpf = cpf;
-        this.idade = idade;
+        this.dataNascimento = dataNascimento;
         this.telefone = telefone;
         this.sexo = sexo;
         this.email = email;
     }
 
+
+
+
     //funções get e set
-    public void setEmail(String email){
-        this.email = email;
-    }
-    public int getIdade() {
-        return idade;
-    }
-    public void setIdade(int idade) {
-        this.idade = idade;
-    }
+
+
+
+
+
+    /**
+     * Obtém o nome da pessoa.
+     * 
+     * @return Nome da pessoa.
+     */
     public String getNome() {
-        return nome;
+        return this.nome;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
+
+    
+
+    /**
+     * Obtém o CPF da pessoa.
+     * 
+     * @return CPF da pessoa.
+     */
+    public String getCpf(){
+        return this.cpf;
     }
-    public void setSexo(String sexo) {
-        this.sexo = sexo;
+
+
+
+
+    /**
+     * Obtém a data de nascimento da pessoa.
+     * 
+     * @return Data de nascimento da pessoa.
+     */
+    public String getDataNascimento(){
+        return this.dataNascimento;
     }
-    public String getSexo() {
-        return this.sexo;
-    }
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
+
+
+
+
+    /**
+     * Obtém o telefone da pessoa.
+     * 
+     * @return Telefone da pessoa.
+     */
     public String getTelefone() {
         return this.telefone;
     }
+
+
+
+
+    /**
+     * Obtém o sexo da pessoa.
+     * 
+     * @return Sexo da pessoa.
+     */
+    public String getSexo() {
+        return this.sexo;
+    }
+    
+
+
+
+    /**
+     * Obtem o e-mail da pessoa.
+     * 
+     * 
+     * @return E-mail da pessoa.
+     */
+    public String getEmail(){
+        return this.email;
+    }
+
+
+
+
+    /**
+     * Altera o nome da pessoa.
+     * 
+     * @param nome Novo nome da pessoa.
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    
+
+
+    /**
+     * Altera o CPF da pessoa.
+     * 
+     * @param cpf Novo CPF da pessoa.
+     */
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public String getCpf() {
-        return this.cpf;
+
+
+
+    /**
+     * Altera a data de nascimento da pessoa.
+     * 
+     * @param dataNascimento Nova data de nascimento da pessoa.
+     */
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+
+
+
+    /**
+     * Altera o telefone da pessoa.
+     * 
+     * @param telefone Novo telefone da pessoa.
+     */
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+
+
+
+    /**
+     * Altera o sexo da pessoa.
+     * 
+     * @param sexo Novo sexo da pessoa.
+     */
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+
+
+
+    /**
+     * Altera o e-mail da pessoa.
+     * 
+     * @param email Novo e-mail da pessoa.
+     */
+    public void setEmail(String email){
+        this.email = email;
     }
 }
