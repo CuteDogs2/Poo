@@ -10,7 +10,13 @@ import java.time.LocalDate;
  */
 public class Pessoa {
 
-    //atributos
+
+
+
+    //Atributos
+
+
+
 
     /** Nome da pessoa. */
     private String nome;
@@ -29,6 +35,11 @@ public class Pessoa {
 
     /** E-mail da pessoa. */
     private String email;
+
+
+
+
+    //Construtor
 
 
 
@@ -55,8 +66,7 @@ public class Pessoa {
 
 
 
-    //funções get e set
-
+    //Métodos
 
 
 
@@ -72,6 +82,7 @@ public class Pessoa {
 
     
 
+    
     /**
      * Obtém o CPF da pessoa.
      * 

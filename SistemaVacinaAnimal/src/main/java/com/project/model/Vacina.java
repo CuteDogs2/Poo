@@ -13,7 +13,7 @@ public class Vacina{
 
 
 
-    //atributos
+    //Atributos
 
 
 
@@ -42,7 +42,7 @@ public class Vacina{
 
 
 
-    //construtor
+    //Construtor
 
 
 
@@ -58,7 +58,7 @@ public class Vacina{
      * @param validadeDaAplicacao   Validade da aplicação em meses (duração do efeito da imunidade).
      * @param dosagemPorKg          volume específico de aplicação da vacina em ml/kg do animal.
      */
-    Vacina(String nomeVacina, String idVacina, String idLote, String fabricante, LocalDate validadeDoLote, String validadeDaAplicacao, float dosagemPorKg){
+    public Vacina(String nomeVacina, String idVacina, String idLote, String fabricante, LocalDate validadeDoLote, String validadeDaAplicacao, float dosagemPorKg){
         this.nomeVacina = nomeVacina;
         this.idVacina = idVacina;
         this.idLote = idLote;
@@ -68,7 +68,10 @@ public class Vacina{
         this.dosagemPorKg = dosagemPorKg;
     }
 
-    //metodos
+
+
+    
+    //Métodos
 
 
 
@@ -78,7 +81,7 @@ public class Vacina{
      * 
      * @return Nome da vacina.
      */
-    String getNomeVacina(){
+    public String getNomeVacina(){
         return this.nomeVacina;
     }
 
@@ -90,7 +93,7 @@ public class Vacina{
      * 
      * @return ID da vacina.
      */
-    String getIdVacina(){
+    public String getIdVacina(){
         return this.idVacina;
     }
 
@@ -101,7 +104,7 @@ public class Vacina{
      * 
      * @return ID do lote.
      */
-    String getIdLote(){
+    public String getIdLote(){
         return this.IdLote;
     }
 
@@ -114,7 +117,7 @@ public class Vacina{
      * 
      * @return Nome do fabricante.
      */
-    String getFabricante(){
+    public String getFabricante(){
         return this.fabricante;
     }
 
@@ -127,7 +130,7 @@ public class Vacina{
      * 
      * @return Validade do lote.
      */
-    LocalDate getValidadeDoLote(){
+    public LocalDate getValidadeDoLote(){
         return this.validadeDoLote;
     }
 
@@ -139,7 +142,7 @@ public class Vacina{
      * 
      * @return Validade da aplicação
      */
-    String getValidaDaAplicacao(){
+    public String getValidaDaAplicacao(){
         return this.validadeDaAplicacao;
     }
 
@@ -151,7 +154,7 @@ public class Vacina{
      * 
      * @return Volume específico da aplicação em ml/kg.
      */
-    float getDosagemPorKg(){
+    public float getDosagemPorKg(){
         return this.dosagemPorKg;
     }
 
@@ -163,7 +166,7 @@ public class Vacina{
      * 
      * @param nomeVacina Novo nome da vacina.
      */
-    void setNomeVacina(String nomeVacina){
+    public void setNomeVacina(String nomeVacina){
         this.nomeVacina = nomeVacina;
     }
 
@@ -175,7 +178,7 @@ public class Vacina{
      * 
      * @param idVacina Novo ID da vacina.
      */
-    void setIdVacina(String idVacina){
+    public void setIdVacina(String idVacina){
         this.idVacina = idVacina;
     }
 
@@ -187,7 +190,7 @@ public class Vacina{
      * 
      * @param idLote Novo ID do lote.
      */
-    void setIdLote(String idLote){
+    public void setIdLote(String idLote){
         this.idLote = idLote;
     }
 
@@ -199,7 +202,7 @@ public class Vacina{
      * 
      * @param fabricante Novo nome do fabricante.
      */
-    void setFabricante(String fabricante){
+    public void setFabricante(String fabricante){
         this.fabricante = fabricante;
     }
 
@@ -211,7 +214,7 @@ public class Vacina{
      * 
      * @param validadeDoLote Nova validade do lote.
      */
-    void setValidadeDoLote(String validadeDoLote){
+    public void setValidadeDoLote(String validadeDoLote){
         this.validadeDoLote = validadeDoLote;
     }
 
@@ -223,7 +226,7 @@ public class Vacina{
      * 
      * @param validadeDaAplicacao Nova validade da aplicação em meses.
      */
-    void setValidadeDaAplicacao(String validadeDaAplicacao){
+    public void setValidadeDaAplicacao(String validadeDaAplicacao){
         this.validadeDaAplicacao = validadeDaAplicacao;
     }
 
@@ -235,7 +238,7 @@ public class Vacina{
      * 
      * @param dosagemPorKg Novo volume específico em ml/kg.
      */
-    void setDosagemPorKg(String dosagemPorKg){
+    public void setDosagemPorKg(String dosagemPorKg){
         this.dosagemPorKg = dosagemPorKg;
     }
 }
