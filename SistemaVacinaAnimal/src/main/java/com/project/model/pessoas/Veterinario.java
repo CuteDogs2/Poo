@@ -28,7 +28,18 @@ public class Veterinario extends Pessoa{
 
 
 
-    public Veterinario(String crmv, String nome, String cpf, int dataNascimento, String telefone, String sexo, String email){
+    /**
+     * Construtor da classe Veterinario.
+     * 
+     * @param crmv              CRMV do veterinário.
+     * @param nome              Nome do veterinário.
+     * @param cpf               CPF do veterinário.
+     * @param dataNascimento    Data de nascimento do veterinário.
+     * @param telefone          Telefone do veterinário.
+     * @param sexo              Sexo do veterinário (masculino (m)/feminino (f)).
+     * @param email             E-mail do veterinário.
+     */
+    public Veterinario(String crmv, String nome, String cpf, int dataNascimento, String telefone, char sexo, String email){
         super(nome, cpf, dataNascimento, telefone, sexo, email);
         this.crmv = crmv;
     }
@@ -54,7 +65,7 @@ public class Veterinario extends Pessoa{
 
 
     /**
-     * Altera o CRMV do cliente.
+     * Altera o CRMV do veterinário.
      * 
      * @param crmv Novo CRMV.
      */

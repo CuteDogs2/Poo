@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 
 /**
- * Esta classe representa uma Vacina, e contem informações para a identificação da mesma.
+ * Esta classe representa uma Vacina, e contém informações para a identificação da mesma.
  * 
  * <p>Armazena o nome da vacina, ID da vacina no sistema, ID do lote, fabricante, validade do lote, validade da aplicação, e dosagem por kg do animal.
  */

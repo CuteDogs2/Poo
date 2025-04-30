@@ -3,7 +3,7 @@
 
 
 /**
- * Esta classe representa um cliente, que é uma subclasse de pessoa, e contem informações para identificação do mesmo.
+ * Esta classe representa um cliente, que é uma subclasse de pessoa, e contém informações para identificação do mesmo.
  * 
  * <p>Além dos dados da classe Pessoa, armazena um ID único do animal do cliente, e contém métodos de acesso.</p>
  */
@@ -37,10 +37,10 @@ public class Cliente extends Pessoa{
      * @param cpf               CPF do cliente.
      * @param dataNascimento    Data de nascimento do cliente.
      * @param telefone          Telefone do cliente.
-     * @param sexo              Sexo do cliente.
+     * @param sexo              Sexo do cliente (masculino (m)/feminino (f)).
      * @param email             E-mail do cliente.
      */
-    public Cliente(String idAnimal, String nome, String cpf, int dataNascimento, String telefone, String sexo, String email){
+    public Cliente(String idAnimal, String nome, String cpf, int dataNascimento, String telefone, char sexo, String email){
         super(nome, cpf, dataNascimento, telefone, sexo, email);
         this.idAnimal = idAnimal;
     }

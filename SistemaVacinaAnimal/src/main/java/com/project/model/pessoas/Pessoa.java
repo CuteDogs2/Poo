@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 
 /**
- * Esta classe representa uma pessoa, e contem as informações pessoais básicas da mesma.
+ * Esta classe representa uma pessoa, e contém as informações pessoais básicas da mesma.
  * 
  * <p>Armazena nome, CPF, data de nascimento, telefone, sexo, e-mail, e contém métodos de acesso.</p>
  */
@@ -31,7 +31,7 @@ public class Pessoa {
     private String telefone;
 
     /** Sexo da pessoa. */
-    private String sexo;
+    private char sexo;
 
     /** E-mail da pessoa. */
     private String email;
@@ -51,10 +51,10 @@ public class Pessoa {
      * @param cpf                   CPF da pessoa.
      * @param dataNascimento        Idade da pessoa.
      * @param telefone              Telefone da pessoa.
-     * @param sexo                  Sexo da pessoa.
+     * @param sexo                  Sexo da pessoa (masculino (m)/feminino (f)).
      * @param email                 E-mail da pessoa
      */
-    public Pessoa(String nome, String cpf, int dataNascimento, String telefone, String sexo, String email) {
+    public Pessoa(String nome, String cpf, int dataNascimento, String telefone, char sexo, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
@@ -124,7 +124,7 @@ public class Pessoa {
      * 
      * @return Sexo da pessoa.
      */
-    public String getSexo() {
+    public char getSexo() {
         return this.sexo;
     }
     
@@ -197,7 +197,7 @@ public class Pessoa {
      * 
      * @param sexo Novo sexo da pessoa.
      */
-    public void setSexo(String sexo) {
+    public void setSexo(char sexo) {
         this.sexo = sexo;
     }
 
