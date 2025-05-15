@@ -39,7 +39,7 @@ public class Veterinario extends Pessoa{
      * @param sexo              Sexo do veterinário (masculino (m)/feminino (f)).
      * @param email             E-mail do veterinário.
      */
-    public Veterinario(String crmv, String nome, String cpf, int dataNascimento, String telefone, char sexo, String email){
+    public Veterinario(String crmv, String nome, String cpf, LocalDate dataNascimento, String telefone, char sexo, String email){
         super(nome, cpf, dataNascimento, telefone, sexo, email);
         this.crmv = crmv;
     }

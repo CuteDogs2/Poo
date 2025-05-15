@@ -1,60 +1,188 @@
 import java.time.LocalDate;
 
+
+
+/**
+ * Esta classe representa a vacinação, e cotém informações para identificação da mesma.
+ * 
+ * <p>Armazena o animal que recebeu a aplicação, a vacina aplicada, o veterinario que realizou a aplicação, data da aplicação, retorno da aplicação caso tenha, e a dosagem aplicada no animal.</p>
+ */
 class Vacinacao {
+
+
+
+
+    //Atributos
+
+
+
+
+    /** Objeto animal que receberá a aplicação. */
     private Animal animal;
+
+    /** Objeto vacina, a vacina a ser aplicada. */
     private Vacina vacina;
+
+    /** Objeto veterinário, que irá aplicar a vacina. */
     private Veterinario veterinario;
+
+    /** Data de aplicação da vacina. */
     private LocalDate dataAplicacao;
+
+    /** Data de retorno da aplicação, caso tenha. */
     private LocalDate dataRetorno;
+
+    /** Dosagem da aplicação; */
     private String dosagem;
-    private String lote;
-    private String idFrasc;
 
-    Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, LocalDate dataRetorno, String dosagem, String lote, String idFrasc){
+
+
+
+    //Construtor
+
+
+
+
+    /**
+     * Construtor da classe Vacinacao.
+     * 
+     * @param animal            Objeto Animal que irá receber a vacina.
+     * @param vacina            Objeto Vacina que será aplicada no animal.
+     * @param veterinario       Objeto Veterinário que irá aplicar a vacina.
+     * @param dataAplicacao     Data da aplicação da vacina.
+     * @param dataRetorno       Data de retorno da aplicação, caso tenha.
+     */
+    Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, LocalDate dataRetorno){
         this.animal = animal;
         this.vacina = vacina;
         this.veterinario = veterinario;
         this.dataAplicacao = dataAplicacao;
         this.dataRetorno = dataRetorno;
-        this.dosagem = dosagem;
-        this.lote = lote;
-        this.idFrasc = idFrasc;
     }
-   
-    public Animal setAnimal(){
-        this.animal = animal;
+
+
+
+
+    //Métodos
+
+
+
+
+    /**
+     * Obtém o objeto Animal ao qual a vacina foi aplicada.
+     * 
+     * @return Objeto animal.
+     */
+    public Animal getAnimal(){
+        return this.animal;
     }
-    public Vacina setVacina(){
-        this.vacina = vacina;
+
+
+
+
+    /**
+     * Obtém o objeto Vacina que foi aplicada no animal.
+     * 
+     * @return Objeto Vacina.
+     */
+    public Vacina getVacina(){
+        return this.vacina;
     }
-    public Veterinario setVeterinario(){
-        this.veterinario = veterinario;
+
+
+
+
+    /**
+     * Obtém o objeto Veterinario que aplicou a vacina.
+     * 
+     * @return Objeto Veterinario.
+     */
+    public Veterinario getVeterinario(){
+        return this.veterinario;
     }
-    public LocalDate setDataAplicacao(){
-        this.dataAplicacao = dataAplicacao;
+
+
+
+
+    /**
+     * Obtém a data de aplicação da vacina.
+     * 
+     * @return Data de aplicação da vacina.
+     */
+    public LocalDate getDataAplicacao(){
+        return this.dataAplicacao;
     }
-    public LocalDate setDataRetorno(){
-        this.dataRetorno = dataRetorno;
-    }
-    public String setDosagem(){
-        this.dosagem = dosagem;
-    }
-    public String setLote(){
-        this.lote = lote;
-    }
-    public String setidFrasco(){
-        this.idFrasco = idFrasco;
-    }
+
+
+
     
-    public LocalDate verificarDataRetorno(LocalDate dataRetorno){
-        if(dataRetorno != NULL){
-            return dataRetorno;
-        } else{System.out.println("Sem data de retorno. Dose unica.");
-            return NULL;
-        }
+    /**
+     * Obtem a data de retorno para aplicação de nova dose da vacina.
+     * 
+     * @return Data de retorno.
+     */
+
+    public LocalDate getDataRetorno(){
+        return this.dataRetorno;
     }
 
-    public void showVacinacao(){
-        System.out.println("Animal: "+this.animal+", recebeu a vacina "+this.vacina+"na data de "+this.dataAplicacao+". Id: "+this.idFrasco);
+
+   
+
+    /**
+     * Altera o objeto Animal ao qual a vacina foi aplicada.
+     * 
+     * @param animal Novo animal.
+     */
+    public void setAnimal(Animal animal){
+        this.animal = animal;
+    }
+
+
+
+
+    /**
+     * Altera o objeto Vacina que foi aplicada no animal.
+     * 
+     * @param vacina Novo objeto Vacina.
+     */
+    public void setVacina(Vacina vacina){
+        this.vacina = vacina;
+    }
+
+
+
+
+    /**
+     * Altera o objeto Veterinario que aplicou a vacina.
+     * 
+     * @param veterinario Novo Objeto Veterinario.
+     */
+    public void setVeterinario(Veterinario veterinario){
+        this.veterinario = veterinario;
+    }
+
+
+
+
+    /**
+     * Altera a data de aplicação da vacina.
+     * 
+     * @param dataAplicacao Nova data de aplicação da vacina
+     */
+    public void setDataAplicacao(LocalDate dataAplicacao){
+        this.dataAplicacao = dataAplicacao;
+    }
+
+
+
+
+    /**
+     * Altera a data de retorno da aplicação de nova dose da vacina.
+     * 
+     * @param dataRetorno Nova data de aplicação.
+     */
+    public void setDataRetorno(LocalDate dataRetorno){
+        this.dataRetorno = dataRetorno;
     }
 }

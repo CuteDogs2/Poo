@@ -40,7 +40,7 @@ public class Cliente extends Pessoa{
      * @param sexo              Sexo do cliente (masculino (m)/feminino (f)).
      * @param email             E-mail do cliente.
      */
-    public Cliente(String idAnimal, String nome, String cpf, int dataNascimento, String telefone, char sexo, String email){
+    public Cliente(String idAnimal, String nome, String cpf, LocalDate dataNascimento, String telefone, char sexo, String email){
         super(nome, cpf, dataNascimento, telefone, sexo, email);
         this.idAnimal = idAnimal;
     }

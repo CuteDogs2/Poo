@@ -54,7 +54,7 @@ public class Pessoa {
      * @param sexo                  Sexo da pessoa (masculino (m)/feminino (f)).
      * @param email                 E-mail da pessoa
      */
-    public Pessoa(String nome, String cpf, int dataNascimento, String telefone, char sexo, String email) {
+    public Pessoa(String nome, String cpf, LocalDate dataNascimento, String telefone, char sexo, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.dataNascimento = dataNascimento;
