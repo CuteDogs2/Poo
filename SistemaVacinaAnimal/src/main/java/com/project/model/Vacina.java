@@ -39,8 +39,11 @@ public class Vacina{
     /** Validade da aplicação em meses. */
     private String validadeDaAplicacao;
 
-    /** volume específico de aplicação da vacina em ml/kg do animal. */
+    /** Volume específico de aplicação da vacina em ml/kg do animal. */
     private float dosagemPorKg;
+
+    /** Volume em ml contido no frasco da vacina. */
+    private float volumeVacina;
 
 
 
@@ -61,8 +64,9 @@ public class Vacina{
      * @param validadeDoLote        Validade do lote.
      * @param validadeDaAplicacao   Validade da aplicação em meses (duração do efeito da imunidade).
      * @param dosagemPorKg          volume específico de aplicação da vacina em ml/kg do animal.
+     * @param volumeVacina          Volume em ml contido no frasco da vacina.
      */
-    public Vacina(String nomeVacina, String idVacina, String idFrascoVacina, String idLote, String fabricante, LocalDate validadeDoLote, String validadeDaAplicacao, float dosagemPorKg){
+    public Vacina(String nomeVacina, String idVacina, String idFrascoVacina, String idLote, String fabricante, LocalDate validadeDoLote, String validadeDaAplicacao, float dosagemPorKg, float volumeVacina){
         this.nomeVacina = nomeVacina;
         this.idVacina = idVacina;
         this.idFrascoVacina = idFrascoVacina;
@@ -71,6 +75,7 @@ public class Vacina{
         this.validadeDoLote = validadeDoLote;
         this.validadeDaAplicacao = validadeDaAplicacao;
         this.dosagemPorKg = dosagemPorKg;
+        this.volumeVacina = volumeVacina;
     }
 
 
@@ -180,6 +185,18 @@ public class Vacina{
 
 
     /**
+     * Obtém o volume em ml contido no frasco da vacina.
+     * 
+     * @return Volume em ml contido no frasco.
+     */
+    public float getVolumeVacina(){
+        return this.volumeVacina;
+    }
+
+
+
+
+    /**
      * Altera o nome da vacina.
      * 
      * @param nomeVacina Novo nome da vacina.
@@ -270,5 +287,17 @@ public class Vacina{
      */
     public void setDosagemPorKg(float dosagemPorKg){
         this.dosagemPorKg = dosagemPorKg;
+    }
+
+
+
+
+    /**
+     * Altera o volume em ml contido no frasco da vacina.
+     * 
+     * @param volumeVacina Novo volume contido no frasco.
+     */
+    private void setVolumeVacina(float volumeVacina){
+        this.volumeVacina = volumeVacina;
     }
 }
