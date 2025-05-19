@@ -197,12 +197,12 @@ class Vacinacao {
         String comando = "INSERT INTO " + table +
         " (`dataAplicacao`, `dataRetorno`, `vacina_Id_frasco`, `carteira_animal_idanimal`, `veterinario_crmv`, `vacina_id_vacina`) " +
         "VALUES (" +
-        "'" + /* entidade.getDataAplicacao() + */ "', " +
-        "'" + /* entidade.getDataRetorno() + */ "', " +
-        "'" + /* entidade.getIdFrasco() + */ "', " +
-        "'" + /* entidade.getIdCarteiraAnimal() + */ "', " +
-        "'" + /* entidade.getCrmvVeterinario() + */ "', " +
-        "'" + /* entidade.getIdVacina() + */ "'" +
+        "'" + /* por coisa aqui */ "', " +
+        "'" + /* por coisa aqui */ "', " +
+        "'" + /* por coisa aqui */ "', " +
+        "'" + /* por coisa aqui */ "', " +
+        "'" + /* por coisa aqui */ "', " +
+        "'" + /* por coisa aqui */ "'" +
         ");";
 
         //como provavelmente vai ter que ser?
