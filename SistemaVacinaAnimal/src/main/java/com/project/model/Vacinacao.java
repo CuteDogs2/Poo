@@ -194,26 +194,21 @@ class Vacinacao {
         //esse é o comando gerado pelo workbench:
         //INSERT INTO `clinica`.`vacinacao` (`dataAplicacao`, `dataRetorno`, `vacina_Id_frasco`, `carteira_animal_idanimal`, `veterinario_crmv`, `vacina_id_vacina`) VALUES ('01/03/2024', '01/04/2024', '1', 'sim', '123', '1');
 
+        String cmdIdvacina = this.vacina.getIdVacina;
+        String cmdIdfrasco = this.vacina.getIdFrasco;
+        String cmdVetcrmv = this.veterinario.getCrmvVeterinario;
+        String cmdAnimal = this.animal.getIdAnimal;
         String comando = "INSERT INTO " + table +
         " (`dataAplicacao`, `dataRetorno`, `vacina_Id_frasco`, `carteira_animal_idanimal`, `veterinario_crmv`, `vacina_id_vacina`) " +
         "VALUES (" +
-        "'" + /* por coisa aqui */ "', " +
-        "'" + /* por coisa aqui */ "', " +
-        "'" + /* por coisa aqui */ "', " +
-        "'" + /* por coisa aqui */ "', " +
-        "'" + /* por coisa aqui */ "', " +
-        "'" + /* por coisa aqui */ "'" +
+        "'" + this.dataAplicacao "', " +
+        "'" + this.dataRetorno "', " +
+        "'" + cmdIdvacina "', " +
+        "'" + cmdIdfrasco "', " +
+        "'" + cmdVetcrmv "', " +
+        "'" + cmdAnimal "'" +
         ");";
 
-        //como provavelmente vai ter que ser?
-        // Vacina vacinatemp = new Vacina;
-        // String comandoidvacina = vacinatemp.getIdVacina;
-        // String comandoidfrasco = vacinatemp.getIdFrasco;
-        // Veterinario vettemp = new Veterinario;
-        // String comandovetcrmv = vettemp.getCrmvVeterinario;
-        // Animal animaltemp = new Animal;
-        // String comandoanimal = animaltemp.getIdAnimal;
-	    
         return comando;
     }
 }
