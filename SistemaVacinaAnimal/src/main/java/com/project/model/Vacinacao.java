@@ -206,9 +206,14 @@ class Vacinacao {
         ");";
 
         //como provavelmente vai ter que ser?
-        // vacina vacinatemp = new vacina;
-        // string id = vacinatemp.getIdFrasco;
-
-	    return comando;
+        // Vacina vacinatemp = new Vacina;
+        // String comandoidvacina = vacinatemp.getIdVacina;
+        // String comandoidfrasco = vacinatemp.getIdFrasco;
+        // Veterinario vettemp = new Veterinario;
+        // String comandovetcrmv = vettemp.getCrmvVeterinario;
+        // Animal animaltemp = new Animal;
+        // String comandoanimal = animaltemp.getIdAnimal;
+	    
+        return comando;
     }
 }
