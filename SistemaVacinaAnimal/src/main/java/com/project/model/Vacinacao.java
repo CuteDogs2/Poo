@@ -62,7 +62,6 @@ class Vacinacao {
 
 
 
-
     //Métodos
 
 
@@ -184,5 +183,32 @@ class Vacinacao {
      */
     public void setDataRetorno(LocalDate dataRetorno){
         this.dataRetorno = dataRetorno;
+    }
+
+    // need func to check if table exist and create if false
+    public String insertVacinacao(String table, Vacinacao entidade){
+        if (table == null || table.isEmpty()) {
+            throw new IllegalArgumentException("O nome da tabela não pode ser nulo ou vazio.");
+        }
+
+        //esse é o comando gerado pelo workbench:
+        //INSERT INTO `clinica`.`vacinacao` (`dataAplicacao`, `dataRetorno`, `vacina_Id_frasco`, `carteira_animal_idanimal`, `veterinario_crmv`, `vacina_id_vacina`) VALUES ('01/03/2024', '01/04/2024', '1', 'sim', '123', '1');
+
+        String comando = "INSERT INTO " + table +
+        " (`dataAplicacao`, `dataRetorno`, `vacina_Id_frasco`, `carteira_animal_idanimal`, `veterinario_crmv`, `vacina_id_vacina`) " +
+        "VALUES (" +
+        "'" + /* entidade.getDataAplicacao() + */ "', " +
+        "'" + /* entidade.getDataRetorno() + */ "', " +
+        "'" + /* entidade.getIdFrasco() + */ "', " +
+        "'" + /* entidade.getIdCarteiraAnimal() + */ "', " +
+        "'" + /* entidade.getCrmvVeterinario() + */ "', " +
+        "'" + /* entidade.getIdVacina() + */ "'" +
+        ");";
+
+        //como provavelmente vai ter que ser?
+        // vacina vacinatemp = new vacina;
+        // string id = vacinatemp.getIdFrasco;
+
+	    return comando;
     }
 }
