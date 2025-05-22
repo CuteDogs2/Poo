@@ -297,7 +297,7 @@ public class Vacina{
      * 
      * @param volumeVacina Novo volume contido no frasco.
      */
-    private void setVolumeVacina(float volumeVacina){
+    public void setVolumeVacina(float volumeVacina){
         this.volumeVacina = volumeVacina;
     }
 }

@@ -100,7 +100,7 @@ public class Pessoa {
      * 
      * @return Data de nascimento da pessoa.
      */
-    public String getDataNascimento(){
+    public LocalDate getDataNascimento(){
         return this.dataNascimento;
     }
 

@@ -1,3 +1,4 @@
+package com.project.model.animais;
 import java.time.LocalDate;
 
 
