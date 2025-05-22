@@ -1,3 +1,23 @@
 .btn-left-menu {
     -fx-background-color: transparent;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+
+.btn-left-menu:hover {
+    -fx-background-color: rgb(236, 236, 236);
+}
+
+.btn-left-menu:focused {
+    -fx-background-color: rgb(177, 177, 177);
+}
+
+.btn-left-menu:seleced, .btn-left-menu:armed {
+    -fx-background-color: rgb(177, 177, 177);
+}
+
+.menu_esquerdo {
+    -fx-alignment: center-left;
+    -fx-border-color: transparent grey transparent transparent;
 }
