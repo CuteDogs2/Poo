@@ -261,7 +261,7 @@ public class Vacina{
      * 
      * @param validadeDoLote Nova validade do lote.
      */
-    public void setValidadeDoLote(String validadeDoLote){
+    public void setValidadeDoLote(LocalDate validadeDoLote){
         this.validadeDoLote = validadeDoLote;
     }
 
