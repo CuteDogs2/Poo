@@ -13,11 +13,24 @@
     -fx-background-color: rgb(177, 177, 177);
 }
 
-.btn-left-menu:seleced, .btn-left-menu:armed {
+.btn-left-menu:selected, .btn-left-menu:armed {
     -fx-background-color: rgb(177, 177, 177);
+    
 }
 
 .menu_esquerdo {
     -fx-alignment: center-left;
     -fx-border-color: transparent grey transparent transparent;
+}
+
+#pane_vacinas {
+    -fx-background-color: #FEF0F0;
+}
+
+#pane_tutores {
+    -fx-background-color: #F6FBE4;
+}
+
+#pane_animais {
+    -fx-background-color: #D9E9FE;
 }
