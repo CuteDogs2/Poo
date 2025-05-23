@@ -20,55 +20,72 @@
       <VBox fx:id="sidebarvbox" prefHeight="400.0" prefWidth="173.0" styleClass="menu_esquerdo">
 
          <children>
-
-            <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Página Inicial" VBox.vgrow="ALWAYS">
-               <toggleGroup>
-                  <ToggleGroup fx:id="menuGroup" />
-               </toggleGroup>
-               <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+            <Pane prefHeight="22.0" prefWidth="171.0" VBox.vgrow="NEVER">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@home.png" />
+                        <Image url="@petshoplogo.png" />
                      </image>
                   </ImageView>
-               </graphic> 
-            </ToggleButton>
-
-            <ToggleButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="160173.0" styleClass="btn-left-menu" text="Vacinas" toggleGroup="$menuGroup">
-               <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@list.png" />
-                     </image>
-                  </ImageView>
-               </graphic></ToggleButton>
-            
-            <ToggleButton layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Tutores" toggleGroup="$menuGroup">
-               <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@tutores.png" />
-                     </image>
-                  </ImageView>
-               </graphic></ToggleButton>
-
-            <ToggleButton layoutX="10.0" layoutY="72.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Registrar Vacinaçao" toggleGroup="$menuGroup">
-               <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@edit_icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></ToggleButton>
-
-            <ToggleButton layoutX="10.0" layoutY="103.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="cadastrar Tutor" toggleGroup="$menuGroup">
-               <graphic>
-                  <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@register_icon.png" />
-                     </image>
-                  </ImageView>
-               </graphic></ToggleButton>
+               </children>
+            </Pane>
+            <VBox alignment="CENTER" prefHeight="170.0" prefWidth="171.0" VBox.vgrow="ALWAYS">
+               <children>
+      
+                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Página Inicial" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="menuGroup" />
+                     </toggleGroup>
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic> 
+                  </ToggleButton>
+      
+                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="160173.0" styleClass="btn-left-menu" text="Vacinas" textAlignment="CENTER" toggleGroup="$menuGroup">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@list.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+                  
+                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Tutores" textAlignment="CENTER" toggleGroup="$menuGroup">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@tutores.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+      
+                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Registrar Vacinaçao" textAlignment="CENTER" toggleGroup="$menuGroup">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@edit_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+      
+                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="cadastrar Tutor" textAlignment="CENTER" toggleGroup="$menuGroup">
+                     <graphic>
+                        <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@register_icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </ToggleButton>
+               </children>
+            </VBox>
 
          </children>
 
@@ -78,14 +95,26 @@
 
          <children>
 
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+            <HBox alignment="CENTER" prefHeight="71.0" prefWidth="427.0" spacing="10.0">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
 
                <children>
-                  <TextField text="Busque por um cadastro" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" text="Button" />
+                  <StackPane prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextField promptText="Busque por um cadastro" styleClass="search_bar" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="btn_search_bar" textAlignment="CENTER" StackPane.alignment="CENTER_RIGHT">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@search_button.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </StackPane>
                </children>
             </HBox>
 
@@ -93,25 +122,25 @@
 
                <children>
 
-                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
 
                      <children>
 
-                        <Pane id="vac" prefHeight="200.0" prefWidth="200.0" styleClass="menu-statistics">
+                        <Pane id="pane_vacinas" prefHeight="200.0" prefWidth="200.0" styleClass="menu_statistics">
                            <children>
                               <Label layoutX="32.0" layoutY="14.0" text="Label" />
                               <Label layoutX="32.0" layoutY="35.0" text="Label" />
                            </children>
                         </Pane>
 
-                        <Pane id="tut" prefHeight="200.0" prefWidth="200.0" styleClass="menu-statistics">
+                        <Pane id="pane_tutores" prefHeight="200.0" prefWidth="200.0" styleClass="menu_statistics">
                            <children>
                               <Label layoutX="26.0" layoutY="14.0" text="Label" />
                               <Label layoutX="26.0" layoutY="35.0" text="Label" />
                            </children>
                         </Pane>
 
-                        <Pane id="ani" prefHeight="200.0" prefWidth="200.0" styleClass="menu-statistics">
+                        <Pane id="pane_animais" prefHeight="200.0" prefWidth="200.0" styleClass="menu_statistics">
                            <children>
                               <Label layoutX="32.0" layoutY="14.0" text="Label" />
                               <Label layoutX="32.0" layoutY="35.0" text="Label" />
@@ -122,7 +151,7 @@
 
                   </HBox>
 
-                  <TableView prefHeight="200.0" prefWidth="200.0">
+                  <TableView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                     <columns>
                       <TableColumn prefWidth="75.0" text="C1" />
                       <TableColumn prefWidth="75.0" text="C2" />
