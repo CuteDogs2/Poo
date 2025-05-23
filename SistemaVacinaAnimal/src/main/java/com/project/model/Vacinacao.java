@@ -37,7 +37,7 @@ class Vacinacao {
     private LocalDate dataRetorno;
 
     /** Dosagem da aplicação; */
-    private String dosagem;
+    private float doseAplicada;
 
 
 
@@ -55,13 +55,15 @@ class Vacinacao {
      * @param veterinario       Objeto Veterinário que irá aplicar a vacina.
      * @param dataAplicacao     Data da aplicação da vacina.
      * @param dataRetorno       Data de retorno da aplicação, caso tenha.
+     * @param doseAplicada      Dose da vacina aplicada no animal.
      */
-    Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, LocalDate dataRetorno){
+    Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, LocalDate dataRetorno, float doseAplicada){
         this.animal = animal;
         this.vacina = vacina;
         this.veterinario = veterinario;
         this.dataAplicacao = dataAplicacao;
         this.dataRetorno = dataRetorno;
+        this.doseAplicada = doseAplicada;
     }
 
 
@@ -120,13 +122,25 @@ class Vacinacao {
 
     
     /**
-     * Obtem a data de retorno para aplicação de nova dose da vacina.
+     * Obtém a data de retorno para aplicação de nova dose da vacina.
      * 
      * @return Data de retorno.
      */
 
     public LocalDate getDataRetorno(){
         return this.dataRetorno;
+    }
+
+
+
+
+    /**
+     * Obtém medida da dose aplicada em ml.
+     * 
+     * @return
+     */
+    public float getDoseAplicada(){
+        return this.doseAplicada;
     }
 
 
@@ -188,6 +202,21 @@ class Vacinacao {
     public void setDataRetorno(LocalDate dataRetorno){
         this.dataRetorno = dataRetorno;
     }
+
+
+
+
+    /**
+     * Altera a medida da dose aplicada em ml.
+     * 
+     * @param doseAplicada
+     */
+    public void setDoseAplicada(float doseAplicada){
+        this.doseAplicada = doseAplicada;
+    }
+
+
+
 
     // need func to check if table exist and create if false
     public String insertVacinacao(String table, Vacinacao entidade){

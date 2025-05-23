@@ -71,7 +71,7 @@ public class Veterinario extends Pessoa{
      * 
      * @param crmv Novo CRMV.
      */
-    public String setCrmv(String crmv){
+    public void setCrmv(String crmv){
         this.crmv = crmv;
     }
 }

@@ -22,7 +22,7 @@ public class ValidadorUtil{
      * @return true se o CPF for válido. false caso contrário.
      */
     public static boolean validarCpf(String cpf){
-        if(cpf != null && cpf.lenght() == 11){
+        if(cpf != null && cpf.length() == 11){
             return true;
         }
         else return false;
