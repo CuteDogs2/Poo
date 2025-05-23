@@ -35,6 +35,11 @@
          </children>
 
       </VBox>
+      <VBox fx:id="area_conteudo" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+
+
+
+      </VBox>
 
    </children>
 </HBox>

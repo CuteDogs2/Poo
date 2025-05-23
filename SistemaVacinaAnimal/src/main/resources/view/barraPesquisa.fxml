@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox alignment="CENTER" prefHeight="71.0" prefWidth="427.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="barra_pesquisa" alignment="CENTER" prefHeight="71.0" prefWidth="427.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <StackPane prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
             <children>
