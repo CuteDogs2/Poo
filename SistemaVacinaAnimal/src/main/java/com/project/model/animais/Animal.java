@@ -209,7 +209,7 @@ public class Animal{
      * 
      * @param Dono Novo dono do animal.
      */
-    public void setDono(Cliente Dono){
+    public void setDono(Cliente dono){
         this.dono = dono;
     }
 }
