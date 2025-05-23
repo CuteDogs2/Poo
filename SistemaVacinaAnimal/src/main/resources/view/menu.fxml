@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="menu_esquerdo" alignment="CENTER" prefHeight="170.0" prefWidth="171.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   
+   <stylesheets>
+      <URL value="@app.css" />
+   </stylesheets>
+
+   <children>
+
+                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Página Inicial" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+         <toggleGroup>
+            <ToggleGroup fx:id="menuGroup" />
+         </toggleGroup>
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@home.png" />
+               </image>
+            </ImageView>
+         </graphic> 
+      </ToggleButton>
+
+                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Vacinas" textAlignment="CENTER" toggleGroup="$menuGroup">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@list.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      
+                        <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Tutores" textAlignment="CENTER" toggleGroup="$menuGroup">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@tutores.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+
+                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Registrar Vacinaçao" textAlignment="CENTER" toggleGroup="$menuGroup">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@edit_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+
+                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="cadastrar Tutor" textAlignment="CENTER" toggleGroup="$menuGroup">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@register_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+   </children>
+</VBox>

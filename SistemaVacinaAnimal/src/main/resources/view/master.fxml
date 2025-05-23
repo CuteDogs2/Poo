@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+   <stylesheets>
+      <URL value="@app.css" />
+   </stylesheets>
+
+   <children>
+
+      <VBox fx:id="sidebarvbox" prefHeight="400.0" prefWidth="173.0" styleClass="menu_esquerdo">
+
+         <children>
+            <Pane prefHeight="22.0" prefWidth="171.0" VBox.vgrow="NEVER">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@petshoplogo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            
+            <fx:include source="menu.fxml" />
+            
+         </children>
+
+      </VBox>
+
+   </children>
+</HBox>
