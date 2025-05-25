@@ -9,9 +9,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox fx:id="barra_pesquisa" alignment="CENTER" prefHeight="71.0" prefWidth="427.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="71.0" spacing="10.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <StackPane prefHeight="150.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+        <StackPane prefHeight="150.0" prefWidth="200.0" HBox.hgrow="SOMETIMES">
             <children>
                 <TextField promptText="Busque por um cadastro" styleClass="search_bar" />
                 <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" styleClass="btn_search_bar" textAlignment="CENTER" StackPane.alignment="CENTER_RIGHT">

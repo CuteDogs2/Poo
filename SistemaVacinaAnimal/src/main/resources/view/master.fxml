@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 
    <stylesheets>
       <URL value="@app.css" />
@@ -17,7 +17,7 @@
 
    <children>
 
-      <VBox fx:id="sidebarvbox" prefHeight="400.0" prefWidth="173.0" styleClass="menu_esquerdo">
+      <VBox fx:id="sidebarvbox" prefWidth="173.0" styleClass="menu_esquerdo" HBox.hgrow="SOMETIMES">
 
          <children>
             <Pane prefHeight="22.0" prefWidth="171.0" VBox.vgrow="NEVER">
@@ -35,9 +35,12 @@
          </children>
 
       </VBox>
-      <VBox fx:id="area_conteudo" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
 
-
+      <VBox fx:id="area_conteudo" fillWidth="true" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+         <children>
+   
+            <fx:include source="home.fxml" />
+         </children>
 
       </VBox>
 

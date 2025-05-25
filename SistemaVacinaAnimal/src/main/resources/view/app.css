@@ -89,3 +89,13 @@
     -fx-cursor: hand;
     cursor: hand;
 }
+
+
+
+
+.tabela_dados {
+    -fx-max-width: 100%;
+    max-width: 100%;
+    -fx-max-height: 100%;
+    max-height: 100%;
+}
