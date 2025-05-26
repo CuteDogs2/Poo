@@ -11,7 +11,7 @@ import com.project.model.pessoas.Veterinario;
  * 
  * <p>Armazena o animal que recebeu a aplicação, a vacina aplicada, o veterinario que realizou a aplicação, data da aplicação, retorno da aplicação caso tenha, e a dosagem aplicada no animal.</p>
  */
-class Vacinacao {
+public class Vacinacao {
 
 
 
