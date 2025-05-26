@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="menu_esquerdo" alignment="CENTER" prefHeight="170.0" prefWidth="171.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="menu_esquerdo" alignment="CENTER" prefHeight="170.0" prefWidth="171.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.MenuController">
    
    <stylesheets>
       <URL value="@app.css" />
@@ -17,7 +17,7 @@
 
    <children>
 
-                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Página Inicial" textAlignment="CENTER" VBox.vgrow="ALWAYS">
+                  <ToggleButton fx:id="btnPaginaInicial" mnemonicParsing="false" onAction="#onPaginaInicialClicked" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Página Inicial" textAlignment="CENTER" VBox.vgrow="ALWAYS">
          <toggleGroup>
             <ToggleGroup fx:id="menuGroup" />
          </toggleGroup>
@@ -30,7 +30,7 @@
          </graphic> 
       </ToggleButton>
 
-                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Vacinas" textAlignment="CENTER" toggleGroup="$menuGroup">
+                  <ToggleButton fx:id="btnVacinas" mnemonicParsing="false" onAction="#onVacinasClicked" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Vacinas" textAlignment="CENTER" toggleGroup="$menuGroup">
          <graphic>
             <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -40,7 +40,7 @@
          </graphic>
       </ToggleButton>
       
-                        <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Tutores" textAlignment="CENTER" toggleGroup="$menuGroup">
+                        <ToggleButton fx:id="btnTutores" mnemonicParsing="false" onAction="#onTutoresClicked" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Tutores" textAlignment="CENTER" toggleGroup="$menuGroup">
          <graphic>
             <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -50,7 +50,7 @@
          </graphic>
       </ToggleButton>
 
-                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Registrar Vacinaçao" textAlignment="CENTER" toggleGroup="$menuGroup">
+                  <ToggleButton fx:id="btnRegistrarVacinacao" mnemonicParsing="false" onAction="#onRegistrarVacinacaoClicked" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Registrar Vacinaçao" textAlignment="CENTER" toggleGroup="$menuGroup">
          <graphic>
             <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -60,7 +60,7 @@
          </graphic>
       </ToggleButton>
 
-                  <ToggleButton mnemonicParsing="false" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="cadastrar Tutor" textAlignment="CENTER" toggleGroup="$menuGroup">
+                  <ToggleButton fx:id="cadastrarTutor" mnemonicParsing="false" onAction="#onCadastrarTutorClicked" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="cadastrar Tutor" textAlignment="CENTER" toggleGroup="$menuGroup">
          <graphic>
             <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                <image>
