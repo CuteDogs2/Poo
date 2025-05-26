@@ -39,7 +39,6 @@
       <VBox fx:id="area_conteudo" fillWidth="true" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
          <children>
    
-            <fx:include source="home.fxml" />
          </children>
 
       </VBox>
