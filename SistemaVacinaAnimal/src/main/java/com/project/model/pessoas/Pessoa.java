@@ -9,7 +9,7 @@ import java.time.LocalDate;
  * 
  * <p>Armazena nome, CPF, data de nascimento, telefone, sexo, e-mail, e contém métodos de acesso.</p>
  */
-public class Pessoa {
+abstract class Pessoa {
 
 
 

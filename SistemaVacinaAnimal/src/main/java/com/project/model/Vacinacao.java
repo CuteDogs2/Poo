@@ -57,7 +57,7 @@ class Vacinacao {
      * @param dataRetorno       Data de retorno da aplicação, caso tenha.
      * @param doseAplicada      Dose da vacina aplicada no animal.
      */
-    Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, LocalDate dataRetorno, float doseAplicada){
+    public Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, LocalDate dataRetorno, float doseAplicada){
         this.animal = animal;
         this.vacina = vacina;
         this.veterinario = veterinario;
