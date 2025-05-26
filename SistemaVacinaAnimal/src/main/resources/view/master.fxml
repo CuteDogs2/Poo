@@ -30,7 +30,7 @@
                </children>
             </Pane>
             
-            <fx:include fx:id="menu_esquerdo" source="menu.fxml" />
+            <fx:include fx:id="menuInclude" source="menu.fxml" />
             
          </children>
 
