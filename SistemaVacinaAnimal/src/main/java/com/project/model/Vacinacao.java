@@ -203,10 +203,10 @@ class Vacinacao {
         "VALUES (" +
         "'" + this.dataAplicacao "', " +
         "'" + this.dataRetorno "', " +
-        "'" + cmdIdvacina "', " +
-        "'" + cmdIdfrasco "', " +
-        "'" + cmdVetcrmv "', " +
-        "'" + cmdAnimal "'" +
+        "'" + this.cmdIdvacina "', " +
+        "'" + this.cmdIdfrasco "', " +
+        "'" + this.cmdVetcrmv "', " +
+        "'" + this.cmdAnimal "'" +
         ");";
 
         return comando;
