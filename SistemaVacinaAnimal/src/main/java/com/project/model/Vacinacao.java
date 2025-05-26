@@ -185,7 +185,6 @@ class Vacinacao {
         this.dataRetorno = dataRetorno;
     }
 
-    // need func to check if table exist and create if false
     public String insertVacinacao(String table, Vacinacao entidade){
         if (table == null || table.isEmpty()) {
             throw new IllegalArgumentException("O nome da tabela não pode ser nulo ou vazio.");
