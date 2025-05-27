@@ -9,11 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fillWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" VBox.vgrow="ALWAYS" >
-
-   <stylesheets>
-      <URL value="@app.css" />
-   </stylesheets>
+<VBox fillWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" VBox.vgrow="ALWAYS" stylesheets="/view/app.css">
 
    <children>
 

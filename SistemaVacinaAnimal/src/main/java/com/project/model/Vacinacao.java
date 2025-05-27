@@ -217,7 +217,7 @@ public class Vacinacao {
 
 
 
-
+/*
     // need func to check if table exist and create if false
     public String insertVacinacao(String table, Vacinacao entidade){
         if (table == null || table.isEmpty()) {
@@ -244,4 +244,5 @@ public class Vacinacao {
 
         return comando;
     }
+*/
 }
