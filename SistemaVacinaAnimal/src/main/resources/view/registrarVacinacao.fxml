@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane gridLinesVisible="true" hgap="8.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" vgap="8.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="60.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="40.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints vgrow="SOMETIMES" />
+    <RowConstraints vgrow="SOMETIMES" />
+    <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+</rowConstraints>
+<children>
+    <ComboBox promptText="Vacinas" GridPane.columnSpan="2" />
+    <TextField promptText="Nome" GridPane.rowIndex="1" GridPane.columnSpan="2" />
+    <TextField promptText="Lote" GridPane.rowIndex="2" />
+    <TextField promptText="Validade" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+    <TextField promptText="Fabricante" GridPane.rowIndex="3" />
+    <TextField promptText="Dosagem por Kg" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+    <TextField promptText="Nome do animal" GridPane.rowIndex="4" />
+    <TextField promptText="Nome do veterinário" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+    <TextField promptText="Data de Aplicação" GridPane.rowIndex="5" />
+    <Button text="Registrar" GridPane.rowIndex="6" GridPane.columnIndex="1" style="-fx-background-color: #222; -fx-text-fill: white;" GridPane.halignment="RIGHT" />
+</children>
+</GridPane>
