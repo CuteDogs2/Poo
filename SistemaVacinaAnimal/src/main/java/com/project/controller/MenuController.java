@@ -13,4 +13,5 @@ public class MenuController {
     @FXML void onTutoresClicked() { if (listener != null) listener.onMenuItem("clientes.fxml"); }
     @FXML void onRegistrarVacinacaoClicked() { if (listener != null) listener.onMenuItem("registrarVacinacao.fxml"); }
     @FXML void onCadastrarTutorClicked() { if (listener != null) listener.onMenuItem("cadastrarCliente.fxml"); }
+    @FXML void onCadastrarVacinaClicked() { if (listener != null) listener.onMenuItem("cadastrarVacina.fxml"); }
 }

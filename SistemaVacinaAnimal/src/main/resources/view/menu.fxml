@@ -65,5 +65,16 @@
             </ImageView>
          </graphic>
       </ToggleButton>
+   
+                  <ToggleButton fx:id="cadastrarVacina" mnemonicParsing="false" onAction="#onCadastrarVacinaClicked" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Cadastrar Vacina" textAlignment="CENTER" toggleGroup="$menuGroup">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@register_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+
    </children>
 </VBox>
