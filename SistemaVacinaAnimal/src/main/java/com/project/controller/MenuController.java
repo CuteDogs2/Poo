@@ -10,7 +10,7 @@ public class MenuController {
 
     @FXML void onPaginaInicialClicked() { if (listener != null) listener.onMenuItem("home.fxml"); }
     @FXML void onVacinasClicked() { if (listener != null) listener.onMenuItem("vacinas.fxml"); }
-    @FXML void onTutoresClicked() { if (listener != null) listener.onMenuItem("tutores.fxml"); }
+    @FXML void onTutoresClicked() { if (listener != null) listener.onMenuItem("clientes.fxml"); }
     @FXML void onRegistrarVacinacaoClicked() { if (listener != null) listener.onMenuItem("registrarVacinacao.fxml"); }
-    @FXML void onCadastrarTutorClicked() { if (listener != null) listener.onMenuItem("cadastrar_tutor.fxml"); }
+    @FXML void onCadastrarTutorClicked() { if (listener != null) listener.onMenuItem("cadastrarCliente.fxml"); }
 }
