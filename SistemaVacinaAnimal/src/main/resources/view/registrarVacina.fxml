@@ -20,12 +20,14 @@
       <RowConstraints />
 </rowConstraints>
 <children>
-      <DatePicker maxWidth="1.7976931348623157E308" promptText="Data da Aplicaçao" styleClass="seletor_data" GridPane.rowIndex="2" />
-      <DatePicker maxWidth="1.7976931348623157E308" promptText="Data de Retorno" styleClass="seletor_data" GridPane.rowIndex="3" />
+    <TextField promptText="Nome da Vacina" styleClass="caixas_texto" GridPane.columnSpan="2" />
+    <TextField promptText="ID do lote" styleClass="caixas_texto" GridPane.rowIndex="1" />
+      <TextField promptText="ID do Frasco" styleClass="caixas_texto" GridPane.rowIndex="2" />
+    <TextField promptText="Fabricante" styleClass="caixas_texto" GridPane.rowIndex="3" />
+      <DatePicker promptText="Validade do Lote" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <DatePicker promptText="Validade da Aplicação" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <TextField promptText="Dosagem em ml/Kg" styleClass="caixas_texto" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+    <TextField promptText="Volume Contido em ml" styleClass="caixas_texto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
     <Button styleClass="btn_registrar" text="Registrar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
-      <TextField promptText="Nome do Cliente" styleClass="caixas_texto" />
-      <ComboBox maxWidth="1.7976931348623157E308" promptText="Selecione o Animal" styleClass="seletor_combobox" GridPane.columnIndex="1" />
-      <ComboBox maxWidth="1.7976931348623157E308" promptText="Selecione a Vacina" styleClass="seletor_combobox" GridPane.rowIndex="1" />
-      <ComboBox maxWidth="1.7976931348623157E308" promptText="Identificação" styleClass="seletor_combobox" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 </children>
 </GridPane>

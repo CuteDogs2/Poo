@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox alignment="CENTER" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.MasterController" stylesheets="/view/app.css">
+<HBox alignment="CENTER" stylesheets="/view/app.css" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.MasterController">
 
    <children>
 
@@ -32,7 +32,7 @@
 
       </VBox>
 
-      <VBox fx:id="area_conteudo" fillWidth="true" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+      <VBox fx:id="area_conteudo" alignment="CENTER" fillWidth="true" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
          <children>
    
          </children>
