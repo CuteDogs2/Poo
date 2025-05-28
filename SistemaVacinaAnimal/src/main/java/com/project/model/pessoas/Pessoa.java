@@ -1,4 +1,8 @@
 package com.project.model.pessoas;
+
+
+
+
 import java.time.LocalDate;
 
 
@@ -89,7 +93,7 @@ abstract class Pessoa {
      * 
      * @return CPF da pessoa.
      */
-    public String getCpf(){
+    public String getCpf() {
         return this.cpf;
     }
 
@@ -101,7 +105,7 @@ abstract class Pessoa {
      * 
      * @return Data de nascimento da pessoa.
      */
-    public LocalDate getDataNascimento(){
+    public LocalDate getDataNascimento() {
         return this.dataNascimento;
     }
 
@@ -138,7 +142,7 @@ abstract class Pessoa {
      * 
      * @return E-mail da pessoa.
      */
-    public String getEmail(){
+    public String getEmail() {
         return this.email;
     }
 
@@ -210,7 +214,7 @@ abstract class Pessoa {
      * 
      * @param email Novo e-mail da pessoa.
      */
-    public void setEmail(String email){
+    public void setEmail(String email) {
         this.email = email;
     }
 }

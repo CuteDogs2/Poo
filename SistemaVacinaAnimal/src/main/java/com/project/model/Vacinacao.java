@@ -1,4 +1,8 @@
 package com.project.model;
+
+
+
+
 import java.time.LocalDate;
 import com.project.model.animais.Animal;
 import com.project.model.pessoas.Veterinario;
@@ -57,7 +61,7 @@ public class Vacinacao {
      * @param dataRetorno       Data de retorno da aplicação, caso tenha.
      * @param doseAplicada      Dose da vacina aplicada no animal.
      */
-    public Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, LocalDate dataRetorno, float doseAplicada){
+    public Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, LocalDate dataRetorno, float doseAplicada) {
         this.animal = animal;
         this.vacina = vacina;
         this.veterinario = veterinario;
@@ -78,7 +82,7 @@ public class Vacinacao {
      * 
      * @return Objeto animal.
      */
-    public Animal getAnimal(){
+    public Animal getAnimal() {
         return this.animal;
     }
 
@@ -90,7 +94,7 @@ public class Vacinacao {
      * 
      * @return Objeto Vacina.
      */
-    public Vacina getVacina(){
+    public Vacina getVacina() {
         return this.vacina;
     }
 
@@ -102,7 +106,7 @@ public class Vacinacao {
      * 
      * @return Objeto Veterinario.
      */
-    public Veterinario getVeterinario(){
+    public Veterinario getVeterinario() {
         return this.veterinario;
     }
 
@@ -114,7 +118,7 @@ public class Vacinacao {
      * 
      * @return Data de aplicação da vacina.
      */
-    public LocalDate getDataAplicacao(){
+    public LocalDate getDataAplicacao() {
         return this.dataAplicacao;
     }
 
@@ -127,7 +131,7 @@ public class Vacinacao {
      * @return Data de retorno.
      */
 
-    public LocalDate getDataRetorno(){
+    public LocalDate getDataRetorno() {
         return this.dataRetorno;
     }
 
@@ -139,7 +143,7 @@ public class Vacinacao {
      * 
      * @return
      */
-    public float getDoseAplicada(){
+    public float getDoseAplicada() {
         return this.doseAplicada;
     }
 
@@ -151,7 +155,7 @@ public class Vacinacao {
      * 
      * @param animal Novo animal.
      */
-    public void setAnimal(Animal animal){
+    public void setAnimal(Animal animal) {
         this.animal = animal;
     }
 
@@ -163,7 +167,7 @@ public class Vacinacao {
      * 
      * @param vacina Novo objeto Vacina.
      */
-    public void setVacina(Vacina vacina){
+    public void setVacina(Vacina vacina) {
         this.vacina = vacina;
     }
 
@@ -175,7 +179,7 @@ public class Vacinacao {
      * 
      * @param veterinario Novo Objeto Veterinario.
      */
-    public void setVeterinario(Veterinario veterinario){
+    public void setVeterinario(Veterinario veterinario) {
         this.veterinario = veterinario;
     }
 
@@ -187,7 +191,7 @@ public class Vacinacao {
      * 
      * @param dataAplicacao Nova data de aplicação da vacina
      */
-    public void setDataAplicacao(LocalDate dataAplicacao){
+    public void setDataAplicacao(LocalDate dataAplicacao) {
         this.dataAplicacao = dataAplicacao;
     }
 
@@ -199,7 +203,7 @@ public class Vacinacao {
      * 
      * @param dataRetorno Nova data de aplicação.
      */
-    public void setDataRetorno(LocalDate dataRetorno){
+    public void setDataRetorno(LocalDate dataRetorno) {
         this.dataRetorno = dataRetorno;
     }
 
@@ -211,7 +215,7 @@ public class Vacinacao {
      * 
      * @param doseAplicada
      */
-    public void setDoseAplicada(float doseAplicada){
+    public void setDoseAplicada(float doseAplicada) {
         this.doseAplicada = doseAplicada;
     }
 
@@ -219,7 +223,7 @@ public class Vacinacao {
 
 /*
     // need func to check if table exist and create if false
-    public String insertVacinacao(String table, Vacinacao entidade){
+    public String insertVacinacao(String table, Vacinacao entidade) {
         if (table == null || table.isEmpty()) {
             throw new IllegalArgumentException("O nome da tabela não pode ser nulo ou vazio.");
         }

@@ -1,4 +1,8 @@
 package com.project.model.animais;
+
+
+
+
 import com.project.model.pessoas.Cliente;
 import java.time.LocalDate;
 
@@ -10,7 +14,7 @@ import java.time.LocalDate;
  * 
  * <p>Alem dos dados da classe animal, armazena a raça do canino, e contém métodos de acesso.</p>
  */
-public class Canino extends Animal{
+public class Canino extends Animal {
 
 
 
@@ -42,7 +46,7 @@ public class Canino extends Animal{
      * @param peso              Peso do animal em kg.
      * @param dono              Cliente que é dono do animal.
      */
-    public Canino(String raca, String idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, Cliente dono){
+    public Canino(String raca, String idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, Cliente dono) {
         super(idAnimal, nome, dataNascimento, sexo, peso, dono);
         this.raca = raca;
     }
@@ -55,7 +59,7 @@ public class Canino extends Animal{
      * 
      * @return Raça do canino.
      */
-    public String getRaca(){
+    public String getRaca() {
         return this.raca;
     }
 
@@ -67,7 +71,7 @@ public class Canino extends Animal{
      * 
      * @param raca Nova raça do canino.
      */
-    public void setRaca(String raca){
+    public void setRaca(String raca) {
         this.raca = raca;
     }
 }

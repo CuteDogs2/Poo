@@ -5,7 +5,7 @@ package com.project.util;
 /**
  * Classe utilitaria para validação de dados.
  */
-public class ValidadorUtil{
+public class ValidadorUtil {
 
 
 
@@ -21,8 +21,8 @@ public class ValidadorUtil{
      * @param cpf CPF a ser validado (no formato String).
      * @return true se o CPF for válido. false caso contrário.
      */
-    public boolean validarCpf(String cpf){
-        if(cpf != null && cpf.length() == 11){
+    public boolean validarCpf(String cpf) {
+        if(cpf != null && cpf.length() == 11) {
             return true;
         }
         else return false;
@@ -37,8 +37,8 @@ public class ValidadorUtil{
      * @param email E-mail a ser validado (em formato String).
      * @return true se o e-mail for válido, false caso contrário.
      */
-    public boolean validarEmail(String email){
-        if(email != null && email.contains("@")){
+    public boolean validarEmail(String email) {
+        if(email != null && email.contains("@")) {
             return true;
         }
         else return false;

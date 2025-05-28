@@ -1,4 +1,8 @@
 package com.project.model.pessoas;
+
+
+
+
 import java.time.LocalDate;
 
 
@@ -9,7 +13,7 @@ import java.time.LocalDate;
  * 
  * <p>Além dos dados da classe pessoa, armazena o CRMV do veterinário, e contém métodos de acesso.</p>
  */
-public class Veterinario extends Pessoa{
+public class Veterinario extends Pessoa {
 
 
 
@@ -41,7 +45,7 @@ public class Veterinario extends Pessoa{
      * @param sexo              Sexo do veterinário (masculino (m)/feminino (f)).
      * @param email             E-mail do veterinário.
      */
-    public Veterinario(String crmv, String nome, String cpf, LocalDate dataNascimento, String telefone, char sexo, String email){
+    public Veterinario(String crmv, String nome, String cpf, LocalDate dataNascimento, String telefone, char sexo, String email) {
         super(nome, cpf, dataNascimento, telefone, sexo, email);
         this.crmv = crmv;
     }
@@ -59,7 +63,7 @@ public class Veterinario extends Pessoa{
      * 
      * @return CRMV do veterinário.
      */
-    public String getCrmv(){
+    public String getCrmv() {
         return this.crmv;
     }
 
@@ -71,7 +75,7 @@ public class Veterinario extends Pessoa{
      * 
      * @param crmv Novo CRMV.
      */
-    public void setCrmv(String crmv){
+    public void setCrmv(String crmv) {
         this.crmv = crmv;
     }
 }

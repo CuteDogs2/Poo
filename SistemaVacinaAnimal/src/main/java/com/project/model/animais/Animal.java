@@ -1,4 +1,8 @@
 package com.project.model.animais;
+
+
+
+
 import com.project.model.pessoas.Cliente;
 import java.time.LocalDate;
 
@@ -10,7 +14,7 @@ import java.time.LocalDate;
  * 
  * <p>Armazena ID do animal, nome, data de nascimento, sexo, peso, e um objeto cliente que contem as informações de seu dono.</p>
  */
-public class Animal{
+abstract public class Animal {
 
 
 
@@ -55,7 +59,7 @@ public class Animal{
      * @param peso              Peso do animal em kg.
      * @param dono              Cliente que é dono do animal.
      */
-    public Animal(String idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, Cliente dono){
+    public Animal(String idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, Cliente dono) {
         this.idAnimal = idAnimal;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -77,7 +81,7 @@ public class Animal{
      * 
      * @return ID do animal.
      */
-    public String getIdAnimal(){
+    public String getIdAnimal() {
         return this.idAnimal;
     }
 
@@ -89,7 +93,7 @@ public class Animal{
      * 
      * @return Nome do animal.
      */
-    public String nome(){
+    public String nome() {
         return this.nome;
     }
 
@@ -101,7 +105,7 @@ public class Animal{
      * 
      * @return Data de nascimento do animal.
      */
-    public LocalDate getDataNascimento(){
+    public LocalDate getDataNascimento() {
         return this.dataNascimento;
     }
 
@@ -113,7 +117,7 @@ public class Animal{
      * 
      * @return Sexo do animal.
      */
-    public char getSexo(){
+    public char getSexo() {
         return this.sexo;
     }
 
@@ -125,7 +129,7 @@ public class Animal{
      * 
      * @return Peso do animal.
      */
-    public float getPeso(){
+    public float getPeso() {
         return this.peso;
     }
 
@@ -137,7 +141,7 @@ public class Animal{
      * 
      * @return Dono do animal.
      */
-    public Cliente getDono(){
+    public Cliente getDono() {
         return this.dono;
     }
 
@@ -149,7 +153,7 @@ public class Animal{
      * 
      * @param idAnimal Novo ID do animal.
      */
-    public void setIdAnimal(String idAnimal){
+    public void setIdAnimal(String idAnimal) {
         this.idAnimal = idAnimal;
     }
 
@@ -161,7 +165,7 @@ public class Animal{
      * 
      * @param nome Novo nome do animal.
      */
-    public void setNome(String nome){
+    public void setNome(String nome) {
         this.nome = nome;
     }
 
@@ -173,7 +177,7 @@ public class Animal{
      * 
      * @param dataNascimento Nova data de nascimento do animal.
      */
-    public void setDataNascimento(LocalDate dataNascimento){
+    public void setDataNascimento(LocalDate dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -185,7 +189,7 @@ public class Animal{
      * 
      * @param sexo Novo sexo do animal.
      */
-    public void setSexo(char sexo){
+    public void setSexo(char sexo) {
         this.sexo = sexo;
     }
 
@@ -197,7 +201,7 @@ public class Animal{
      * 
      * @param peso Novo peso do animal.
      */
-    public void setPeso(float peso){
+    public void setPeso(float peso) {
         this.peso = peso;
     }
 
@@ -209,7 +213,7 @@ public class Animal{
      * 
      * @param Dono Novo dono do animal.
      */
-    public void setDono(Cliente dono){
+    public void setDono(Cliente dono) {
         this.dono = dono;
     }
 }

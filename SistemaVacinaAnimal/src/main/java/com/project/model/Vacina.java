@@ -1,4 +1,8 @@
 package com.project.model;
+
+
+
+
 import java.time.LocalDate;
 
 
@@ -9,7 +13,7 @@ import java.time.LocalDate;
  * 
  * <p>Armazena o nome da vacina, ID da vacina no sistema, ID do lote, fabricante, validade do lote, validade da aplicação, e dosagem por kg do animal.</p>
  */
-public class Vacina{
+public class Vacina {
 
 
 
@@ -67,7 +71,7 @@ public class Vacina{
      * @param dosagemPorKg          volume específico de aplicação da vacina em ml/kg do animal.
      * @param volumeVacina          Volume em ml contido no frasco da vacina.
      */
-    public Vacina(String nomeVacina, String idVacina, String idFrascoVacina, String idLote, String fabricante, LocalDate validadeDoLote, String validadeDaAplicacao, float dosagemPorKg, float volumeVacina){
+    public Vacina(String nomeVacina, String idVacina, String idFrascoVacina, String idLote, String fabricante, LocalDate validadeDoLote, String validadeDaAplicacao, float dosagemPorKg, float volumeVacina) {
         this.nomeVacina = nomeVacina;
         this.idVacina = idVacina;
         this.idFrascoVacina = idFrascoVacina;
@@ -92,7 +96,7 @@ public class Vacina{
      * 
      * @return Nome da vacina.
      */
-    public String getNomeVacina(){
+    public String getNomeVacina() {
         return this.nomeVacina;
     }
 
@@ -104,7 +108,7 @@ public class Vacina{
      * 
      * @return ID da vacina.
      */
-    public String getIdVacina(){
+    public String getIdVacina() {
         return this.idVacina;
     }
 
@@ -116,7 +120,7 @@ public class Vacina{
      * 
      * @return ID do frasco da vacina
      */
-    public String idFrascoVacina(){
+    public String idFrascoVacina() {
         return this.idFrascoVacina;
     }
 
@@ -128,7 +132,7 @@ public class Vacina{
      * 
      * @return ID do lote.
      */
-    public String getIdLote(){
+    public String getIdLote() {
         return this.idLote;
     }
 
@@ -141,7 +145,7 @@ public class Vacina{
      * 
      * @return Nome do fabricante.
      */
-    public String getFabricante(){
+    public String getFabricante() {
         return this.fabricante;
     }
 
@@ -154,7 +158,7 @@ public class Vacina{
      * 
      * @return Validade do lote.
      */
-    public LocalDate getValidadeDoLote(){
+    public LocalDate getValidadeDoLote() {
         return this.validadeDoLote;
     }
 
@@ -166,7 +170,7 @@ public class Vacina{
      * 
      * @return Validade da aplicação
      */
-    public String getValidaDaAplicacao(){
+    public String getValidaDaAplicacao() {
         return this.validadeDaAplicacao;
     }
 
@@ -178,7 +182,7 @@ public class Vacina{
      * 
      * @return Volume específico da aplicação em ml/kg.
      */
-    public float getDosagemPorKg(){
+    public float getDosagemPorKg() {
         return this.dosagemPorKg;
     }
 
@@ -190,7 +194,7 @@ public class Vacina{
      * 
      * @return Volume em ml contido no frasco.
      */
-    public float getVolumeVacina(){
+    public float getVolumeVacina() {
         return this.volumeVacina;
     }
 
@@ -202,7 +206,7 @@ public class Vacina{
      * 
      * @param nomeVacina Novo nome da vacina.
      */
-    public void setNomeVacina(String nomeVacina){
+    public void setNomeVacina(String nomeVacina) {
         this.nomeVacina = nomeVacina;
     }
 
@@ -214,7 +218,7 @@ public class Vacina{
      * 
      * @param idVacina Novo ID da vacina.
      */
-    public void setIdVacina(String idVacina){
+    public void setIdVacina(String idVacina) {
         this.idVacina = idVacina;
     }
 
@@ -226,7 +230,7 @@ public class Vacina{
      * 
      * @param idLote Novo ID do lote.
      */
-    public void setIdLote(String idLote){
+    public void setIdLote(String idLote) {
         this.idLote = idLote;
     }
 
@@ -238,7 +242,7 @@ public class Vacina{
      * 
      * @param idFrascoVacina;
      */
-    public void setIdFrascoVacina(String idFrascoVacina){
+    public void setIdFrascoVacina(String idFrascoVacina) {
         this.idFrascoVacina = idFrascoVacina;
     }
 
@@ -250,7 +254,7 @@ public class Vacina{
      * 
      * @param fabricante Novo nome do fabricante.
      */
-    public void setFabricante(String fabricante){
+    public void setFabricante(String fabricante) {
         this.fabricante = fabricante;
     }
 
@@ -262,7 +266,7 @@ public class Vacina{
      * 
      * @param validadeDoLote Nova validade do lote.
      */
-    public void setValidadeDoLote(LocalDate validadeDoLote){
+    public void setValidadeDoLote(LocalDate validadeDoLote) {
         this.validadeDoLote = validadeDoLote;
     }
 
@@ -274,7 +278,7 @@ public class Vacina{
      * 
      * @param validadeDaAplicacao Nova validade da aplicação em meses.
      */
-    public void setValidadeDaAplicacao(String validadeDaAplicacao){
+    public void setValidadeDaAplicacao(String validadeDaAplicacao) {
         this.validadeDaAplicacao = validadeDaAplicacao;
     }
 
@@ -286,7 +290,7 @@ public class Vacina{
      * 
      * @param dosagemPorKg Novo volume específico em ml/kg.
      */
-    public void setDosagemPorKg(float dosagemPorKg){
+    public void setDosagemPorKg(float dosagemPorKg) {
         this.dosagemPorKg = dosagemPorKg;
     }
 
@@ -298,7 +302,7 @@ public class Vacina{
      * 
      * @param volumeVacina Novo volume contido no frasco.
      */
-    public void setVolumeVacina(float volumeVacina){
+    public void setVolumeVacina(float volumeVacina) {
         this.volumeVacina = volumeVacina;
     }
 }
