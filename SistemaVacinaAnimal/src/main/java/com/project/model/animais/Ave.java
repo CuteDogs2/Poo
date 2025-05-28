@@ -46,7 +46,7 @@ public class Ave extends Animal {
      * @param peso              Peso do animal em kg.
      * @param dono              Cliente que é dono do animal.
      */
-    public Ave(String raca, String idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, Cliente dono) {
+    public Ave(String raca, int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, Cliente dono) {
         super(idAnimal, nome, dataNascimento, sexo, peso, dono);
         this.raca = raca;
     }

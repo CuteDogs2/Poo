@@ -24,7 +24,7 @@ abstract public class Animal {
 
 
     /** ID do animal. */
-    private String idAnimal;
+    private int idAnimal;
 
     /** Nome do animal. */
     private String nome;
@@ -59,7 +59,7 @@ abstract public class Animal {
      * @param peso              Peso do animal em kg.
      * @param dono              Cliente que é dono do animal.
      */
-    public Animal(String idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, Cliente dono) {
+    public Animal(int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, Cliente dono) {
         this.idAnimal = idAnimal;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -81,7 +81,7 @@ abstract public class Animal {
      * 
      * @return ID do animal.
      */
-    public String getIdAnimal() {
+    public int getIdAnimal() {
         return this.idAnimal;
     }
 
@@ -153,7 +153,7 @@ abstract public class Animal {
      * 
      * @param idAnimal Novo ID do animal.
      */
-    public void setIdAnimal(String idAnimal) {
+    public void setIdAnimal(int idAnimal) {
         this.idAnimal = idAnimal;
     }
 
