@@ -27,7 +27,7 @@ public class Vacina {
     private String nomeVacina;
 
     /** ID da vacina. */
-    private String idVacina;
+    private int idVacina;
 
     /** ID do frasco da vacina. */
     private String idFrascoVacina;
@@ -42,7 +42,7 @@ public class Vacina {
     private LocalDate validadeDoLote;
 
     /** Validade da aplicação em meses. */
-    private String validadeDaAplicacao;
+    private int validadeDaAplicacao;
 
     /** Volume específico de aplicação da vacina em ml/kg do animal. */
     private float dosagemPorKg;
@@ -71,7 +71,7 @@ public class Vacina {
      * @param dosagemPorKg          volume específico de aplicação da vacina em ml/kg do animal.
      * @param volumeVacina          Volume em ml contido no frasco da vacina.
      */
-    public Vacina(String nomeVacina, String idVacina, String idFrascoVacina, String idLote, String fabricante, LocalDate validadeDoLote, String validadeDaAplicacao, float dosagemPorKg, float volumeVacina) {
+    public Vacina(String nomeVacina, int idVacina, String idFrascoVacina, String idLote, String fabricante, LocalDate validadeDoLote, int validadeDaAplicacao, float dosagemPorKg, float volumeVacina) {
         this.nomeVacina = nomeVacina;
         this.idVacina = idVacina;
         this.idFrascoVacina = idFrascoVacina;
@@ -108,7 +108,7 @@ public class Vacina {
      * 
      * @return ID da vacina.
      */
-    public String getIdVacina() {
+    public int getIdVacina() {
         return this.idVacina;
     }
 
@@ -170,7 +170,7 @@ public class Vacina {
      * 
      * @return Validade da aplicação
      */
-    public String getValidaDaAplicacao() {
+    public int getValidaDaAplicacao() {
         return this.validadeDaAplicacao;
     }
 
@@ -218,7 +218,7 @@ public class Vacina {
      * 
      * @param idVacina Novo ID da vacina.
      */
-    public void setIdVacina(String idVacina) {
+    public void setIdVacina(int idVacina) {
         this.idVacina = idVacina;
     }
 
@@ -278,7 +278,7 @@ public class Vacina {
      * 
      * @param validadeDaAplicacao Nova validade da aplicação em meses.
      */
-    public void setValidadeDaAplicacao(String validadeDaAplicacao) {
+    public void setValidadeDaAplicacao(int validadeDaAplicacao) {
         this.validadeDaAplicacao = validadeDaAplicacao;
     }
 

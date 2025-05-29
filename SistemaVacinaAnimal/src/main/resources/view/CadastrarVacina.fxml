@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:id="gridCadastrarVacina" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="grid_forms" stylesheets="/view/app.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="gridCadastrarVacina" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="grid_forms" stylesheets="/view/app.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.CadastrarVacinaController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="60.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="40.0" />
@@ -20,14 +20,14 @@
       <RowConstraints />
 </rowConstraints>
 <children>
-    <TextField promptText="Nome da Vacina" styleClass="caixas_texto" GridPane.columnSpan="2" />
-    <TextField promptText="ID do lote" styleClass="caixas_texto" GridPane.rowIndex="1" />
-      <TextField promptText="ID do Frasco" styleClass="caixas_texto" GridPane.rowIndex="2" />
-    <TextField promptText="Fabricante" styleClass="caixas_texto" GridPane.rowIndex="3" />
-      <DatePicker promptText="Validade do Lote" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <DatePicker promptText="Validade da Aplicação" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-    <TextField promptText="Dosagem em ml/Kg" styleClass="caixas_texto" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-    <TextField promptText="Volume Contido em ml" styleClass="caixas_texto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-    <Button styleClass="btn_registrar" text="Registrar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+    <TextField fx:id="nomeVacina" promptText="Nome da Vacina" styleClass="caixas_texto" GridPane.columnSpan="2" />
+    <TextField fx:id="idLoteVacina" promptText="ID do lote" styleClass="caixas_texto" GridPane.rowIndex="1" />
+      <TextField fx:id="idFrascoVacina" promptText="ID do Frasco" styleClass="caixas_texto" GridPane.rowIndex="2" />
+    <TextField fx:id="fabricanteVacina" promptText="Fabricante" styleClass="caixas_texto" GridPane.rowIndex="3" />
+      <DatePicker fx:id="validadeLoteVacina" promptText="Validade do Lote" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <TextField fx:id="dosagemKgMlVacina" promptText="Dosagem em ml/Kg" styleClass="caixas_texto" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="validadeAplicacaoVacina" promptText="Validade da Aplicação (meses)" styleClass="caixas_texto" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <TextField fx:id="volumeMlVacina" promptText="Volume Contido em ml" styleClass="caixas_texto" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <Button fx:id="btnCadastrarVacina" onAction="#onCadastrarVacinaClicked" styleClass="btn_registrar" text="Cadastrar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
 </children>
 </GridPane>

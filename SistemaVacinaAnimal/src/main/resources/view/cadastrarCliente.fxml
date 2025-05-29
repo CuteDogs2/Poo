@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane fx:id="gridRegistrarVacina" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="grid_forms" stylesheets="/view/app.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane fx:id="gridCadastrarCliente" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="grid_forms" stylesheets="/view/app.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.CadastrarClienteController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="60.0" />
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="40.0" />
@@ -20,12 +20,12 @@
       <RowConstraints />
 </rowConstraints>
 <children>
-    <TextField promptText="Nome do Cliente" styleClass="caixas_texto" GridPane.columnSpan="2" />
-    <TextField promptText="CPF" styleClass="caixas_texto" GridPane.rowIndex="1" />
-      <TextField promptText="Telefone" styleClass="caixas_texto" GridPane.rowIndex="2" />
-    <TextField promptText="E-mail" styleClass="caixas_texto" GridPane.rowIndex="3" />
-      <DatePicker promptText="Data de Nascimento" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-    <Button styleClass="btn_registrar" text="Registrar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
-      <ComboBox promptText="Sexo" styleClass="seletor_combobox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <TextField fx:id="nomeCliente" promptText="Nome do Cliente" styleClass="caixas_texto" GridPane.columnSpan="2" />
+    <TextField fx:id="cpfCliente" promptText="CPF" styleClass="caixas_texto" GridPane.rowIndex="1" />
+      <TextField fx:id="telefoneCliente" promptText="Telefone" styleClass="caixas_texto" GridPane.rowIndex="2" />
+    <TextField fx:id="emailCliente" promptText="E-mail" styleClass="caixas_texto" GridPane.rowIndex="3" />
+      <DatePicker fx:id="dataNascimentoCliente" promptText="Data de Nascimento" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+    <Button fx:id="btnRegistrarCliente" onAction="#onRegistrarClienteBtnClicked" styleClass="btn_registrar" text="Registrar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+      <ComboBox fx:id="sexoCliente" promptText="Sexo" styleClass="seletor_combobox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 </children>
 </GridPane>
