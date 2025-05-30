@@ -85,6 +85,34 @@ public class Vacina {
 
 
 
+
+    /**
+     * Construtor da classe vacina sem o ID da vacina.
+     * 
+     * <p>Este construtor será utilizado ao cadastrar uma nova vacina, onde o ID será gerado automaticamente pelo banco de dados.</p>
+     * 
+     * @param nomeVacina                Nome da vacina.
+     * @param idFrascoVacina            ID do frasco da vacina.
+     * @param idLote                    ID do lote.
+     * @param fabricante                Nome do fabricante.
+     * @param validadeDoLote            Validade do lote.
+     * @param validadeDaAplicacao       Validade da aplicação em meses (duração do efeito da imunidade).
+     * @param dosagemPorKg              volume específico de aplicação da vacina em ml/kg do animal.
+     * @param volumeVacina              Volume em ml contido no frasco da vacina.
+     */
+    public Vacina(String nomeVacina, String idFrascoVacina, String idLote, String fabricante, LocalDate validadeDoLote, int validadeDaAplicacao, float dosagemPorKg, float volumeVacina) { 
+        this.nomeVacina = nomeVacina;
+        this.idFrascoVacina = idFrascoVacina;
+        this.idLote = idLote;
+        this.fabricante = fabricante;
+        this.validadeDoLote = validadeDoLote;
+        this.validadeDaAplicacao = validadeDaAplicacao;
+        this.dosagemPorKg = dosagemPorKg;
+        this.volumeVacina = volumeVacina;
+    }
+
+
+
     
     //Métodos
 
@@ -120,7 +148,7 @@ public class Vacina {
      * 
      * @return ID do frasco da vacina
      */
-    public String idFrascoVacina() {
+    public String getIdFrascoVacina() {
         return this.idFrascoVacina;
     }
 
@@ -170,7 +198,7 @@ public class Vacina {
      * 
      * @return Validade da aplicação
      */
-    public int getValidaDaAplicacao() {
+    public int getValidadeDaAplicacao() {
         return this.validadeDaAplicacao;
     }
 

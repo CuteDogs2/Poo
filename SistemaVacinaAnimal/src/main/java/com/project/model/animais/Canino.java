@@ -44,12 +44,39 @@ public class Canino extends Animal {
      * @param dataNascimento    Data de nascimento do animal.
      * @param sexo              Sexo do animal (macho (m)/fêmea(f)).
      * @param peso              Peso do animal em kg.
+     * @param especie           Espécie do animal.
      * @param dono              Cliente que é dono do animal.
      */
-    public Canino(String raca, int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, Cliente dono) {
-        super(idAnimal, nome, dataNascimento, sexo, peso, dono);
+    public Canino(String raca, int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, String especie, Cliente dono) {
+        super(idAnimal, nome, dataNascimento, sexo, peso, especie, dono);
         this.raca = raca;
     }
+
+
+
+
+    /**
+     * Construtor da classe Canino.
+     * 
+     * <p>Utilizado para criar um canino sem o ID.</p>
+     * 
+     * @param raca              Raça do canino.
+     * @param nome              Nome do animal.
+     * @param dataNascimento    Data de nascimento do animal.
+     * @param sexo              Sexo do animal (macho (m)/fêmea(f)).
+     * @param peso              Peso do animal em kg.
+     * @param especie           Espécie do animal.
+     * @param dono              Cliente que é dono do animal.
+     */
+    public Canino(String raca, String nome, LocalDate dataNascimento, char sexo, float peso, String especie, Cliente dono) {
+        super(nome, dataNascimento, sexo, peso, especie, dono);
+        this.raca = raca;
+    }
+
+
+
+
+    //Métodos
 
 
 

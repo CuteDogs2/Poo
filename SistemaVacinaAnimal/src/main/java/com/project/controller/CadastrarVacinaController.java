@@ -28,24 +28,24 @@ public class CadastrarVacinaController {
     private void onCadastrarVacinaClicked() {
 
         String nome = nomeVacina.getText();
-        String idLote = idLoteVacina.getText();
         String idFrasco = idFrascoVacina.getText();
+        String idLote = idLoteVacina.getText();
         String fabricante = fabricanteVacina.getText();
         LocalDate validadeLote = validadeLoteVacina.getValue();
         int validadeAplicacao = Integer.parseInt(validadeAplicacaoVacina.getText());
         float dosagemKgMl = Float.parseFloat(dosagemKgMlVacina.getText());
         float volumeFrasco = Float.parseFloat(volumeMlVacina.getText());
 
-        Vacina vacina = new Vacina(nome, idLote, idFrasco, fabricante, validadeLote, validadeAplicacao, dosagemKgMl, volumeFrasco);
+        Vacina vacina = new Vacina(nome, idFrasco, idLote, fabricante, validadeLote, validadeAplicacao, dosagemKgMl, volumeFrasco);
 
-        System.out.println("nome: " + nome + ", " + 
-                           "idLote: " + idLote + ", " + 
-                           "idFrasco: " + idFrasco + ", " + 
-                           "fabricante: " + fabricante + ", " + 
-                           "validadeLote: " + validadeLote + ", " + 
-                           "validadAplicacao: " + validadeAplicacao + ", " +
-                           "dosagemKgMl: " + dosagemKgMl + ", " +
-                           "volumeFrasco: " + volumeFrasco);
+        System.out.println("nome: " + vacina.getNomeVacina() + ", " + 
+                           "idLote: " + vacina.getIdLote() + ", " + 
+                           "idFrasco: " + vacina.getIdFrascoVacina() + ", " + 
+                           "fabricante: " + vacina.getFabricante() + ", " + 
+                           "validadeLote: " + vacina.getValidadeDoLote() + ", " + 
+                           "validadAplicacao: " + vacina.getValidadeDaAplicacao() + ", " +
+                           "dosagemKgMl: " + vacina.getDosagemPorKg() + ", " +
+                           "volumeFrasco: " + vacina.getVolumeVacina());
 
     }
 

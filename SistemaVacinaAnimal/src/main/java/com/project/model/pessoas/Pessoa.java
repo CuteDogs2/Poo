@@ -29,17 +29,25 @@ abstract class Pessoa {
     /** CPF da pessoa. */
     private String cpf;
 
-    /** Data de nascimento da pessoa. */
-    private LocalDate dataNascimento;
-
     /** Telefone da pessoa. */
     private String telefone;
 
+        /** E-mail da pessoa. */
+    private String email;
+
+    /** Data de nascimento da pessoa. */
+    private LocalDate dataNascimento;
+    
     /** Sexo da pessoa. */
     private char sexo;
 
-    /** E-mail da pessoa. */
-    private String email;
+
+
+
+
+
+
+
 
 
 
@@ -54,18 +62,20 @@ abstract class Pessoa {
      * 
      * @param nome                  Nome da pessoa.
      * @param cpf                   CPF da pessoa.
-     * @param dataNascimento        Idade da pessoa.
      * @param telefone              Telefone da pessoa.
-     * @param sexo                  Sexo da pessoa (masculino (m)/feminino (f)).
      * @param email                 E-mail da pessoa
+     * @param dataNascimento        Idade da pessoa.
+     * @param sexo                  Sexo da pessoa (masculino (m)/feminino (f)).
+     * 
      */
-    public Pessoa(String nome, String cpf, LocalDate dataNascimento, String telefone, char sexo, String email) {
+    public Pessoa(String nome, String cpf, String telefone, String email, LocalDate dataNascimento, char sexo) {
         this.nome = nome;
         this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
         this.telefone = telefone;
-        this.sexo = sexo;
         this.email = email;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+        
     }
 
 
@@ -100,6 +110,31 @@ abstract class Pessoa {
 
 
 
+  /**
+     * Obtém o telefone da pessoa.
+     * 
+     * @return Telefone da pessoa.
+     */
+    public String getTelefone() {
+        return this.telefone;
+    }
+
+
+
+
+    /**
+     * Obtem o e-mail da pessoa.
+     * 
+     * 
+     * @return E-mail da pessoa.
+     */
+    public String getEmail() {
+        return this.email;
+    }
+
+
+
+
     /**
      * Obtém a data de nascimento da pessoa.
      * 
@@ -107,18 +142,6 @@ abstract class Pessoa {
      */
     public LocalDate getDataNascimento() {
         return this.dataNascimento;
-    }
-
-
-
-
-    /**
-     * Obtém o telefone da pessoa.
-     * 
-     * @return Telefone da pessoa.
-     */
-    public String getTelefone() {
-        return this.telefone;
     }
 
 
@@ -133,19 +156,6 @@ abstract class Pessoa {
         return this.sexo;
     }
     
-
-
-
-    /**
-     * Obtem o e-mail da pessoa.
-     * 
-     * 
-     * @return E-mail da pessoa.
-     */
-    public String getEmail() {
-        return this.email;
-    }
-
 
 
 
@@ -170,6 +180,30 @@ abstract class Pessoa {
         this.cpf = cpf;
     }
 
+    
+
+
+    /**
+     * Altera o telefone da pessoa.
+     * 
+     * @param telefone Novo telefone da pessoa.
+     */
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+
+
+
+    /**
+     * Altera o e-mail da pessoa.
+     * 
+     * @param email Novo e-mail da pessoa.
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 
 
 
@@ -186,35 +220,11 @@ abstract class Pessoa {
 
 
     /**
-     * Altera o telefone da pessoa.
-     * 
-     * @param telefone Novo telefone da pessoa.
-     */
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-
-
-
-    /**
      * Altera o sexo da pessoa.
      * 
      * @param sexo Novo sexo da pessoa.
      */
     public void setSexo(char sexo) {
         this.sexo = sexo;
-    }
-
-
-
-
-    /**
-     * Altera o e-mail da pessoa.
-     * 
-     * @param email Novo e-mail da pessoa.
-     */
-    public void setEmail(String email) {
-        this.email = email;
     }
 }

@@ -11,21 +11,37 @@
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="40.0" />
   </columnConstraints>
   <rowConstraints>
+      <RowConstraints vgrow="SOMETIMES" />
     <RowConstraints vgrow="SOMETIMES" />
     <RowConstraints vgrow="SOMETIMES" />
     <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
       <RowConstraints vgrow="SOMETIMES" />
       <RowConstraints vgrow="SOMETIMES" />
       <RowConstraints vgrow="SOMETIMES" />
       <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
 </rowConstraints>
 <children>
-    <TextField fx:id="nomeCliente" promptText="Nome do Cliente" styleClass="caixas_texto" GridPane.columnSpan="2" />
-    <TextField fx:id="cpfCliente" promptText="CPF" styleClass="caixas_texto" GridPane.rowIndex="1" />
-      <TextField fx:id="telefoneCliente" promptText="Telefone" styleClass="caixas_texto" GridPane.rowIndex="2" />
-    <TextField fx:id="emailCliente" promptText="E-mail" styleClass="caixas_texto" GridPane.rowIndex="3" />
-      <DatePicker fx:id="dataNascimentoCliente" promptText="Data de Nascimento" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-    <Button fx:id="btnRegistrarCliente" onAction="#onRegistrarClienteBtnClicked" styleClass="btn_registrar" text="Registrar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
-      <ComboBox fx:id="sexoCliente" promptText="Sexo" styleClass="seletor_combobox" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <Label maxWidth="1.7976931348623157E308" styleClass="titulo_secao" text="Cliente" />
+    <TextField fx:id="nomeCliente" promptText="Nome do Cliente" styleClass="caixas_texto" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+    <TextField fx:id="cpfCliente" promptText="CPF" styleClass="caixas_texto" GridPane.rowIndex="2" />
+      <TextField fx:id="telefoneCliente" promptText="Telefone" styleClass="caixas_texto" GridPane.rowIndex="3" />
+    <TextField fx:id="emailCliente" promptText="E-mail" styleClass="caixas_texto" GridPane.rowIndex="4" />
+      <Label maxWidth="1.7976931348623157E308" styleClass="titulo_secao" text="Animal" GridPane.rowIndex="6" />
+      <TextField fx:id="nomeAnimal" promptText="Nome do Animal" styleClass="caixas_texto" GridPane.rowIndex="7" />
+      <TextField fx:id="pesoAnimal" promptText="Peso" styleClass="caixas_texto" GridPane.rowIndex="8" />
+      <DatePicker fx:id="dataNascimentoCliente" promptText="Data de Nascimento" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <ComboBox fx:id="sexoCliente" promptText="Sexo" styleClass="seletor_combobox" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <DatePicker fx:id="dataNascimentoAnimal" promptText="Data de Nascimento" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <ComboBox fx:id="sexoAnimal" promptText="Sexo" styleClass="seletor_combobox" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+    <Button fx:id="btnRegistrarCliente" onAction="#onRegistrarClienteBtnClicked" styleClass="btn_registrar" text="Registrar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="11" />
+      <TextField fx:id="racaAnimal" promptText="Raça do Animal" styleClass="caixas_texto" GridPane.rowIndex="10" />
+      <ComboBox fx:id="especieAnimal" promptText="Espécie" styleClass="seletor_combobox" GridPane.rowIndex="9" />
 </children>
 </GridPane>

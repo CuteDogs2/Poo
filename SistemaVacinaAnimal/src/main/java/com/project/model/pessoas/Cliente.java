@@ -41,14 +41,26 @@ public class Cliente extends Pessoa {
      * @param idAnimal          Id do animal.
      * @param nome              Nome do cliente.
      * @param cpf               CPF do cliente.
-     * @param dataNascimento    Data de nascimento do cliente.
      * @param telefone          Telefone do cliente.
-     * @param sexo              Sexo do cliente (masculino (m)/feminino (f)).
      * @param email             E-mail do cliente.
+     * @param dataNascimento    Data de nascimento do cliente.
+     * @param sexo              Sexo do cliente (masculino (m)/feminino (f)).
      */
-    public Cliente(String idAnimal, String nome, String cpf, LocalDate dataNascimento, String telefone, char sexo, String email) {
-        super(nome, cpf, dataNascimento, telefone, sexo, email);
+    public Cliente(String idAnimal, String nome, String cpf, String telefone, String email, LocalDate dataNascimento, char sexo) {
+        super(nome, cpf, telefone, email, dataNascimento, sexo);
         this.idAnimal = idAnimal;
+    }
+
+
+
+
+    /**
+     * Construtor da classe Cliente.
+     * 
+     * <p>Utilizado para criar um cliente sem o ID do animal.</p>
+     */
+    public Cliente(String nome, String cpf, String telefone, String email, LocalDate dataNascimento, char sexo) {
+    super(nome, cpf, telefone, email, dataNascimento, sexo);
     }
 
 

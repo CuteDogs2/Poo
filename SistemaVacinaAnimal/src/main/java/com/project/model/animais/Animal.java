@@ -38,6 +38,9 @@ abstract public class Animal {
     /** Peso em kg do animal. */
     private float peso;
 
+    /** Espécie do animal */
+    private String especie;
+
     /** Objeto Cliente, que representa o dono do animal. */
     private Cliente dono;
 
@@ -57,14 +60,40 @@ abstract public class Animal {
      * @param dataNascimento    Data de nascimento do animal.
      * @param sexo              Sexo do animal (macho (m)/fêmea(f)).
      * @param peso              Peso do animal em kg.
+     * @param especie           Espécie do animal.
      * @param dono              Cliente que é dono do animal.
      */
-    public Animal(int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, Cliente dono) {
+    public Animal(int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, String especie, Cliente dono) {
         this.idAnimal = idAnimal;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.sexo = sexo;
         this.peso = peso;
+        this.especie = especie;
+        this.dono = dono;
+    }
+
+
+
+
+    /**
+     * Construtor da classe Animal.
+     * 
+     * <p>Utilizado para criar um animal sem o ID.</p>
+     * 
+     * @param nome              Nome do animal.
+     * @param dataNascimento    Data de nascimento do animal.
+     * @param sexo              Sexo do animal (macho (m)/fêmea(f)).
+     * @param peso              Peso do animal em kg.
+     * @param especie           Espécie do animal.
+     * @param dono              Cliente que é dono do animal.
+     */
+    public Animal(String nome, LocalDate dataNascimento, char sexo, float peso, String especie, Cliente dono) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+        this.peso = peso;
+        this.especie = especie;
         this.dono = dono;
     }
     
@@ -93,7 +122,7 @@ abstract public class Animal {
      * 
      * @return Nome do animal.
      */
-    public String nome() {
+    public String getNome() {
         return this.nome;
     }
 
@@ -133,6 +162,17 @@ abstract public class Animal {
         return this.peso;
     }
 
+
+
+
+    /**
+     * Obtém a espécie do animal.
+     * 
+     * @return Espécie do animal.
+     */
+    public String getEspecie() {
+        return this.especie;
+    }
 
 
 
@@ -203,6 +243,18 @@ abstract public class Animal {
      */
     public void setPeso(float peso) {
         this.peso = peso;
+    }
+
+
+
+
+    /**
+     * Altera a espécie do animal.
+     * 
+     * @param especie Nova espécie do animal.
+     */
+    public void setEspecie(String especie) {
+        this.especie = especie;
     }
 
 

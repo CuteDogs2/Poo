@@ -180,3 +180,16 @@
     background-color: #000000;
     -fx-effect: innershadow(gaussian, #222, 8, 0.4, 0, 2);
 }
+
+
+
+
+.titulo_secao {
+    -fx-font-size: 18px;
+    font-size: 18px;
+    -fx-font-weight: bold;
+    font-weight: bold;
+    -fx-text-fill: black;
+    -fx-background-color: transparent;
+    background-color: transparent;
+}

@@ -21,8 +21,8 @@
 </rowConstraints>
 <children>
     <TextField fx:id="nomeVacina" promptText="Nome da Vacina" styleClass="caixas_texto" GridPane.columnSpan="2" />
-    <TextField fx:id="idLoteVacina" promptText="ID do lote" styleClass="caixas_texto" GridPane.rowIndex="1" />
-      <TextField fx:id="idFrascoVacina" promptText="ID do Frasco" styleClass="caixas_texto" GridPane.rowIndex="2" />
+      <TextField fx:id="idFrascoVacina" promptText="ID do Frasco" styleClass="caixas_texto" GridPane.rowIndex="1" />
+    <TextField fx:id="idLoteVacina" promptText="ID do lote" styleClass="caixas_texto" GridPane.rowIndex="2" />
     <TextField fx:id="fabricanteVacina" promptText="Fabricante" styleClass="caixas_texto" GridPane.rowIndex="3" />
       <DatePicker fx:id="validadeLoteVacina" promptText="Validade do Lote" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="1" />
     <TextField fx:id="dosagemKgMlVacina" promptText="Dosagem em ml/Kg" styleClass="caixas_texto" GridPane.columnIndex="1" GridPane.rowIndex="3" />
