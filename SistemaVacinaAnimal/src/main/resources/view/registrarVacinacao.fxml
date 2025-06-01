@@ -20,7 +20,7 @@
       <RowConstraints />
 </rowConstraints>
 <children>
-      <TextField promptText="Nome do Cliente" styleClass="caixas_texto" />
+      <TextField promptText="CPF do Cliente" styleClass="caixas_texto" />
       <ComboBox maxWidth="1.7976931348623157E308" promptText="Selecione a Vacina" styleClass="seletor_combobox" GridPane.rowIndex="1" />
       <DatePicker maxWidth="1.7976931348623157E308" promptText="Data da Aplicaçao" styleClass="seletor_data" GridPane.rowIndex="2" />
       <DatePicker maxWidth="1.7976931348623157E308" promptText="Data de Retorno" styleClass="seletor_data" GridPane.rowIndex="3" />
