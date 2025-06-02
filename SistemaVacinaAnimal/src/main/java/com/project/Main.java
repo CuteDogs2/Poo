@@ -25,15 +25,8 @@ public class Main extends Application {
 
 
 
-        // Testa a conexão com o banco de dados
-        try (java.sql.Connection conn = com.project.util.DataBaseUtil.getConnection()) {
-            if (conn != null && !conn.isClosed()) {
-                System.out.println("Conexão com o banco de dados estabelecida com sucesso!");
-            }
-        } catch (Exception e) {
-            System.out.println("erro ao conectar: " + e.getMessage());
-            e.printStackTrace();
-        }
+        // Testando conexão com o banco de dados.
+        com.project.util.TestaConexao.testarConexao();
 
 
 

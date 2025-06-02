@@ -11,13 +11,6 @@ public class DataBaseUtil {
     private static final String PASSWORD = "admin";   // SUBSTITUA PELA SUA SENHA
 
     public static Connection getConnection() throws SQLException {
-        // Opcional: Registrar o driver para versões mais antigas do JDBC.
-        // try {
-        //     Class.forName("com.mysql.cj.jdbc.Driver");
-        // } catch (ClassNotFoundException e) {
-        //     throw new SQLException("Driver MySQL JDBC não encontrado.", e);
-        // }
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
-    
 }
