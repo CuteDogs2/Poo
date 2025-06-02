@@ -25,7 +25,6 @@ public class RegistrarVacinacaoController {
     public void initialize() {
 
         //list<Vacina> vacinas = buscar todas as vacinass do banco de dados.
-        //
 
     }
 

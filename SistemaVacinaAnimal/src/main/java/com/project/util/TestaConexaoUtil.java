@@ -3,7 +3,7 @@ package com.project.util;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class TestaConexao {
+public class TestaConexaoUtil {
     public static void testarConexao() {
         try (Connection conn = DataBaseUtil.getConnection()) {
             if (conn != null && !conn.isClosed()) {

@@ -26,7 +26,7 @@ public class Main extends Application {
 
 
         // Testando conexão com o banco de dados.
-        com.project.util.TestaConexao.testarConexao();
+        com.project.util.TestaConexaoUtil.testarConexao();
 
 
 
