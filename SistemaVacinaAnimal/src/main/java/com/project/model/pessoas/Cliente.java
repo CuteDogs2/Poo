@@ -4,6 +4,8 @@ package com.project.model.pessoas;
 
 
 import java.time.LocalDate;
+import com.project.model.animais.Animal;
+import java.util.List;
 
 
 
@@ -25,7 +27,7 @@ public class Cliente extends Pessoa {
 
 
     /** Id do animal. */
-    private String idAnimal;
+    private List<Animal> listaAnimais;
 
 
 
@@ -38,7 +40,7 @@ public class Cliente extends Pessoa {
     /**
      * Construtor da classe Cliente.
      * 
-     * @param idAnimal          Id do animal.
+     * @param listaAnimais      Lista de animais do cliente.
      * @param nome              Nome do cliente.
      * @param cpf               CPF do cliente.
      * @param telefone          Telefone do cliente.
@@ -46,9 +48,9 @@ public class Cliente extends Pessoa {
      * @param dataNascimento    Data de nascimento do cliente.
      * @param sexo              Sexo do cliente (masculino (m)/feminino (f)).
      */
-    public Cliente(String idAnimal, String nome, String cpf, String telefone, String email, LocalDate dataNascimento, char sexo) {
+    public Cliente(List<Animal> listaAnimais, String nome, String cpf, String telefone, String email, LocalDate dataNascimento, char sexo) {
         super(nome, cpf, telefone, email, dataNascimento, sexo);
-        this.idAnimal = idAnimal;
+        this.listaAnimais = listaAnimais;
     }
 
 
@@ -57,7 +59,7 @@ public class Cliente extends Pessoa {
     /**
      * Construtor da classe Cliente.
      * 
-     * <p>Utilizado para criar um cliente sem o ID do animal.</p>
+     * <p>Utilizado para criar um cliente sem a lista de animais.</p>
      */
     public Cliente(String nome, String cpf, String telefone, String email, LocalDate dataNascimento, char sexo) {
     super(nome, cpf, telefone, email, dataNascimento, sexo);
@@ -69,26 +71,26 @@ public class Cliente extends Pessoa {
     //Métodos
 
 
-
     
+
     /**
-     * Obtém o ID do animal do cliente.
-     * 
-     * @return ID do animal.
+     * Obtém a lista de animais do cliente.
+     *
+     * @return Lista de animais.
      */
-    public String getIdAnimal() {
-        return this.idAnimal;
+    public List<Animal> getListaAnimais() {
+        return this.listaAnimais;
     }
 
 
 
 
     /**
-     * Altera o ID do animal do cliente.
-     * 
-     * @param idAnimal ID do animal.
+     * Altera a lista de animais do cliente.
+     *
+     * @param listaAnimais Lista de animais.
      */
-    public void setIdAnimal(String idAnimal) {
-        this.idAnimal = idAnimal;
+    public void setListaAnimais(List<Animal> listaAnimais) {
+        this.listaAnimais = listaAnimais;
     }
 }
