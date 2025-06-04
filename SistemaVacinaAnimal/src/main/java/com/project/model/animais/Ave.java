@@ -77,6 +77,32 @@ public class Ave extends Animal {
 
 
     /**
+     * Construtor da classe Ave.
+     * 
+     * <p>Construtor utilizado para criar um Ave sem o dono</p>
+     * 
+     * @param raca              Raça do Ave.
+     * @param idAnimal          ID do animal
+     * @param nome              Nome do animal.
+     * @param dataNascimento    Data de nascimento do animal.
+     * @param sexo              Sexo do animal (macho (m)/fêmea(f)).
+     * @param peso              Peso do animal em kg.
+     * @param especie           Espécie do animal.
+     */
+    public Ave(String raca, int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, String especie) {
+        super(idAnimal, nome, dataNascimento, sexo, peso, especie);
+        this.raca = raca;
+    }
+
+
+
+
+    //Métodos
+
+
+
+
+    /**
      * Obtém a raça da ave.
      * 
      * @return Raça da ave.

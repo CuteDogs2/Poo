@@ -81,6 +81,20 @@ abstract class Pessoa {
 
 
 
+    /**
+     * Construtor da classe Pessoa.
+     * 
+     * <p>Utilizado para criar uma pessoa somente com seu cpf</p>
+     * 
+     * @param cpf                   CPF da pessoa.
+     * 
+     */
+    public Pessoa(String cpf) {
+        this.cpf = cpf;
+    }
+
+
+
     //Métodos
 
 

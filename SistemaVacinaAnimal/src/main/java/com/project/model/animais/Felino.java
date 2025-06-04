@@ -76,6 +76,31 @@ public class Felino extends Animal {
 
 
 
+    /**
+     * Construtor da classe Felino.
+     * 
+     * <p>Construtor utilizado para criar um Felino sem o dono</p>
+     * 
+     * @param raca              Raça do Felino.
+     * @param idAnimal          ID do animal
+     * @param nome              Nome do animal.
+     * @param dataNascimento    Data de nascimento do animal.
+     * @param sexo              Sexo do animal (macho (m)/fêmea(f)).
+     * @param peso              Peso do animal em kg.
+     * @param especie           Espécie do animal.
+     */
+    public Felino(String raca, int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, String especie) {
+        super(idAnimal, nome, dataNascimento, sexo, peso, especie);
+        this.raca = raca;
+    }
+
+
+
+
+    //Métodos
+
+
+
 
     /**
      * Obtém a raça do felino.

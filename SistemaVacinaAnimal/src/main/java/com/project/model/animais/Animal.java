@@ -96,6 +96,30 @@ abstract public class Animal {
         this.especie = especie;
         this.dono = dono;
     }
+
+
+
+
+    /**
+     * Construtor da classe Animal.
+     * 
+     * <p>Construtor utilizado para criar um animal sem o dono</p>
+     * 
+     * @param idAnimal          ID do animal
+     * @param nome              Nome do animal.
+     * @param dataNascimento    Data de nascimento do animal.
+     * @param sexo              Sexo do animal (macho (m)/fêmea(f)).
+     * @param peso              Peso do animal em kg.
+     * @param especie           Espécie do animal.
+     */
+    public Animal(int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, String especie) {
+        this.idAnimal = idAnimal;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+        this.peso = peso;
+        this.especie = especie;
+    }
     
 
 

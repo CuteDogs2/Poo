@@ -60,9 +60,30 @@ public class Cliente extends Pessoa {
      * Construtor da classe Cliente.
      * 
      * <p>Utilizado para criar um cliente sem a lista de animais.</p>
+     * 
+     * @param nome              Nome do cliente.
+     * @param cpf               CPF do cliente.
+     * @param telefone          Telefone do cliente.
+     * @param email             E-mail do cliente.
+     * @param dataNascimento    Data de nascimento do cliente.
+     * @param sexo              Sexo do cliente (masculino (m)/feminino (f)).
      */
     public Cliente(String nome, String cpf, String telefone, String email, LocalDate dataNascimento, char sexo) {
     super(nome, cpf, telefone, email, dataNascimento, sexo);
+    }
+
+
+
+
+    /**
+     * Construtor da classe Cliente.
+     * 
+     * <p>Utilizado para criar um cliente somente com seu cpf.</p>
+     * 
+     * @param cpf               CPF do cliente.
+     */
+    public Cliente(String cpf) {
+    super(cpf);
     }
 
 
