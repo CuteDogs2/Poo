@@ -68,6 +68,48 @@ public class AnimalRepository {
 
 
 
+    public void inserirAnimal(Animal animal, Connection connection) throws SQLException {
+
+
+        String sql = "INSERT INTO animal (nome, data_nascimento_animal, sexo, peso, especie, raca, pessoa_cpf) VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setString(1, animal.getNome());
+            preparedStatement.setDate(2, Date.valueOf(animal.getDataNascimento()));
+            preparedStatement.setString(3, String.valueOf(animal.getSexo()));
+            preparedStatement.setFloat(4, animal.getPeso());
+            preparedStatement.setString(5, animal.getEspecie());
+            
+            String raca = "Genérico";
+            if (animal instanceof Canino) {
+                raca = ((Canino)animal).getRaca();                
+            }
+            if (animal instanceof Felino) {
+                raca = ((Felino)animal).getRaca();
+            }
+            if (animal instanceof Ave) {
+                raca = ((Ave)animal).getRaca();
+            }
+            if (raca == null || raca.trim().isEmpty()) {
+                raca = "Genérico";
+            }
+            preparedStatement.setString(6, raca);
+
+            preparedStatement.setString(7, animal.getDono().getCpf());
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
+    }
+
+
+
+
     public Animal buscarAnimalPorId(int idDoAnimal) throws SQLException {
 
         String sql = "SELECT a.raca, a.idanimal, a.nome AS animal_nome, a.data_nascimento_animal, a.sexo AS animal_sexo, a.peso, a.especie, p.nome AS nome_dono, p.cpf AS pessoa_cpf, p.telefone, p.email, p.data_nascimento AS dono_data_nascimento, p.sexo AS dono_sexo FROM animal a JOIN pessoa p ON a.pessoa_cpf = p.cpf WHERE a.idanimal = ?";

@@ -46,6 +46,32 @@ public class ClienteRepository {
 
 
 
+    public void inserirCliente(Cliente cliente, Connection connection) throws SQLException {
+
+
+        String sql = "INSERT INTO pessoa (nome, cpf, telefone, email, data_nascimento, sexo) VALUES (?, ?, ?, ?, ?, ?)";
+
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setString(1, cliente.getNome());
+            preparedStatement.setString(2, cliente.getCpf());
+            preparedStatement.setString(3, cliente.getTelefone());
+            preparedStatement.setString(4, cliente.getEmail());
+            preparedStatement.setDate(5, Date.valueOf(cliente.getDataNascimento()));
+            preparedStatement.setString(6, String.valueOf(cliente.getSexo()));
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
+    }
+
+
+
+
     public Cliente buscarClientePorCpf(String cpf) throws SQLException {
         
 
