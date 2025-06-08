@@ -2,8 +2,13 @@ package com.project.controller;
 
 
 
-import com.project.model.Vacina;
+
 import java.time.LocalDate;
+
+import com.project.model.vacina.Vacina;
+import com.project.model.vacina.Frasco;
+import com.project.model.vacina.Lote;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -27,26 +32,44 @@ public class CadastrarVacinaController {
     @FXML
     private void onCadastrarVacinaClicked() {
 
-        String nome = nomeVacina.getText();
+        
+
+
         String idFrasco = idFrascoVacina.getText();
+        float volumeFrasco = Float.parseFloat(volumeMlVacina.getText());
+        Frasco frasco = new Frasco(idFrasco, volumeFrasco);
+
+
+
+
         String idLote = idLoteVacina.getText();
-        String fabricante = fabricanteVacina.getText();
         LocalDate validadeLote = validadeLoteVacina.getValue();
+        Lote lote = new Lote(idLote, validadeLote);
+
+
+
+
+        String nome = nomeVacina.getText();
+        String fabricante = fabricanteVacina.getText();
         int validadeAplicacao = Integer.parseInt(validadeAplicacaoVacina.getText());
         float dosagemKgMl = Float.parseFloat(dosagemKgMlVacina.getText());
-        float volumeFrasco = Float.parseFloat(volumeMlVacina.getText());
 
-        Vacina vacina = new Vacina(nome, idFrasco, idLote, fabricante, validadeLote, validadeAplicacao, dosagemKgMl, volumeFrasco);
 
+
+
+        Vacina vacina = new Vacina(nome, fabricante, validadeAplicacao, dosagemKgMl);
+
+
+
+        
         System.out.println("nome: " + vacina.getNomeVacina() + ", " + 
-                           "idLote: " + vacina.getIdLote() + ", " + 
-                           "idFrasco: " + vacina.getIdFrascoVacina() + ", " + 
+                           "idLote: " + lote.getIdLote() + ", " + 
+                           "idFrasco: " + frasco.getIdFrasco() + ", " + 
                            "fabricante: " + vacina.getFabricante() + ", " + 
-                           "validadeLote: " + vacina.getValidadeDoLote() + ", " + 
+                           "validadeLote: " + lote.getDataValidade() + ", " + 
                            "validadAplicacao: " + vacina.getValidadeDaAplicacao() + ", " +
                            "dosagemKgMl: " + vacina.getDosagemPorKg() + ", " +
-                           "volumeFrasco: " + vacina.getVolumeVacina());
-
-    }
-
+                           "volumeFrasco: " + frasco.getVolumeFrasco());
+        
+    }  
 }

@@ -6,6 +6,7 @@ package com.project.model;
 import java.time.LocalDate;
 import com.project.model.animais.Animal;
 import com.project.model.pessoas.Veterinario;
+import com.project.model.vacina.Vacina;
 
 
 

@@ -3,8 +3,9 @@ package com.project.controller;
 
 
 
-import com.project.model.Vacina;
 import com.project.model.animais.Animal;
+import com.project.model.vacina.Vacina;
+
 import java.time.LocalDate;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;

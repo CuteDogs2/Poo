@@ -1,9 +1,11 @@
-package com.project.model;
+package com.project.model.vacina;
 
 
 
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
+import java.util.List;
+import java.util.ArrayList;
 
 
 
@@ -29,17 +31,8 @@ public class Vacina {
     /** ID da vacina. */
     private int idVacina;
 
-    /** ID do frasco da vacina. */
-    private String idFrascoVacina;
-
-    /** ID do lote. */
-    private String idLote;
-
     /** Nome do fabricante. */
     private String fabricante;
-
-    /** Validade do lote. */
-    private LocalDate validadeDoLote;
 
     /** Validade da aplicação em meses. */
     private int validadeDaAplicacao;
@@ -47,9 +40,8 @@ public class Vacina {
     /** Volume específico de aplicação da vacina em ml/kg do animal. */
     private float dosagemPorKg;
 
-    /** Volume em ml contido no frasco da vacina. */
-    private float volumeVacina;
-
+    /** Lista de lotes de uma respectiva vacina registradas no sistema. */
+    private List<Lote> lotes;
 
 
 
@@ -63,52 +55,42 @@ public class Vacina {
      * 
      * @param nomeVacina            Nome da vacina.
      * @param idVacina              ID da vacina.
-     * @param idFrascoVacina        ID do frasco da vacina.
-     * @param idLote                ID do lote.
      * @param fabricante            Nome do fabricante.
-     * @param validadeDoLote        Validade do lote.
      * @param validadeDaAplicacao   Validade da aplicação em meses (duração do efeito da imunidade).
      * @param dosagemPorKg          volume específico de aplicação da vacina em ml/kg do animal.
-     * @param volumeVacina          Volume em ml contido no frasco da vacina.
+     * @param lotes                 Lista de lotes de uma respectiva vacina registrada no sistema.
+     * 
      */
-    public Vacina(String nomeVacina, int idVacina, String idFrascoVacina, String idLote, String fabricante, LocalDate validadeDoLote, int validadeDaAplicacao, float dosagemPorKg, float volumeVacina) {
+    public Vacina(String nomeVacina, int idVacina, String fabricante, int validadeDaAplicacao, float dosagemPorKg) {
         this.nomeVacina = nomeVacina;
         this.idVacina = idVacina;
-        this.idFrascoVacina = idFrascoVacina;
-        this.idLote = idLote;
         this.fabricante = fabricante;
-        this.validadeDoLote = validadeDoLote;
         this.validadeDaAplicacao = validadeDaAplicacao;
         this.dosagemPorKg = dosagemPorKg;
-        this.volumeVacina = volumeVacina;
+        this.lotes = new ArrayList<>();
     }
 
 
 
 
     /**
-     * Construtor da classe vacina sem o ID da vacina.
+     * Construtor da classe Vacina sem o ID da vacina.
      * 
-     * <p>Este construtor será utilizado ao cadastrar uma nova vacina, onde o ID será gerado automaticamente pelo banco de dados.</p>
+     * Utilizado para criar um objeto vacina sem o ID da vacina.
      * 
-     * @param nomeVacina                Nome da vacina.
-     * @param idFrascoVacina            ID do frasco da vacina.
-     * @param idLote                    ID do lote.
-     * @param fabricante                Nome do fabricante.
-     * @param validadeDoLote            Validade do lote.
-     * @param validadeDaAplicacao       Validade da aplicação em meses (duração do efeito da imunidade).
-     * @param dosagemPorKg              volume específico de aplicação da vacina em ml/kg do animal.
-     * @param volumeVacina              Volume em ml contido no frasco da vacina.
+     * @param nomeVacina            Nome da vacina.
+     * @param fabricante            Nome do fabricante.
+     * @param validadeDaAplicacao   Validade da aplicação em meses (duração do efeito da imunidade).
+     * @param dosagemPorKg          volume específico de aplicação da vacina em ml/kg do animal.
+     * @param lotes                 Lista de lotes de uma respectiva vacina registrada no sistema.
+     * 
      */
-    public Vacina(String nomeVacina, String idFrascoVacina, String idLote, String fabricante, LocalDate validadeDoLote, int validadeDaAplicacao, float dosagemPorKg, float volumeVacina) { 
+    public Vacina(String nomeVacina, String fabricante, int validadeDaAplicacao, float dosagemPorKg) {
         this.nomeVacina = nomeVacina;
-        this.idFrascoVacina = idFrascoVacina;
-        this.idLote = idLote;
         this.fabricante = fabricante;
-        this.validadeDoLote = validadeDoLote;
         this.validadeDaAplicacao = validadeDaAplicacao;
         this.dosagemPorKg = dosagemPorKg;
-        this.volumeVacina = volumeVacina;
+        this.lotes = new ArrayList<>();
     }
 
 
@@ -143,30 +125,6 @@ public class Vacina {
 
 
 
-    /**
-     * Obtém o ID do frasco da vacina.
-     * 
-     * @return ID do frasco da vacina
-     */
-    public String getIdFrascoVacina() {
-        return this.idFrascoVacina;
-    }
-
-
-
-
-    /**
-     * Obtem o ID do lote.
-     * 
-     * @return ID do lote.
-     */
-    public String getIdLote() {
-        return this.idLote;
-    }
-
-
-
-
 
     /**
      * Obtém o nome do fabricante.
@@ -175,19 +133,6 @@ public class Vacina {
      */
     public String getFabricante() {
         return this.fabricante;
-    }
-
-
-
-
-    /**
-     * Obtém a validade do lote.
-     * 
-     * 
-     * @return Validade do lote.
-     */
-    public LocalDate getValidadeDoLote() {
-        return this.validadeDoLote;
     }
 
 
@@ -218,12 +163,12 @@ public class Vacina {
 
 
     /**
-     * Obtém o volume em ml contido no frasco da vacina.
+     * Obtém uma lista de lotes de uma respectiva vacina registrados no sistema.
      * 
-     * @return Volume em ml contido no frasco.
+     * @return Lista de lotes.
      */
-    public float getVolumeVacina() {
-        return this.volumeVacina;
+    public List<Lote> getLotes() {
+        return this.lotes;
     }
 
 
@@ -254,48 +199,12 @@ public class Vacina {
 
 
     /**
-     * Altera o ID do lote.
-     * 
-     * @param idLote Novo ID do lote.
-     */
-    public void setIdLote(String idLote) {
-        this.idLote = idLote;
-    }
-
-
-
-
-    /**
-     * Altera o ID do frasco da vacina.
-     * 
-     * @param idFrascoVacina;
-     */
-    public void setIdFrascoVacina(String idFrascoVacina) {
-        this.idFrascoVacina = idFrascoVacina;
-    }
-
-
-
-
-    /**
      * Altera o nome do fabricante.
      * 
      * @param fabricante Novo nome do fabricante.
      */
     public void setFabricante(String fabricante) {
         this.fabricante = fabricante;
-    }
-
-
-
-
-    /**
-     * Altera a data de validade do lote.
-     * 
-     * @param validadeDoLote Nova validade do lote.
-     */
-    public void setValidadeDoLote(LocalDate validadeDoLote) {
-        this.validadeDoLote = validadeDoLote;
     }
 
 
@@ -326,11 +235,11 @@ public class Vacina {
 
 
     /**
-     * Altera o volume em ml contido no frasco da vacina.
+     * Altera a lista de lotes de uma respectiva vacina registrados no sistema.
      * 
-     * @param volumeVacina Novo volume contido no frasco.
+     * @param lote Lista de Lotes.
      */
-    public void setVolumeVacina(float volumeVacina) {
-        this.volumeVacina = volumeVacina;
+    public void setLotes(List<Lote> lote){
+        this.lotes = lote;
     }
 }

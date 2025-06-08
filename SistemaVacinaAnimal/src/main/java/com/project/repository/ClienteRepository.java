@@ -61,6 +61,9 @@ public class ClienteRepository {
             preparedStatement.setDate(5, Date.valueOf(cliente.getDataNascimento()));
             preparedStatement.setString(6, String.valueOf(cliente.getSexo()));
 
+            preparedStatement.executeUpdate();
+
+
         } catch (SQLException e) {
             e.getMessage();
             e.printStackTrace();
