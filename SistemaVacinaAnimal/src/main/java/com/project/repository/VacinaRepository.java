@@ -92,6 +92,8 @@ public class VacinaRepository {
                     ex.printStackTrace();
                 }
             }
+            throw e;
+            
         } finally {
             if (connection != null) {
                 try {
@@ -113,7 +115,7 @@ public class VacinaRepository {
         Map<Integer, Vacina> vacinaMap = new HashMap<>();
         Map<String, Lote> loteMap = new HashMap<>();
 
-        String sql = "SELECT v.id_vacina, v.nome, v.fabricante, v.validade_da_aplicacao, v.dosagem, " + "l.id_lote, l.data_validade, " + "f.id_frasco, volume_frasco " + "FROM vacina v " + "LEFT JOIN lote l ON v.idVacina = l.vacina_id_vacina" + "LEFT JOIN frasco f ON l.id_lote = f.lote_id_lote" + "ORDER BY v.id_vacina, l.id_lote, f.id_frasco";
+        String sql = "SELECT v.id_vacina, v.nome, v.fabricante, v.validade_da_aplicacao, v.dosagem, " + "l.id_lote, l.data_validade, " + "f.id_frasco, volume_frasco " + "FROM vacina v " + "LEFT JOIN lote l ON v.idVacina = l.vacina_id_vacina " + "LEFT JOIN frasco f ON l.id_lote = f.lote_id_lote " + "ORDER BY v.id_vacina, l.id_lote, f.id_frasco";
 
         try (Connection connection = DataBaseUtil.getConnection(); Statement preparedStatement = connection.createStatement(); ResultSet resultSet = preparedStatement.executeQuery(sql)) {
 
