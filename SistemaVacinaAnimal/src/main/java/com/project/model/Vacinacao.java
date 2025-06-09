@@ -73,6 +73,7 @@ public class Vacinacao {
 
 
 
+
     //Métodos
 
 
@@ -146,6 +147,7 @@ public class Vacinacao {
      */
     public float getDoseAplicada() {
         return this.doseAplicada;
+        //return this.doseAplicada * this.vacina.getDosagemPorKg()
     }
 
 
