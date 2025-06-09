@@ -28,6 +28,9 @@ public class Lote {
     /** ID do Lote. */
     private String idLote;
 
+    /** ID da Vacina. */
+    private String idVacina;
+
     /** Data de validade do lote.  */
     private LocalDate dataValidade;
 
@@ -43,6 +46,26 @@ public class Lote {
 
     /**
      * Construtor da classe Lote.
+     * 
+     * @param idLote            ID do Lote.
+     * @param idVacina          ID da vacina.
+     * @param dataValidade      Data de validade do lote.
+     */
+    public Lote (String idLote, String idVacina, LocalDate dataValidade) {
+        this.idLote = idLote;
+        this.dataValidade = dataValidade;
+        this.idVacina = idVacina;
+
+        this.frascos = new ArrayList<>();
+    }
+
+
+
+
+    /**
+     * Construtor da classe Lote.
+     * 
+     * Utilizado para criar um lote sem uma lista de frascos e sem o ID de uma vacina.
      * 
      * @param idLote            ID do Lote.
      * @param dataValidade      Data de validade do lote.
@@ -69,6 +92,18 @@ public class Lote {
      */
     public String getIdLote() {
         return this.idLote;
+    }
+
+
+
+
+    /**
+     * Obtém o ID da vacina.
+     * 
+     * @return ID da vacina.
+     */
+    public String getIdVacina() {
+        return this.idVacina;
     }
 
 
@@ -105,6 +140,18 @@ public class Lote {
      */
     public void setIdLote(String idLote) {
         this.idLote = idLote;
+    }
+
+
+
+
+    /**
+     * Altera o ID da vacina.
+     * 
+     * @param idVacina ID da vacina.
+     */
+    public void setIdVacina(String idVacina) {
+        this.idVacina = idVacina;
     }
 
 

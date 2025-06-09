@@ -6,7 +6,7 @@ package com.project.controller;
 import com.project.model.animais.Animal;
 import com.project.model.vacina.Vacina;
 
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -35,10 +35,10 @@ public class RegistrarVacinacaoController {
     @FXML
     private void onRegistrarVacinacaoClicked() {
 
-        String cpf = cpfCliente.getText();
+        //String cpf = cpfCliente.getText();
         //int vacina = vacinaAplicada.getValue();
-        LocalDate dateDeAplicacao = dataAplicacao.getValue();
-        LocalDate dateDeRetorno = dataRetorno.getValue();
+        //LocalDate dateDeAplicacao = dataAplicacao.getValue();
+        //LocalDate dateDeRetorno = dataRetorno.getValue();
         
 
     }
