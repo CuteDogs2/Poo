@@ -93,7 +93,7 @@ public class VacinaRepository {
                 }
             }
             throw e;
-            
+
         } finally {
             if (connection != null) {
                 try {
@@ -110,7 +110,7 @@ public class VacinaRepository {
 
 
 
-    public List<Vacina> buscarTodas() {
+    public List<Vacina> buscarTodasVacinas() {
 
         Map<Integer, Vacina> vacinaMap = new HashMap<>();
         Map<String, Lote> loteMap = new HashMap<>();
