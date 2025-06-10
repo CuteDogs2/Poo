@@ -102,27 +102,28 @@ public class VacinacaoRepository {
 
 
                     
-                    Frasco frasco = new Frasco(resultadoBusca.getString("idFrasco"), resultadoBusca.getFloat("volumeFrasco"));
+                    Frasco frasco = new Frasco(resultadoBusca.getString("id_frasco"), resultadoBusca.getFloat("volume_frasco"));
 
 
 
                     
-                    Lote lote = new Lote(resultadoBusca.getString("idLote"), resultadoBusca.getDate("dataValidade").toLocalDate());
+                    Lote lote = new Lote(resultadoBusca.getString("id_lote"), resultadoBusca.getDate("lote_data_validade").toLocalDate());
                     
                     lote.getFrascos().add(frasco);
 
 
 
                     
-                    Vacina vacina = new Vacina(resultadoBusca.getString("nomeVacina"), resultadoBusca.getString("fabricante"), resultadoBusca.getInt("validadedaAplicacao"),resultadoBusca.getFloat("dosagemPorkg"));
+                    Vacina vacina = new Vacina(resultadoBusca.getString("vacina_nome"), resultadoBusca.getString("vacina_fabricante"), resultadoBusca.getInt("vacina_validade_aplicacao"),resultadoBusca.getFloat("vacina_dosagem"));
 
                     vacina.getLotes().add(lote);
  
 
 
 
-                    Vacinacao vacinacao = new Vacinacao(animal, vacina, veterinario, resultadoBusca.getDate("dataAplicacao").toLocalDate(), resultadoBusca.getDate("dataRetorno").toLocalDate(),
-                     resultadoBusca.getFloat("doseAplicada"), resultadoBusca.getString("idFrascoUtilizado"));
+                    Vacinacao vacinacao = new Vacinacao(animal, vacina, veterinario, resultadoBusca.getDate("dataAplicacao").toLocalDate(), 
+                        (resultadoBusca.getDate("dataRetorno") != null ? resultadoBusca.getDate("dataRetorno").toLocalDate() : null),
+                    resultadoBusca.getFloat("dose_aplicada"), resultadoBusca.getString("id_frasco"));
 
                     vacinacoes.add(vacinacao);
 
