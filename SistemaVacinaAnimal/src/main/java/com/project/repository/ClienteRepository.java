@@ -22,8 +22,12 @@ public class ClienteRepository {
         
 
         String sql = "INSERT INTO pessoa (nome, cpf, telefone, email, data_nascimento, sexo) VALUES (?, ?, ?, ?, ?, ?)";
-
-
+        
+        Connection connection = DataBaseUtil.getConnection();
+        
+        inserirCliente(cliente, connection);
+        
+        /*
         try (Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setString(1, cliente.getNome());
@@ -41,11 +45,12 @@ public class ClienteRepository {
 
             throw e;
         }
+        */
     }
 
 
 
-
+    
     public void inserirCliente(Cliente cliente, Connection connection) throws SQLException {
 
 
@@ -83,7 +88,7 @@ public class ClienteRepository {
 
         Cliente cliente = null;
 
-
+        
         try(Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql);){
 
             preparedStatement.setString(1, cpf);

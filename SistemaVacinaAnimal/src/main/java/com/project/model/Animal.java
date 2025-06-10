@@ -1,4 +1,4 @@
-package com.project.model.animais;
+package com.project.model;
 
 
 
@@ -14,7 +14,7 @@ import java.time.LocalDate;
  * 
  * <p>Armazena ID do animal, nome, data de nascimento, sexo, peso, e um objeto cliente que contem as informações de seu dono.</p>
  */
-abstract public class Animal {
+public class Animal {
 
 
 
@@ -22,7 +22,9 @@ abstract public class Animal {
     //Atributos
 
 
-
+    /** Raça da ave. */
+    private String raca;
+    
     /** ID do animal. */
     private int idAnimal;
 
@@ -55,6 +57,7 @@ abstract public class Animal {
     /**
      * Construtor da classe Animal.
      * 
+     * @param raca              Raca do animal.
      * @param idAnimal          ID do animal
      * @param nome              Nome do animal.
      * @param dataNascimento    Data de nascimento do animal.
@@ -63,7 +66,8 @@ abstract public class Animal {
      * @param especie           Espécie do animal.
      * @param dono              Cliente que é dono do animal.
      */
-    public Animal(int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, String especie, Cliente dono) {
+    public Animal(String raca, int idAnimal, String nome, LocalDate dataNascimento, char sexo, float peso, String especie, Cliente dono) {
+        this.raca = raca;
         this.idAnimal = idAnimal;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
@@ -81,6 +85,7 @@ abstract public class Animal {
      * 
      * <p>Utilizado para criar um animal sem o ID.</p>
      * 
+     * @param raca              Raça do animal.
      * @param nome              Nome do animal.
      * @param dataNascimento    Data de nascimento do animal.
      * @param sexo              Sexo do animal (macho (m)/fêmea(f)).
@@ -88,7 +93,8 @@ abstract public class Animal {
      * @param especie           Espécie do animal.
      * @param dono              Cliente que é dono do animal.
      */
-    public Animal(String nome, LocalDate dataNascimento, char sexo, float peso, String especie, Cliente dono) {
+    public Animal(String raca, String nome, LocalDate dataNascimento, char sexo, float peso, String especie, Cliente dono) {
+        this.raca = raca;
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.sexo = sexo;
@@ -128,7 +134,18 @@ abstract public class Animal {
 
 
 
+    /**
+     * Obtém a raça do animal.
+     * 
+     * @return Raça do animal.
+     */
+    public String getRaca() {
+        return this.raca;
+    }
 
+
+
+   
     /**
      * Obtém o ID do animal.
      * 
@@ -213,6 +230,17 @@ abstract public class Animal {
 
 
     /**
+     * Altera a raça do animal
+     * 
+     * @param raca Nova raça do animal.
+     */
+    public void setRaca(String raca) {
+        this.raca = raca;
+    }
+
+
+
+    /**
      * Altera o ID do animal.
      * 
      * @param idAnimal Novo ID do animal.
@@ -292,4 +320,5 @@ abstract public class Animal {
     public void setDono(Cliente dono) {
         this.dono = dono;
     }
+    
 }

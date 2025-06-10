@@ -53,6 +53,25 @@ public class Veterinario extends Pessoa {
 
 
 
+    /**
+     * Construtor da classe Veterinario.
+     * 
+     * @param crmv              CRMV do veterinário.
+     * @param nome              Nome do cliente.
+     * @param cpf               CPF do cliente.
+     * @param telefone          Telefone do cliente.
+     * @param email             E-mail do cliente.
+     * @param dataNascimento    Data de nascimento do cliente.
+     * @param sexo              Sexo do cliente (masculino (m)/feminino (f)).
+     */
+    public Veterinario(String crmv, String nome) {
+        super(nome);
+        this.crmv = crmv;
+    }
+
+
+
+
     //Métodos
 
 

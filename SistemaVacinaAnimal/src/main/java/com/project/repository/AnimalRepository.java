@@ -4,10 +4,7 @@ package com.project.repository;
 
 
 import com.project.util.DataBaseUtil;
-import com.project.model.animais.Animal;
-import com.project.model.animais.Canino;
-import com.project.model.animais.Felino;
-import com.project.model.animais.Ave;
+import com.project.model.Animal;
 import com.project.model.pessoas.Cliente;
 
 import java.sql.*;
@@ -28,7 +25,11 @@ public class AnimalRepository {
 
         String sql = "INSERT INTO animal (nome, data_nascimento_animal, sexo, peso, especie, raca, pessoa_cpf) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
+        Connection connection = DataBaseUtil.getConnection();
 
+        inserirAnimal(animal, connection);
+
+        /*
         try (Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setString(1, animal.getNome());
@@ -36,21 +37,7 @@ public class AnimalRepository {
             preparedStatement.setString(3, String.valueOf(animal.getSexo()));
             preparedStatement.setFloat(4, animal.getPeso());
             preparedStatement.setString(5, animal.getEspecie());
-
-            String raca = "Genérico";
-            if (animal instanceof Canino) {
-                raca = ((Canino)animal).getRaca();                
-            }
-            if (animal instanceof Felino) {
-                raca = ((Felino)animal).getRaca();
-            }
-            if (animal instanceof Ave) {
-                raca = ((Ave)animal).getRaca();
-            }
-            if (raca == null || raca.trim().isEmpty()) {
-                raca = "Genérico";
-            }
-            preparedStatement.setString(6, raca);
+            preparedStatement.setString(6, animal.getRaca());
 
             preparedStatement.setString(7, animal.getDono().getCpf());
 
@@ -62,6 +49,7 @@ public class AnimalRepository {
 
             throw e;
         }
+        */
 
     }
 
@@ -81,23 +69,10 @@ public class AnimalRepository {
             preparedStatement.setString(3, String.valueOf(animal.getSexo()));
             preparedStatement.setFloat(4, animal.getPeso());
             preparedStatement.setString(5, animal.getEspecie());
-            
-            String raca = "Genérico";
-            if (animal instanceof Canino) {
-                raca = ((Canino)animal).getRaca();                
-            }
-            if (animal instanceof Felino) {
-                raca = ((Felino)animal).getRaca();
-            }
-            if (animal instanceof Ave) {
-                raca = ((Ave)animal).getRaca();
-            }
-            if (raca == null || raca.trim().isEmpty()) {
-                raca = "Genérico";
-            }
-            preparedStatement.setString(6, raca);
-
+            preparedStatement.setString(6, animal.getRaca());
             preparedStatement.setString(7, animal.getDono().getCpf());
+
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             e.getMessage();
@@ -123,7 +98,7 @@ public class AnimalRepository {
             try (ResultSet resultadoBusca = preparedStatement.executeQuery()) {
 
                 if (resultadoBusca.next()){
-
+                    
                     int idAnimal = resultadoBusca.getInt("idanimal");
                     String raca = resultadoBusca.getString("raca");
                     String animal_nome = resultadoBusca.getString("animal_nome");
@@ -142,15 +117,7 @@ public class AnimalRepository {
                     
                     Cliente dono = new Cliente(donoNome, cpfNome, telefone, email, data_nascimento_dono, sexo_dono);
 
-                    if (especie.equals("Canino")) {
-                        animal = new Canino(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
-                    }
-                    if (especie.equals("Felino")) {
-                        animal = new Felino(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
-                    }
-                    if (especie.equals("Ave")) {
-                        animal = new Ave(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
-                    }
+                    animal = new Animal(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
                 }
             } 
         } catch (SQLException e) {
@@ -199,23 +166,14 @@ public class AnimalRepository {
                     Cliente dono = new Cliente(donoNome, cpfNome, telefone, email, data_nascimento_dono, sexo_dono);
                     
                     Animal animalEncontrado = null;
-                    if (especie.equals("Canino")) {
-                    animalEncontrado = new Canino(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
-                    }
-                    if (especie.equals("Felino")) {
-                        animalEncontrado = new Felino(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
-                    }
-                    if (especie.equals("Ave")) {
-                        animalEncontrado = new Ave(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
-                    }
+
+                    animalEncontrado = new Animal(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
+
                     if (animalEncontrado != null) {
                         animais.add(animalEncontrado);
                     }
-
                 }
-        
             }
-
         } catch (SQLException e) {
             e.getMessage();
             e.printStackTrace();
@@ -256,15 +214,9 @@ public class AnimalRepository {
                 Cliente dono = new Cliente(donoNome, cpfNome, telefone, email, data_nascimento_dono, sexo_dono);
 
                 Animal animalEncontrado = null;
-                if (especie.equals("Canino")) {
-                    animalEncontrado = new Canino(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
-                }
-                if (especie.equals("Felino")) {
-                    animalEncontrado = new Felino(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
-                }
-                if (especie.equals("Ave")) {
-                    animalEncontrado = new Ave(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
-                }
+
+                animalEncontrado = new Animal(raca, idAnimal, animal_nome, dataNascimentoAnimal, animal_sexo, peso, especie, dono);
+                
                 if (animalEncontrado != null) {
                     animais.add(animalEncontrado);
                 }
@@ -289,17 +241,7 @@ public class AnimalRepository {
 
         try (Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
-
-            if (animal.getEspecie().equals("Canino")) {
-                preparedStatement.setString(1, ((Canino)animal).getRaca());
-            }
-            if (animal.getEspecie().equals("Felino")) {
-                preparedStatement.setString(1, ((Felino)animal).getRaca());
-            }
-            if (animal.getEspecie().equals("Ave")) {
-                preparedStatement.setString(1, ((Ave)animal).getRaca());
-            }
-            
+            preparedStatement.setString(1, animal.getRaca());
             preparedStatement.setString(2, animal.getNome());
             preparedStatement.setDate(3, Date.valueOf(animal.getDataNascimento()));
             preparedStatement.setString(4, String.valueOf(animal.getSexo()));
@@ -309,7 +251,6 @@ public class AnimalRepository {
 
             preparedStatement.setInt(8, animal.getIdAnimal());
             
-
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

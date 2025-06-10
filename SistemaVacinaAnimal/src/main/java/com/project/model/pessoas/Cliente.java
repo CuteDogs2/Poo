@@ -4,8 +4,9 @@ package com.project.model.pessoas;
 
 
 import java.time.LocalDate;
-import com.project.model.animais.Animal;
 import java.util.List;
+
+import com.project.model.Animal;
 
 
 

@@ -3,10 +3,19 @@ package com.project.repository;
 
 
 
+import com.project.model.pessoas.Cliente;
+import com.project.model.vacina.Frasco;
+import com.project.model.vacina.Lote;
+import com.project.model.vacina.Vacina;
+import com.project.model.Animal;
 import com.project.model.Vacinacao;
+import com.project.model.pessoas.Veterinario;
 import com.project.util.DataBaseUtil;
 
 import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.time.LocalDate;
 
 
 
@@ -40,8 +49,102 @@ public class VacinacaoRepository {
             preparedStatement.setFloat(4, vacinacao.getDoseAplicada());
             preparedStatement.setInt(5, vacinacao.getAnimal().getIdAnimal());
 
-            
 
         }
+    }
+
+
+
+
+    public List<Vacinacao>  BuscarVacinacaoIdanimal(int id_animal) throws SQLException {
+        
+        String sql = "SELECT v.dataAplicacao, v.dataRetorno, v.dose_aplicada, " +
+                 "vet.nome AS veterinario_nome, vet.crmv AS veterinario_crmv, " +
+                 "vac.nome AS vacina_nome, vac.fabricante AS vacina_fabricante, vac.validade_da_aplicacao AS vacina_validade_aplicacao, vac.dosagem AS vacina_dosagem, " +
+                 "f.id_frasco, f.volume_frasco, " +
+                 "l.id_lote, l.data_validade AS lote_data_validade, " +
+                 "a.idanimal, a.raca, a.nome AS animal_nome, a.data_nascimento_animal, a.sexo AS animal_sexo, a.peso, a.especie, " +
+                 "p.nome AS nome_dono, p.cpf AS pessoa_cpf, p.telefone, p.email, p.data_nascimento AS dono_data_nascimento, p.sexo AS dono_sexo " +
+                 "FROM vacinacao v " +
+                 "JOIN pessoa vet ON v.veterinario_crmv = vet.crmv " +
+                 "JOIN frasco f ON v.frasco_id_frasco = f.id_frasco " +
+                 "JOIN lote l ON f.lote_id_lote = l.id_lote " +
+                 "JOIN vacina vac ON l.vacina_id_vacina = vac.id_vacina " +
+                 "JOIN animal a ON v.animal_idanimal = a.idanimal " +
+                 "JOIN pessoa p ON a.pessoa_cpf = p.cpf " +
+                 "WHERE v.animal_idanimal = ?";
+    
+        List<Vacinacao> vacinacoes = new ArrayList<>();
+        
+        try (Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setInt(1, id_animal);
+            
+            try (ResultSet resultadoBusca = preparedStatement.executeQuery()) {
+            
+                while (resultadoBusca.next()) {
+
+  
+
+
+                    Cliente dono = new Cliente(resultadoBusca.getString("nome_dono"), resultadoBusca.getString("pessoa_cpf"), resultadoBusca.getString("telefone"), resultadoBusca.getString("email"), resultadoBusca.getDate("dono_data_nascimento").toLocalDate(), resultadoBusca.getString("dono_sexo").charAt(0));
+
+
+
+
+                    Animal animal = new Animal(resultadoBusca.getString("raca"), resultadoBusca.getInt("idanimal"), resultadoBusca.getString("animal_nome"), resultadoBusca.getDate("data_nascimento_animal").toLocalDate(), resultadoBusca.getString("animal_sexo").charAt(0), resultadoBusca.getFloat("peso"), resultadoBusca.getString("especie"), dono);
+
+
+
+                    
+                    Veterinario veterinario = new Veterinario(resultadoBusca.getString("veterinario_crmv"), resultadoBusca.getString("veterinario_nome"));
+
+
+
+                    
+                    Frasco frasco = new Frasco(resultadoBusca.getString("idFrasco"), resultadoBusca.getFloat("volumeFrasco"));
+
+
+
+                    
+                    Lote lote = new Lote(resultadoBusca.getString("idLote"), resultadoBusca.getDate("dataValidade").toLocalDate());
+                    
+                    lote.getFrascos().add(frasco);
+
+
+
+                    
+                    Vacina vacina = new Vacina(resultadoBusca.getString("nomeVacina"), resultadoBusca.getString("fabricante"), resultadoBusca.getInt("validadedaAplicacao"),resultadoBusca.getFloat("dosagemPorkg"));
+
+                    vacina.getLotes().add(lote);
+ 
+
+
+
+                    Vacinacao vacinacao = new Vacinacao(animal, vacina, veterinario, resultadoBusca.getDate("dataAplicacao").toLocalDate(), resultadoBusca.getDate("dataRetorno").toLocalDate(),
+                     resultadoBusca.getFloat("doseAplicada"), resultadoBusca.getString("idFrascoUtilizado"));
+
+                    vacinacoes.add(vacinacao);
+
+
+
+
+                }
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
+        return vacinacoes;
+    }
+
+
+
+
+    public void  AtualizarVacina(Vacinacao vacinacao) throws SQLException {
+        String sql = "UPDATE vacinacao SET raca = ?, dataAplicacao = ?, dataRetorno = ?, sexo = ?, vacina_Id_frasco = ?,  = ?, pessoa_cpf = ? WHERE idV = ?";
+
     }
 }

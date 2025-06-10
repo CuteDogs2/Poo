@@ -3,7 +3,7 @@ package com.project.controller;
 
 
 
-import com.project.model.animais.Animal;
+import com.project.model.Animal;
 import com.project.model.vacina.Vacina;
 
 //import java.time.LocalDate;

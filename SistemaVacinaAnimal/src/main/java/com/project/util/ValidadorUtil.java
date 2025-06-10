@@ -1,5 +1,5 @@
 package com.project.util;
-
+import java.util.regex.Pattern;
 
 
 /**
@@ -37,10 +37,23 @@ public class ValidadorUtil {
      * @param email E-mail a ser validado (em formato String).
      * @return true se o e-mail for válido, false caso contrário.
      */
-    public boolean validarEmail(String email) {
-        if(email != null && email.contains("@")) {
-            return true;
+
+
+
+
+    private static final Pattern PADRAO_EMAIL_VALIDO =  Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+
+
+
+    /**
+     * @param email E-mail a ser validado (em formato String).
+     * @return true se o e-mail for válido, false caso contrário.
+     */
+    public static boolean validarEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            return false;
         }
-        else return false;
+        return PADRAO_EMAIL_VALIDO.matcher(email).matches();
     }
 }

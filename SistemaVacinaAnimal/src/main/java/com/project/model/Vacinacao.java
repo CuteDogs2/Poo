@@ -4,7 +4,7 @@ package com.project.model;
 
 
 import java.time.LocalDate;
-import com.project.model.animais.Animal;
+
 import com.project.model.pessoas.Veterinario;
 import com.project.model.vacina.Vacina;
 
@@ -44,6 +44,9 @@ public class Vacinacao {
     /** Dosagem da aplicação; */
     private float doseAplicada;
 
+    /** ID do frasco utilizado na aplicação. */
+    private String idFrascoUtilizado;
+
 
 
 
@@ -61,14 +64,16 @@ public class Vacinacao {
      * @param dataAplicacao     Data da aplicação da vacina.
      * @param dataRetorno       Data de retorno da aplicação, caso tenha.
      * @param doseAplicada      Dose da vacina aplicada no animal.
+     * @param idFrascoUtilizado ID do frasco da vacina utilizado na aplicação.
      */
-    public Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, LocalDate dataRetorno, float doseAplicada) {
+    public Vacinacao(Animal animal, Vacina vacina, Veterinario veterinario, LocalDate dataAplicacao, LocalDate dataRetorno, float doseAplicada, String idFrascoUtilizado) {
         this.animal = animal;
         this.vacina = vacina;
         this.veterinario = veterinario;
         this.dataAplicacao = dataAplicacao;
         this.dataRetorno = dataRetorno;
         this.doseAplicada = doseAplicada;
+        this.idFrascoUtilizado = idFrascoUtilizado;
     }
 
 
@@ -151,6 +156,18 @@ public class Vacinacao {
     }
 
 
+
+
+    /**
+     * Obtém o ID do frasco.
+     * 
+     * @return ID do frasco.
+     */
+    public String getIdFrascoUtilizado() {
+        return this.idFrascoUtilizado;
+    }
+
+
    
 
     /**
@@ -224,32 +241,13 @@ public class Vacinacao {
 
 
 
-/*
-    // need func to check if table exist and create if false
-    public String insertVacinacao(String table, Vacinacao entidade) {
-        if (table == null || table.isEmpty()) {
-            throw new IllegalArgumentException("O nome da tabela não pode ser nulo ou vazio.");
-        }
 
-        //esse é o comando gerado pelo workbench:
-        //INSERT INTO `clinica`.`vacinacao` (`dataAplicacao`, `dataRetorno`, `vacina_Id_frasco`, `carteira_animal_idanimal`, `veterinario_crmv`, `vacina_id_vacina`) VALUES ('01/03/2024', '01/04/2024', '1', 'sim', '123', '1');
-
-        String cmdIdvacina = this.vacina.getIdVacina;
-        String cmdIdfrasco = this.vacina.getIdFrasco;
-        String cmdVetcrmv = this.veterinario.getCrmvVeterinario;
-        String cmdAnimal = this.animal.getIdAnimal;
-        String comando = "INSERT INTO " + table +
-        " (`dataAplicacao`, `dataRetorno`, `vacina_Id_frasco`, `carteira_animal_idanimal`, `veterinario_crmv`, `vacina_id_vacina`) " +
-        "VALUES (" +
-        "'" + this.dataAplicacao "', " +
-        "'" + this.dataRetorno "', " +
-        "'" + this.cmdIdvacina "', " +
-        "'" + this.cmdIdfrasco "', " +
-        "'" + this.cmdVetcrmv "', " +
-        "'" + this.cmdAnimal "'" +
-        ");";
-
-        return comando;
+    /**
+     * Altera o ID do frasco utilizado.
+     * 
+     * @param idFrasco ID do frasco.
+     */
+    public void setIdFrascoUtilizado(String idFrascoUtilizado) {
+        this.idFrascoUtilizado = idFrascoUtilizado;
     }
-*/
 }

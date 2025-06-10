@@ -4,10 +4,7 @@ package com.project.controller;
 
 
 import com.project.model.pessoas.Cliente;
-import com.project.model.animais.Animal;
-import com.project.model.animais.Canino;
-import com.project.model.animais.Felino;
-import com.project.model.animais.Ave;
+import com.project.model.Animal;
 import java.time.LocalDate;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -65,33 +62,19 @@ public class CadastrarClienteController {
 
 
 
-
-        String nomeDoAnimal = nomeAnimal.getText();
-        Float pesoDoAnimal = Float.parseFloat(pesoAnimal.getText());
-        String especieDoAnimal = especieAnimal.getValue();
         String racaDoAnimal = racaAnimal.getText();
+        String nomeDoAnimal = nomeAnimal.getText();
         LocalDate dataNascimentoDoAnimal = dataNascimentoAnimal.getValue();
         char sexoDoAnimal = (sexoAnimal.getValue() != null && sexoAnimal.getValue().equals("Macho")) ? 'm' : 'f';
+        Float pesoDoAnimal = Float.parseFloat(pesoAnimal.getText());
+        String especie = especieAnimal.getValue();
         
-
-
+        
+        
 
         Cliente cliente = new Cliente(nomeDoCliente, cpfDoCliente, telefoneDoCliente, emailDoCliente, dataNascimentoDoCliente, sexoDoCliente);
 
-        Animal animal = null;
-
-        if (especieDoAnimal.equals("Canino")){
-
-            animal = new Canino(racaDoAnimal, nomeDoAnimal, dataNascimentoDoAnimal, sexoDoAnimal, pesoDoAnimal, especieDoAnimal, cliente);
-        }
-
-        if (especieDoAnimal.equals("Felino")){
-            animal = new Felino(racaDoAnimal, nomeDoAnimal, dataNascimentoDoAnimal, sexoDoAnimal, pesoDoAnimal, especieDoAnimal, cliente);
-        }
-
-        if (especieDoAnimal.equals("Ave")){
-            animal = new Ave(racaDoAnimal, nomeDoAnimal, dataNascimentoDoAnimal, sexoDoAnimal, pesoDoAnimal, especieDoAnimal, cliente);
-        }
+        Animal animal = new Animal(racaDoAnimal, nomeDoAnimal, dataNascimentoDoAnimal, sexoDoAnimal, pesoDoAnimal, especie, cliente);
 
         if (animal != null){
             System.out.println("CLIENTE: " + "nome: " + cliente.getNome() + ", " + "cpf: " + cliente.getCpf() + ", " +
