@@ -48,6 +48,9 @@ public class VacinacaoRepository {
             preparedStatement.setString(3, vacinacao.getVeterinario().getCrmv());
             preparedStatement.setFloat(4, vacinacao.getDoseAplicada());
             preparedStatement.setInt(5, vacinacao.getAnimal().getIdAnimal());
+            preparedStatement.setString(6, vacinacao.getIdFrascoUtilizado());
+
+            preparedStatement.executeUpdate();
 
 
         }
@@ -56,17 +59,17 @@ public class VacinacaoRepository {
 
 
 
-    public List<Vacinacao>  BuscarVacinacaoIdanimal(int id_animal) throws SQLException {
+    public List<Vacinacao>  BuscarVacinacaoIdAnimal(int id_animal) throws SQLException {
         
         String sql = "SELECT v.dataAplicacao, v.dataRetorno, v.dose_aplicada, " +
-                 "vet.nome AS veterinario_nome, vet.crmv AS veterinario_crmv, " +
+                 "pvet.nome AS veterinario_nome, vet.crmv AS veterinario_crmv, " +
                  "vac.nome AS vacina_nome, vac.fabricante AS vacina_fabricante, vac.validade_da_aplicacao AS vacina_validade_aplicacao, vac.dosagem AS vacina_dosagem, " +
                  "f.id_frasco, f.volume_frasco, " +
                  "l.id_lote, l.data_validade AS lote_data_validade, " +
                  "a.idanimal, a.raca, a.nome AS animal_nome, a.data_nascimento_animal, a.sexo AS animal_sexo, a.peso, a.especie, " +
                  "p.nome AS nome_dono, p.cpf AS pessoa_cpf, p.telefone, p.email, p.data_nascimento AS dono_data_nascimento, p.sexo AS dono_sexo " +
-                 "FROM vacinacao v " +
-                 "JOIN pessoa vet ON v.veterinario_crmv = vet.crmv " +
+                 "FROM vacinacao v " + "JOIN veterinario vet ON v.veterinario_crmv = vet.crmv" + 
+                 "JOIN pessoa pvet ON pvet.funcionario_crmv = vet.crmv " +
                  "JOIN frasco f ON v.frasco_id_frasco = f.id_frasco " +
                  "JOIN lote l ON f.lote_id_lote = l.id_lote " +
                  "JOIN vacina vac ON l.vacina_id_vacina = vac.id_vacina " +
