@@ -4,10 +4,13 @@ package com.project.controller;
 
 
 import com.project.model.pessoas.Cliente;
+import com.project.service.ClienteService;
 import com.project.model.Animal;
 import java.time.LocalDate;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
+import java.sql.SQLException;
 
 
 
@@ -33,6 +36,11 @@ public class CadastrarClienteController {
     @FXML private TextField racaAnimal;
     @FXML private DatePicker dataNascimentoAnimal;
     @FXML private ComboBox<String> sexoAnimal;
+
+
+
+
+    private final ClienteService clienteService = new ClienteService();
 
 
 
@@ -75,6 +83,16 @@ public class CadastrarClienteController {
         Cliente cliente = new Cliente(nomeDoCliente, cpfDoCliente, telefoneDoCliente, emailDoCliente, dataNascimentoDoCliente, sexoDoCliente);
 
         Animal animal = new Animal(racaDoAnimal, nomeDoAnimal, dataNascimentoDoAnimal, sexoDoAnimal, pesoDoAnimal, especie, cliente);
+
+        try {
+
+            clienteService.cadastrarClienteEAnimal(cliente, animal);
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+        }
 
         if (animal != null){
             System.out.println("CLIENTE: " + "nome: " + cliente.getNome() + ", " + "cpf: " + cliente.getCpf() + ", " +

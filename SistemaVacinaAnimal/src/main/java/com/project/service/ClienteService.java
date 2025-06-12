@@ -1,41 +1,92 @@
+package com.project.service;
 
 
 
 
-/*
-public void cadastrarClienteComAnimal(Cliente cliente, Animal animal) throws SQLException {
-    Connection conexaoPrincipal = null;
-    try {
-        conexaoPrincipal = DataBaseUtil.getConnection();
-        conexaoPrincipal.setAutoCommit(false); // Inicia a transação
+import com.project.model.Animal;
+import com.project.model.pessoas.Cliente;
+import com.project.repository.AnimalRepository;
+import com.project.repository.ClienteRepository;
+import com.project.util.DataBaseUtil;
 
-        // Chama o método do repositório que USA a conexão fornecida
-        clienteRepository.inserirCliente(cliente, conexaoPrincipal);
-        
-        // Supondo que animalRepository também tenha um método sobrecarregado
-        // animal.setDono(cliente); // Associa o dono ao animal
-        // animalRepository.inserirAnimal(animal, conexaoPrincipal);
+import java.sql.SQLException;
+import java.sql.Connection;
 
-        conexaoPrincipal.commit(); // TUDO OK! Camada de Serviço faz o commit.
 
-    } catch (SQLException e) {
-        if (conexaoPrincipal != null) {
-            try {
-                conexaoPrincipal.rollback(); // DEU ERRO! Camada de Serviço faz o rollback.
-            } catch (SQLException exRollback) {
-                exRollback.printStackTrace(); // Logar erro no rollback
+
+
+public class ClienteService {
+
+
+
+
+    //Atributos
+
+
+
+
+    private ClienteRepository clienteRepository;
+    private AnimalRepository animalRepository;
+
+
+
+
+    //Construtor
+
+
+
+
+    public ClienteService(ClienteRepository clienteRepository, AnimalRepository animalRepository) {
+        this.clienteRepository = clienteRepository;
+        this.animalRepository = animalRepository;
+    }
+
+
+
+
+    public ClienteService() {
+        this.clienteRepository = new ClienteRepository();
+        this.animalRepository = new AnimalRepository();
+    }
+
+
+
+
+    //Métodos
+
+
+
+
+    public void cadastrarClienteEAnimal(Cliente cliente, Animal animal) throws SQLException {
+
+        Connection connection = null;
+
+        try {
+            
+            connection = DataBaseUtil.getConnection();
+
+            connection.setAutoCommit(false);
+
+            clienteRepository.inserirCliente(cliente, connection);
+
+            animalRepository.inserirAnimal(animal, connection);
+
+            connection.commit();
+
+        } catch (SQLException e) {
+
+            if (connection != null) {
+                connection.rollback();
             }
-        }
-        throw e; // Propaga a exceção original
-    } finally {
-        if (conexaoPrincipal != null) {
-            try {
-                conexaoPrincipal.setAutoCommit(true); // Restaura o padrão
-                conexaoPrincipal.close(); // Camada de Serviço fecha a conexão.
-            } catch (SQLException exClose) {
-                exClose.printStackTrace(); // Logar erro ao fechar
+
+            throw e;
+
+        } finally {
+            
+            if (connection != null) {
+                connection.setAutoCommit(true);
+                connection.close();
             }
         }
     }
 }
-*/
