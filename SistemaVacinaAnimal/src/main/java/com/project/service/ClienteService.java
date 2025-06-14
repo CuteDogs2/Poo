@@ -58,7 +58,7 @@ public class ClienteService {
 
 
     public void cadastrarClienteEAnimal(Cliente cliente, Animal animal) throws SQLException {
-
+        
         Connection connection = null;
 
         try {

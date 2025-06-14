@@ -89,7 +89,7 @@ public class ClienteRepository {
         Cliente cliente = null;
 
         
-        try(Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql);){
+        try(Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql);) {
 
             preparedStatement.setString(1, cpf);
             

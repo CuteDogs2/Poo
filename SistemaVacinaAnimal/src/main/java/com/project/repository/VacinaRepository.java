@@ -3,16 +3,14 @@ package com.project.repository;
 
 
 
-import com.project.model.vacina.Vacina;
 import com.project.model.vacina.Frasco;
 import com.project.model.vacina.Lote;
+import com.project.model.vacina.Vacina;
 import com.project.util.DataBaseUtil;
-
-//import com.mysql.cj.x.protobuf.MysqlxCrud.Insert;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -25,92 +23,95 @@ public class VacinaRepository {
 
     public void inserirVacina(Vacina vacina) throws SQLException {
 
-        String sqlVacina = "INSERT INTO vacina (nome, fabricante, validade_da_aplicacao, dosagem) VALUES (?, ?, ?, ?)";
-        String sqlLote = "INSERT INTO lote (id_lote, vacina_id_vacina, data_validade) VALUES (?, ?, ?)";
-        String sqlFrasco = "INSERT INTO frasco (id_frasco, lote_id_lote, volume_frasco) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO vacina (nome, fabricante, validade_da_aplicacao, dosagem) VALUES (?, ?, ?, ?)";
 
-        Connection connection = null;
-        try {
+        Connection connection = DataBaseUtil.getConnection();
 
-            connection = DataBaseUtil.getConnection();
-            connection.setAutoCommit(false);
+        inserirVacina(vacina,connection);
+        /*try (Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement(sqlVacina, Statement.RETURN_GENERATED_KEYS)) {
-                
-                preparedStatement.setString(1, vacina.getNomeVacina());
-                preparedStatement.setString(2, vacina.getFabricante());
-                preparedStatement.setInt(3, vacina.getValidadeDaAplicacao());
-                preparedStatement.setFloat(4, vacina.getDosagemPorKg());
-                
-                preparedStatement.executeUpdate();
 
-                ResultSet generatedKeys = preparedStatement.getGeneratedKeys();
+            
+            preparedStatement.setString(1, vacina.getNomeVacina());
+            preparedStatement.setString(2, vacina.getFabricante());
+            preparedStatement.setInt(3, vacina.getValidadeDaAplicacao());
+            preparedStatement.setFloat(4, vacina.getDosagemPorKg());
+            
+            preparedStatement.executeUpdate();
+
+            
+
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) { 
 
                 if (generatedKeys.next()) {
                     vacina.setIdVacina(generatedKeys.getInt(1));
-                } else {
-                    throw new SQLException("Falha ao registrar vacina.");
                 }
+            } catch (SQLException e) {
+                e.getMessage();
+                e.printStackTrace();
 
-            }
-
-            for (Lote lote : vacina.getLotes()) {
-                
-                try (PreparedStatement preparedStatement = connection.prepareStatement(sqlLote)) {
-
-                    preparedStatement.setString(1, lote.getIdLote());
-                    preparedStatement.setInt(2, vacina.getIdVacina());
-                    preparedStatement.setDate(3, Date.valueOf(lote.getDataValidade()));
-
-                    preparedStatement.executeUpdate();
-                }
-
-                for (Frasco frasco : lote.getFrascos()) {
-
-                    try (PreparedStatement preparedStatement = connection.prepareStatement(sqlFrasco)) {
-
-                        preparedStatement.setString(1, frasco.getIdFrasco());
-                        preparedStatement.setString(2, lote.getIdLote());
-                        preparedStatement.setFloat(3, frasco.getVolumeFrasco());
-
-                        preparedStatement.executeUpdate();
-
-                    }
-                }
-            }
-            connection.commit(); //confirmar.
-
-        } catch (SQLException e) {
-            e.getMessage();
-            e.printStackTrace();
-
-            if (connection != null) {
-                try {
-                    connection.rollback();
-                } catch (SQLException ex) {
-                    ex.getMessage();
-                    ex.printStackTrace();
-                }
-            }
-            throw e;
-
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.setAutoCommit(true);
-                    connection.close();
-                } catch (SQLException e) {
-                    e.getMessage();
-                    e.printStackTrace();
-                }
+                throw e;
             }
         }
+        */
+    }
 
+    public void inserirVacina(Vacina vacina, Connection connection) throws SQLException {
+
+        String sql = "INSERT INTO vacina (nome, fabricante, validade_da_aplicacao, dosagem) VALUES (?, ?, ?, ?)";
+        
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+
+            
+            preparedStatement.setString(1, vacina.getNomeVacina());
+            preparedStatement.setString(2, vacina.getFabricante());
+            preparedStatement.setInt(3, vacina.getValidadeDaAplicacao());
+            preparedStatement.setFloat(4, vacina.getDosagemPorKg());
+            
+            preparedStatement.executeUpdate();
+
+            
+
+            try (ResultSet generatedKeys = preparedStatement.getGeneratedKeys()) { 
+
+                if (generatedKeys.next()) {
+                    vacina.setIdVacina(generatedKeys.getInt(1));
+                }
+            } catch (SQLException e) {
+                e.getMessage();
+                e.printStackTrace();
+
+                throw e;
+            }
+        }
     }
 
 
 
-    public List<Vacina> buscarTodasVacinas() {
+
+    public List<Vacina> buscarTodasVacinas() throws SQLException {
+
+        String sql = "SELECT nome, id_vacina, fabricante, validade_da_aplicacao, dosagem";
+
+        List<Vacina> vacinas = new ArrayList<>();
+
+        try (Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql); ResultSet resultadoBusca = preparedStatement.executeQuery()) {
+            
+            while (resultadoBusca.next()) {
+                Vacina vacina = new Vacina(resultadoBusca.getString("nome"), resultadoBusca.getInt("id_vacina"), resultadoBusca.getString("fabricante"), resultadoBusca.getInt("validade_da_aplicacao"), resultadoBusca.getFloat("dosagem"));
+
+                vacinas.add(vacina);
+            }
+        }
+        return vacinas;
+    }
+
+
+
+
+    /*
+    public List<Vacina> buscarTodasVacinas() throws SQLException {
 
         Map<Integer, Vacina> vacinaMap = new HashMap<>();
         Map<String, Lote> loteMap = new HashMap<>();
@@ -165,7 +166,7 @@ public class VacinaRepository {
         }
         return new ArrayList<>(vacinaMap.values());
     }
-
+    */
 
 
 

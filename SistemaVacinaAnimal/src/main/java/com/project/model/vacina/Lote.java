@@ -29,7 +29,7 @@ public class Lote {
     private String idLote;
 
     /** ID da Vacina. */
-    private String idVacina;
+    private int idVacina;
 
     /** Data de validade do lote.  */
     private LocalDate dataValidade;
@@ -51,10 +51,11 @@ public class Lote {
      * @param idVacina          ID da vacina.
      * @param dataValidade      Data de validade do lote.
      */
-    public Lote (String idLote, String idVacina, LocalDate dataValidade) {
+    public Lote (String idLote, int idVacina, LocalDate dataValidade) {
         this.idLote = idLote;
-        this.dataValidade = dataValidade;
         this.idVacina = idVacina;
+        this.dataValidade = dataValidade;
+        
 
         this.frascos = new ArrayList<>();
     }
@@ -102,7 +103,7 @@ public class Lote {
      * 
      * @return ID da vacina.
      */
-    public String getIdVacina() {
+    public int getIdVacina() {
         return this.idVacina;
     }
 
@@ -150,7 +151,7 @@ public class Lote {
      * 
      * @param idVacina ID da vacina.
      */
-    public void setIdVacina(String idVacina) {
+    public void setIdVacina(int idVacina) {
         this.idVacina = idVacina;
     }
 

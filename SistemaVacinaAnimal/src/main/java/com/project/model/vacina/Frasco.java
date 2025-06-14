@@ -23,6 +23,9 @@ public class Frasco {
     /** Volume do frasco. */
     private float volumeFrasco;
 
+    /** ID do lote pertencente. */
+    private String idLote;
+
 
 
 
@@ -37,9 +40,10 @@ public class Frasco {
      * @param idFrasco          ID do frasco.
      * @param volumeFrasco      Volume do frasco.
      */
-    public Frasco (String idFrasco, float volumeFrasco) {
+    public Frasco (String idFrasco, float volumeFrasco, String idLote) {
         this.idFrasco = idFrasco;
         this.volumeFrasco = volumeFrasco;
+        this.idLote = idLote;
     }
 
 
@@ -75,6 +79,18 @@ public class Frasco {
 
 
     /**
+     * Obtém o ID do lote ao qual este frasco pertence.
+     * 
+     * @return ID do lote.
+     */
+    public String getIdLote() {
+        return this.idLote;
+    }
+
+
+
+
+    /**
      * Altera o ID do frasco.
      * 
      * @param idFrasco ID do frasco.
@@ -93,5 +109,17 @@ public class Frasco {
      */
     public void setVolumeFrasco(float volumeFrasco) {
         this.volumeFrasco = volumeFrasco;
+    }
+
+
+
+
+    /**
+     * Altera o ID do lote ao qual este frasco pertence.
+     * 
+     * @param idLote ID Lote.
+     */
+    public void setIdLote(String idLote) {
+        this.idLote = idLote;
     }
 }
