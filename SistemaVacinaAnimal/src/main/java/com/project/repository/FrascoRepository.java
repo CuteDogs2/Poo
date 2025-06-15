@@ -13,9 +13,16 @@ public class FrascoRepository {
     public void inserirFrasco(Frasco frasco) throws SQLException {
         //String sql = "INSERT INTO frasco (id_frasco, volume_frasco) VALUES (?, ?)";
         
-        Connection connection = DataBaseUtil.getConnection();
+        try {
+            Connection connection = DataBaseUtil.getConnection();
 
-        inserirFrasco(frasco, connection);
+            inserirFrasco(frasco, connection);
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
         
     }
     
@@ -23,7 +30,14 @@ public class FrascoRepository {
 
     
     public void inserirFrasco(Frasco frasco, Connection connection) throws SQLException {
+
+
+
+
         String sql = "INSERT INTO frasco (id_frasco, volume_frasco, lote_id_lote) VALUES (?, ?, ?)";
+        
+
+
         
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, frasco.getIdFrasco());
@@ -33,6 +47,10 @@ public class FrascoRepository {
         } catch (SQLException e) {
             e.getMessage();
             e.printStackTrace();
+
+            if (connection != null && !connection.isClosed()) {
+                connection.rollback(); // Rollback em caso de erro
+            }
 
             throw e;
         }
@@ -113,6 +131,48 @@ public class FrascoRepository {
 
             throw e;
         }
+    }
+
+
+
+
+    
+
+
+    public List<Frasco> buscarPorIdVacina(int idVacina) throws SQLException {
+
+        String sql = "SELECT f.id_frasco, f.lote_id_lote, f.volume_frasco FROM frasco f " +
+                    "INNER JOIN lote l ON f.lote_id_lote = l.id_lote " +
+                    "WHERE l.vacina_id_vacina = ?";
+        
+
+
+
+
+        List<Frasco> frascos = new ArrayList<>();
+
+        try (Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setInt(1, idVacina);
+
+            try (ResultSet resultadoBusca = preparedStatement.executeQuery()) {
+
+                while (resultadoBusca.next()) {
+                    Frasco frasco = new Frasco(
+                        resultadoBusca.getString("id_frasco"),
+                        resultadoBusca.getFloat("volume_frasco"),
+                        resultadoBusca.getString("lote_id_lote")
+                    );
+                    frascos.add(frasco);
+                }
+            }
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
+        return frascos;
     }
     
 }

@@ -7,6 +7,7 @@ import com.project.util.DataBaseUtil;
 
 import java.sql.SQLException;
 import java.sql.Connection;
+import java.util.List;
 
 
 public class LoteService{
@@ -36,31 +37,40 @@ public class LoteService{
 
     
 
-    public void cadastraLote(Lote lote) throws SQLException{  
+    public void cadastraLote(Lote lote) throws SQLException {  
         
         
-        Connection  conection = null;
+
 
         try{
-            conection = DataBaseUtil.getConnection();
 
-            loteRepository.inserirLote(lote, conection);
+            loteRepository.inserirLote(lote);
             
-
-        }catch(SQLException e){
-            if (conection != null) {
-                conection.rollback();
-            }
+        } catch (SQLException e){
+            e.getMessage();
+            e.printStackTrace();
 
             throw e;
         }
-        finally {
-            
-            if (conection != null) {
-                conection.setAutoCommit(true);
-                conection.close();
-            }
-        }
+    }
 
+
+
+
+    public List<Lote> buscarLotesDisponiveis() throws SQLException {
+
+
+
+
+        try {
+            
+            return loteRepository.buscarTodosLotes();
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
     }
 }

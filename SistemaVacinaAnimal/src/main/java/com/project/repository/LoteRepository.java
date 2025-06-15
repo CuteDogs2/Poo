@@ -6,8 +6,6 @@ import com.project.model.vacina.Frasco;
 import com.project.util.DataBaseUtil;
 
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
@@ -39,6 +37,10 @@ public class LoteRepository {
         } catch (SQLException e) {
             e.getMessage();
             e.printStackTrace();
+
+            if (connection != null && !connection.isClosed()) {
+                connection.rollback(); // Rollback em caso de erro
+            }
 
             throw e;
         }

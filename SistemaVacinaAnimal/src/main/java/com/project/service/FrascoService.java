@@ -10,6 +10,7 @@ import com.project.util.DataBaseUtil;
 
 import java.sql.SQLException;
 import java.sql.Connection;
+import java.util.List;
 
 
 public class FrascoService {
@@ -53,27 +54,38 @@ public class FrascoService {
 
     public void cadastrarFrasco(Frasco frasco) throws SQLException {
 
-        Connection connection = null;
+
+
 
         try{
-            connection = DataBaseUtil.getConnection();
-
-            frascoRepository.inserirFrasco(frasco, connection);
             
+            frascoRepository.inserirFrasco(frasco);
             
         } catch(SQLException e){
-            if (connection != null) {
-                connection.rollback();
-            }
+            e.getMessage();
+            e.printStackTrace();
 
             throw e;
         }
-        finally {
-            
-            if (connection != null) {
-                connection.setAutoCommit(true);
-                connection.close();
-            }
+    }
+
+
+
+
+    public List<Frasco> buscarFrascosPorIdVacina(int idVacina) throws SQLException {
+
+
+
+
+        try {
+
+            return frascoRepository.buscarPorIdVacina(idVacina);
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
         }
     }
 }

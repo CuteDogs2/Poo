@@ -13,6 +13,8 @@ import com.project.model.pessoas.Veterinario;
 import com.project.util.ClassMount;
 import com.project.util.DataBaseUtil;
 
+import javafx.scene.chart.PieChart.Data;
+
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -22,11 +24,33 @@ import java.time.LocalDate;
 
 
 public class VacinacaoRepository {
-    
+
 
 
 
     public void inserirVacinacao(Vacinacao vacinacao) throws SQLException {
+
+        Connection connection = null;
+
+        try {
+
+            connection = DataBaseUtil.getConnection();
+
+            inserirVacinacao(vacinacao, connection);
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+            
+
+            throw e;
+        }
+    }
+    
+
+
+
+    public void inserirVacinacao(Vacinacao vacinacao, Connection connection) throws SQLException {
 
 
 
@@ -36,7 +60,7 @@ public class VacinacaoRepository {
 
 
 
-        try (Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
 
             preparedStatement.setDate(1, Date.valueOf(vacinacao.getDataAplicacao()));
 
@@ -54,6 +78,14 @@ public class VacinacaoRepository {
             preparedStatement.executeUpdate();
 
 
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+            if (DataBaseUtil.getConnection() != null) {
+                DataBaseUtil.getConnection().rollback();
+            }
+
+            throw e;
         }
     }
 
