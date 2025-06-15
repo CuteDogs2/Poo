@@ -32,20 +32,6 @@ public class CadastrarVacinaController {
     @FXML
     private void onCadastrarVacinaClicked() {
 
-        
-
-
-        String idFrasco = idFrascoVacina.getText();
-        float volumeFrasco = Float.parseFloat(volumeMlVacina.getText());
-        Frasco frasco = new Frasco(idFrasco, volumeFrasco);
-
-
-
-
-        String idLote = idLoteVacina.getText();
-        LocalDate validadeLote = validadeLoteVacina.getValue();
-        Lote lote = new Lote(idLote, validadeLote);
-
 
 
 
@@ -63,13 +49,9 @@ public class CadastrarVacinaController {
 
         
         System.out.println("nome: " + vacina.getNomeVacina() + ", " + 
-                           "idLote: " + lote.getIdLote() + ", " + 
-                           "idFrasco: " + frasco.getIdFrasco() + ", " + 
                            "fabricante: " + vacina.getFabricante() + ", " + 
-                           "validadeLote: " + lote.getDataValidade() + ", " + 
                            "validadAplicacao: " + vacina.getValidadeDaAplicacao() + ", " +
-                           "dosagemKgMl: " + vacina.getDosagemPorKg() + ", " +
-                           "volumeFrasco: " + frasco.getVolumeFrasco());
+                           "dosagemKgMl: " + vacina.getDosagemPorKg());
         
     }  
 }

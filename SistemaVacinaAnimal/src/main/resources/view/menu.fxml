@@ -75,6 +75,24 @@
             </ImageView>
          </graphic>
       </ToggleButton>
+      <ToggleButton fx:id="cadastrarLote" layoutX="10.0" layoutY="165.0" mnemonicParsing="false" onAction="#onCadastrarLoteClicked" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Cadastrar Lote" textAlignment="CENTER" toggleGroup="$menuGroup">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@register_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton fx:id="cadastrarFrasco" layoutX="10.0" layoutY="196.0" mnemonicParsing="false" onAction="#onCadastrarFrascoClicked" prefHeight="31.0" prefWidth="173.0" styleClass="btn-left-menu" text="Cadastrar Frasco" textAlignment="CENTER" toggleGroup="$menuGroup">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@register_icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
 
    </children>
 </VBox>

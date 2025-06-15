@@ -60,7 +60,6 @@ public class CadastrarClienteController {
 
 
 
-
         String nomeDoCliente = nomeCliente.getText();
         String cpfDoCliente = cpfCliente.getText();
         String telefoneDoCliente = telefoneCliente.getText();
@@ -69,7 +68,7 @@ public class CadastrarClienteController {
         char sexoDoCliente = (sexoCliente.getValue() != null && sexoCliente.getValue().equals("Masculino")) ? 'm' : 'f';
 
 
-
+        
         String racaDoAnimal = racaAnimal.getText();
         String nomeDoAnimal = nomeAnimal.getText();
         LocalDate dataNascimentoDoAnimal = dataNascimentoAnimal.getValue();

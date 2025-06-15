@@ -23,11 +23,12 @@ public class FrascoRepository {
 
     
     public void inserirFrasco(Frasco frasco, Connection connection) throws SQLException {
-        String sql = "INSERT INTO frasco (id_frasco, volume_frasco) VALUES (?, ?)";
+        String sql = "INSERT INTO frasco (id_frasco, volume_frasco, lote_id_lote) VALUES (?, ?, ?)";
         
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, frasco.getIdFrasco());
             preparedStatement.setFloat(2, frasco.getVolumeFrasco());
+            preparedStatement.setString(3, frasco.getIdLote());
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.getMessage();
@@ -41,7 +42,7 @@ public class FrascoRepository {
 
 
     public Frasco buscarFrascoPorId(String idFrasco) throws SQLException {
-        String sql = "SELECT * FROM frasco WHERE id_frasco = ?";
+        String sql = "SELECT id_frasco, volume_frasco, lote_id_lote FROM frasco WHERE id_frasco = ?";
         Frasco frasco = null;
 
         try (Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -51,7 +52,8 @@ public class FrascoRepository {
                 if (resultadoBusca.next()) {
                     frasco = new Frasco(
                     resultadoBusca.getString("id_frasco"),
-                    resultadoBusca.getFloat("volume_frasco")
+                    resultadoBusca.getFloat("volume_frasco"),
+                    resultadoBusca.getString("lote_id_lote")
                     );
 
                 }
@@ -69,7 +71,7 @@ public class FrascoRepository {
 
 
     public List<Frasco> buscarTodos() throws SQLException {
-        String sql = "SELECT Id_frasco, volume_frasco FROM frasco";
+        String sql = "SELECT Id_frasco, volume_frasco, lote_id_lote FROM frasco";
 
         List<Frasco> frascos = new ArrayList<>();
 
@@ -79,7 +81,8 @@ public class FrascoRepository {
                 while (resultadoBusca.next()) {
                     Frasco frasco = new Frasco(
                     resultadoBusca.getString("id_frasco"),
-                    resultadoBusca.getFloat("volume_frasco")
+                    resultadoBusca.getFloat("volume_frasco"),
+                    resultadoBusca.getString("lote_id_lote")
                     );
                     frascos.add(frasco);
                 }

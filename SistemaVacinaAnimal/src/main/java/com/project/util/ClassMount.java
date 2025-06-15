@@ -36,7 +36,7 @@ public class ClassMount {
 
 
         
-        Frasco frasco = new Frasco(resultadoBusca.getString("id_frasco"), resultadoBusca.getFloat("volume_frasco"));
+        Frasco frasco = new Frasco(resultadoBusca.getString("id_frasco"), resultadoBusca.getFloat("volume_frasco"), resultadoBusca.getString("lote_id_lote"));
 
 
 

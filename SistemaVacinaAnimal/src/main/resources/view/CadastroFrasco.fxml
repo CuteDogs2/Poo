@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="gridCadastrarLote" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" styleClass="grid_forms" stylesheets="/view/app.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.CadastrarVacinaController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="60.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" percentWidth="40.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints vgrow="SOMETIMES" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <TextField fx:id="Idfrasco" promptText="Id do frasco" styleClass="caixas_texto" GridPane.columnSpan="2" />
+      <TextField fx:id="volumeFrasco" promptText="Volume do frasco (ml) " styleClass="caixas_texto" GridPane.columnIndex="1" />
+      <Button fx:id="btnCadastrarFrasco" onAction="#onCadastrarVacinaClicked" styleClass="btn_registrar" text="Cadastrar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+      <ComboBox fx:id="SelecionarIDLote" maxWidth="1.7976931348623157E308" promptText="Selecionde o id do Lote" styleClass="seletor_combobox" GridPane.rowIndex="5" />
+   </children>
+</GridPane>

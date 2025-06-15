@@ -23,9 +23,9 @@ public class VacinacaoService{
     private AnimalRepository animalRepository;
 
 
-    public VacinacaoService(VacinaRepository vacinaRepository, Cliente clienteRepository, Animal animalRepository){
+    public VacinacaoService(VacinaRepository vacinaRepository, ClienteRepository clienteRepository, AnimalRepository animalRepository){
         this.vacinaRepository = vacinaRepository;
-        this.clienteRepository.buscarClientePorCpf(clienteRepository);
+        this.clienteRepository = clienteRepository;
         this.animalRepository = animalRepository;
     }
 
@@ -38,7 +38,6 @@ public class VacinacaoService{
 
     public void cadastraVacinacao(Cliente cliente, Animal animal, Vacina vacina) throws SQLException{
 
-        
         Connection conection = null;
 
         try{

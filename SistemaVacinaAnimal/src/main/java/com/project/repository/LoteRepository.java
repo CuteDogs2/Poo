@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class LoteRepository {
     
     public void inserirLote(Lote lote) throws SQLException {
+        
         String sql = "INSERT INTO lote (id_lote, data_validade, quantidade_vacinas) VALUES (?, ?, ?)";
 
         Connection connection = DataBaseUtil.getConnection();
@@ -24,13 +25,17 @@ public class LoteRepository {
     }
 
     public void inserirLote(Lote lote, Connection connection) throws SQLException {
+
         String sql = "INSERT INTO lote (id_lote, vacina_id_vacina, data_validade) VALUES (?, ?, ?)";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
             preparedStatement.setString(1, lote.getIdLote());
             preparedStatement.setInt(2, lote.getIdVacina());
             preparedStatement.setDate(3, Date.valueOf(lote.getDataValidade()));
+
             preparedStatement.executeUpdate();
+
         } catch (SQLException e) {
             e.getMessage();
             e.printStackTrace();
