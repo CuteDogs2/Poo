@@ -6,8 +6,9 @@ package com.project.controller;
 
 import com.project.model.Animal;
 import com.project.model.vacina.Vacina;
-import com.project.repository.AnimalRepository;
-import com.project.repository.VacinaRepository;
+import com.project.service.AnimalService;
+import com.project.service.VacinaService;
+import com.project.service.VacinacaoService;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -15,6 +16,7 @@ import javafx.util.StringConverter;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.time.LocalDate;
 
 
 
@@ -34,16 +36,19 @@ public class RegistrarVacinacaoController {
 
 
 
-    private final AnimalRepository animalRepository = new AnimalRepository();
-    private final VacinaRepository vacinaRepository = new VacinaRepository();
+    private final AnimalService animalService = new AnimalService();
+    
+    private final VacinacaoService vacinacaoService = new VacinacaoService();
+
+    private final VacinaService vacinaService = new VacinaService();
 
 
     
     @FXML
-    public void initialize() {
+    public void initialize() throws SQLException {
 
 
-
+        
 
         animalVacinado.setConverter(new StringConverter<Animal>() {
 
@@ -88,14 +93,14 @@ public class RegistrarVacinacaoController {
 
 
     @FXML
-    private void buscarAnimaisPorCpf() {
+    private void carregarAnimais() {
         String cpf = cpfCliente.getText();
         if (cpf == null || cpf.trim().isEmpty()) {
             return;
         }
 
         try {
-            List<Animal> animais = animalRepository.buscarAnimalPorCpfDono(cpf);
+            List<Animal> animais = animalService.buscarAnimalPorCpfDono(cpf);
 
             animalVacinado.getItems().clear();
             animalVacinado.getItems().addAll(animais);
@@ -115,13 +120,13 @@ public class RegistrarVacinacaoController {
 
         Animal animalSelecionado = animalVacinado.getValue();
 
-        //String cpf = cpfCliente.getText();
-        //int vacina = vacinaAplicada.getValue();
-        //LocalDate dateDeAplicacao = dataAplicacao.getValue();
+        Vacina vacinaSelecionada = vacinaAplicada.getValue();
+
+        LocalDate dateDeAplicacao = dataAplicacao.getValue();
         //LocalDate dateDeRetorno = dataRetorno.getValue();
 
     }
-
+    
 
 
 
@@ -155,20 +160,22 @@ public class RegistrarVacinacaoController {
 
 
 
-    private void carregarVacinas() {
+    private void carregarVacinas() throws SQLException {
 
 
 
 
         try {
-            // Usa o método buscarTodasVacinas() que já existe no seu repositório
-            List<Vacina> vacinasDisponiveis = vacinaRepository.buscarTodasVacinas();
-            vacinaAplicada.getItems().clear();
-            vacinaAplicada.getItems().addAll(vacinasDisponiveis);
+
+            List<Vacina> vacinas = vacinaService.getVacinasDisponiveis();
+
+            animalVacinado.getItems().clear();
+            vacinaAplicada.getItems().setAll(vacinas);
 
         } catch (SQLException e) {
             e.getMessage();
             e.printStackTrace();
+
 
         }
     }

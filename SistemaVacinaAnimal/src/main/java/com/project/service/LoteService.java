@@ -13,20 +13,28 @@ public class LoteService{
 
 
 
-    //atributo
+
+    //Atributos
     private LoteRepository loteRepository;
 
+    
 
 
-    //construtor
+    //Construtor
 
     public LoteService(LoteRepository loteRepository){
         this.loteRepository = loteRepository;
     }
 
+
+
+
     public LoteService(){
         this.loteRepository = new LoteRepository();
     }
+
+
+    
 
     public void cadastraLote(Lote lote) throws SQLException{  
         

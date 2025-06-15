@@ -51,7 +51,7 @@ public class FrascoService {
 
     
 
-    public void cadastrarFrascoo(Frasco frasco) throws SQLException {
+    public void cadastrarFrasco(Frasco frasco) throws SQLException {
 
         Connection connection = null;
 
