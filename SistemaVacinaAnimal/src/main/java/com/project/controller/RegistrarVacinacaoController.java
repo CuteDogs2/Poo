@@ -38,7 +38,6 @@ public class RegistrarVacinacaoController {
     private final VacinaRepository vacinaRepository = new VacinaRepository();
 
 
-
     
     @FXML
     public void initialize() {

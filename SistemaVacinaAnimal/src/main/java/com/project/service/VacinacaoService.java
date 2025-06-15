@@ -13,6 +13,12 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import com.project.util.DataBaseUtil;
 
+import java.util.List;
+import java.util.ArrayList;
+
+
+
+
 public class VacinacaoService{
 
 
@@ -61,5 +67,39 @@ public class VacinacaoService{
         
 
     }
-    
+
+
+
+
+    public List<Animal> getAnimaisPorCpf(String cpf) throws SQLException {
+
+        try {
+
+            return animalRepository.buscarAnimalPorCpfDono(cpf);
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
+    }
+
+
+
+
+    public List<Vacina> getVacinasDisponiveis() throws SQLException {
+
+        try {
+
+            return vacinaRepository.buscarTodasVacinas();
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
+    }
+
 }

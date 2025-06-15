@@ -88,11 +88,11 @@ public class VacinaRepository {
     }
 
 
-
+    //String sql = "SELECT nome, id_vacina, fabricante, validade_da_aplicacao, dosagem FROM vacina";
 
     public List<Vacina> buscarTodasVacinas() throws SQLException {
 
-        String sql = "SELECT nome, id_vacina, fabricante, validade_da_aplicacao, dosagem";
+        String sql = "SELECT nome, id_vacina, fabricante, validade_da_aplicacao, dosagem FROM vacina";
 
         List<Vacina> vacinas = new ArrayList<>();
 
