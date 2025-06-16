@@ -22,7 +22,7 @@ public class CadastrarLoteController{
      *
      */
     @FXML 
-    private void onCadastrarVacinaLote(){
+    private void onCadastrarLoteClicked(){
 
         String id_lote = idLote.getText();
         int id_vacina = Integer.parseInt(idvacina.getText());
