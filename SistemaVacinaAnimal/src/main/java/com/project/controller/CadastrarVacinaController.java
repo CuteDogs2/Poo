@@ -42,38 +42,39 @@ public class CadastrarVacinaController {
       try {
 
 
-        String nome = nomeVacina.getText();
-        String fabricante = fabricanteVacina.getText();
-        int validadeAplicacao = Integer.parseInt(validadeAplicacaoVacina.getText());
-        float dosagemKgMl = Float.parseFloat(dosagemKgMlVacina.getText());
+            
+            String nome = nomeVacina.getText();
+            String fabricante = fabricanteVacina.getText();
+            int validadeAplicacao = Integer.parseInt(validadeAplicacaoVacina.getText());
+            float dosagemKgMl = Float.parseFloat(dosagemKgMlVacina.getText());
 
-        validadorUtil.validarCampoObrigatorio(nome, "Nome da vacina é obrigatório.");
-        validadorUtil.validarCampoObrigatorio(fabricante, "Fabricante da vacina é obrigatório.");
-        
-
-
-        Vacina vacina = new Vacina(nome, fabricante, validadeAplicacao, dosagemKgMl);
+            validadorUtil.validarCampoObrigatorio(nome, "Nome da vacina é obrigatório.");
+            validadorUtil.validarCampoObrigatorio(fabricante, "Fabricante da vacina é obrigatório.");
+            
 
 
-
-        exibirAlerta(AlertType.INFORMATION, "Sucesso", "Frasco cadastrado com sucesso!");
-
-        // Limpa os campos após o sucesso
-        nomeVacina.clear();
-        fabricanteVacina.clear();
-        validadeAplicacaoVacina.clear();
-        dosagemKgMlVacina.clear();
+            Vacina vacina = new Vacina(nome, fabricante, validadeAplicacao, dosagemKgMl);
 
 
-        
 
-        vacinaService.cadastrarVacina(vacina);
+            exibirAlerta(AlertType.INFORMATION, "Sucesso", "Vacina cadastrado com sucesso!");
+
+            // Limpa os campos após o sucesso
+            nomeVacina.clear();
+            fabricanteVacina.clear();
+            validadeAplicacaoVacina.clear();
+            dosagemKgMlVacina.clear();
 
 
-        System.out.println("nome: " + vacina.getNomeVacina() + ", " + 
-                           "fabricante: " + vacina.getFabricante() + ", " + 
-                           "validadAplicacao: " + vacina.getValidadeDaAplicacao() + ", " +
-                           "dosagemKgMl: " + vacina.getDosagemPorKg());
+            
+
+            vacinaService.cadastrarVacina(vacina);
+
+
+            System.out.println("nome: " + vacina.getNomeVacina() + ", " + 
+                            "fabricante: " + vacina.getFabricante() + ", " + 
+                            "validadAplicacao: " + vacina.getValidadeDaAplicacao() + ", " +
+                            "dosagemKgMl: " + vacina.getDosagemPorKg());
 
         } catch (ValidationException e) {
        

@@ -1,6 +1,7 @@
 package com.project.util;
 
 
+import java.util.List;
 import java.util.regex.Pattern;
 import com.project.exception.ValidationException;
 /**
@@ -60,4 +61,14 @@ public class ValidadorUtil {
             throw new ValidationException("O formato do e-mail é inválido.");
         }
     }
+    public static void validarSelecaoObrigatoria(Object selecao, String nomeDoCampo) throws ValidationException {
+        if (selecao == null) {
+            throw new ValidationException("É obrigatório selecionar um(a) " + nomeDoCampo + ".");
+        }
+    }
+    public static void validarListaNaoVazia(List<?> lista, String nomeDoCampo) throws ValidationException {
+    if (lista == null || lista.isEmpty()) {
+        throw new ValidationException("A lista de '" + nomeDoCampo + "' não pode estar vazia.");
+    }
+}
 }

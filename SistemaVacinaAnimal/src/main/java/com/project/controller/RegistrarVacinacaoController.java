@@ -15,6 +15,7 @@ import com.project.service.VacinaService;
 import com.project.service.VacinacaoService;
 import com.project.service.FrascoService;
 import com.project.service.VeterinarioService;
+import com.project.util.ValidadorUtil;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -54,7 +55,7 @@ public class RegistrarVacinacaoController {
 
     private final VeterinarioService veterinarioService = new VeterinarioService();
 
-
+    private final ValidadorUtil validadorUtil = new ValidadorUtil();
     
     @FXML
     public void initialize() throws SQLException {
@@ -115,6 +116,15 @@ public class RegistrarVacinacaoController {
         });
     }
 
+    @FXML
+    private void exibirAlerta(AlertType tipo, String titulo, String mensagem) {
+        Alert alerta = new Alert(tipo);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null); // Sem texto de cabeçalho
+        alerta.setContentText(mensagem);
+        alerta.showAndWait();
+    }
+
 
 
 
@@ -144,8 +154,7 @@ public class RegistrarVacinacaoController {
     @FXML
     private void onRegistrarVacinacaoClicked() {
 
-        try { 
-
+        try {
             Animal animalSelecionado = animalVacinado.getValue();
 
             Vacina vacinaSelecionada = vacinaAplicada.getValue();
@@ -157,6 +166,13 @@ public class RegistrarVacinacaoController {
             LocalDate dataDeAplicacao = dataAplicacao.getValue();
 
             LocalDate dataDeRetorno = dataRetorno.getValue();
+
+            // Validação dos campos
+            validadorUtil.validarSelecaoObrigatoria(animalSelecionado, "Selecione um animal.");
+            validadorUtil.validarSelecaoObrigatoria(vacinaSelecionada, "Selecione uma vacina.");
+            validadorUtil.validarSelecaoObrigatoria(frascoSelecionado, "Selecione um frasco.");
+            validadorUtil.validarSelecaoObrigatoria(veterinario, "Selecione um veterinário.");
+            
 
             if (animalSelecionado != null && vacinaSelecionada != null ) {
                 
@@ -175,7 +191,9 @@ public class RegistrarVacinacaoController {
 
                     vacinacaoService.registrarVacinacao(vacinacao);
 
-                    exibirAlerta(AlertType.INFORMATION, "Sucesso", "Frasco cadastrado com sucesso!");
+                    exibirAlerta(AlertType.INFORMATION, "Sucesso", "Vacinação cadastrado com sucesso!");
+
+            }
 
             }catch (ValidationException e) {
        
@@ -187,7 +205,7 @@ public class RegistrarVacinacaoController {
 
                 
             }
-        }
+        
     }
 
 
@@ -228,12 +246,17 @@ public class RegistrarVacinacaoController {
 
             List<Veterinario> veterinarios = veterinarioService.getVeterinariosDisponiveis();
             
+            validadorUtil.validarListaNaoVazia(veterinarios, "Nenhum veterinário disponível.");
+
             identificacaoVeterinario.getItems().clear();
             identificacaoVeterinario.getItems().setAll(veterinarios);
 
         } catch (SQLException e) {
-            e.getMessage();
+            exibirAlerta(AlertType.ERROR, "Erro de Banco de Dados", "Ocorreu um erro ao carregar os veterinários.");
             e.printStackTrace();
+
+        } catch (ValidationException e) {
+            exibirAlerta(AlertType.WARNING, "Erro de Validação", e.getMessage());
         }
     }
     
@@ -311,18 +334,21 @@ public class RegistrarVacinacaoController {
 
             List<Vacina> vacinas = vacinaService.getVacinasDisponiveis();
 
+            validadorUtil.validarListaNaoVazia(vacinas, "Nenhuma vacina disponível.");
+
             animalVacinado.getItems().clear();
             vacinaAplicada.getItems().setAll(vacinas);
 
         } catch (SQLException e) {
-            e.getMessage();
+            exibirAlerta(AlertType.ERROR, "Erro de Banco de Dados", "Ocorreu um erro ao salvar os dados.");
             e.printStackTrace();
 
-
-        }
+        }catch (ValidationException e) {
+       
+            exibirAlerta(AlertType.WARNING, "Erro de Validação", e.getMessage());
         
+        }
     }
-
 
 
 
@@ -331,22 +357,17 @@ public class RegistrarVacinacaoController {
         try {
 
             List<Frasco> frascos = frascoService.buscarFrascosPorIdVacina(idVacina);
+            // Valida se a lista de frascos não está vazia   
+            validadorUtil.validarListaNaoVazia(frascos, "Nenhum frasco disponível para esta vacina.");
 
             frascoAplicado.getItems().clear();
             frascoAplicado.getItems().setAll(frascos);
 
         } catch (SQLException e) {
-            e.getMessage();
+            exibirAlerta(AlertType.ERROR, "Erro de Banco de Dados", "Ocorreu um erro ao carregar os frascos.");
             e.printStackTrace();
+        }catch (ValidationException e) {
+            exibirAlerta(AlertType.WARNING, "Erro de Validação", e.getMessage());
         }
-    }
-
-    @FXML
-    private void exibirAlerta(AlertType tipo, String titulo, String mensagem) {
-        Alert alerta = new Alert(tipo);
-        alerta.setTitle(titulo);
-        alerta.setHeaderText(null); // Sem texto de cabeçalho
-        alerta.setContentText(mensagem);
-        alerta.showAndWait();
     }
 }
