@@ -9,6 +9,7 @@ import com.project.repository.VacinaRepository;
 import com.project.repository.VacinacaoRepository;
 import com.project.repository.AnimalRepository;
 import com.project.repository.ClienteRepository;
+import com.project.repository.FrascoRepository;
 import com.project.model.vacina.*;
 
 import java.sql.SQLException;
@@ -30,6 +31,7 @@ public class VacinacaoService{
     private ClienteRepository clienteRepository;
     private AnimalRepository animalRepository;
     private VacinacaoRepository vacinacaoRepository;
+    private FrascoRepository frascoRepository;
 
 
     public VacinacaoService(VacinaRepository vacinaRepository, ClienteRepository clienteRepository, AnimalRepository animalRepository){
@@ -37,6 +39,7 @@ public class VacinacaoService{
         this.clienteRepository = clienteRepository;
         this.animalRepository = animalRepository;
         this.vacinacaoRepository = vacinacaoRepository;
+        this.frascoRepository = new FrascoRepository();
     }
 
     public VacinacaoService(){
@@ -44,21 +47,60 @@ public class VacinacaoService{
         this.animalRepository = new AnimalRepository();
         this.clienteRepository = new ClienteRepository();
         this.vacinacaoRepository = new VacinacaoRepository();
+        this.frascoRepository = new FrascoRepository();
     }
 
 
 
 
-    public void cadastrarVacinacao(Vacinacao vacinacao) throws SQLException {
+    public void registrarVacinacao(Vacinacao vacinacao) throws SQLException {
+
+        Connection connection = null;
 
         try {
-            vacinacaoRepository.inserirVacinacao(vacinacao);
+            connection = DataBaseUtil.getConnection();
+            connection.setAutoCommit(false);
+
+            Animal animal = vacinacao.getAnimal();
+            Vacina vacina = vacinacao.getVacina();
+            Frasco frasco = frascoRepository.buscarFrascoPorId(vacinacao.getIdFrascoUtilizado());
+
+            if (frasco == null) {
+                throw new SQLException("Frasco não encontrado pelo ID: " + vacinacao.getIdFrascoUtilizado());
+            }
+
+            float doseAplicada = animal.getPeso() * vacina.getDosagemPorKg();
+
+            if (frasco.getVolumeFrasco() < doseAplicada) {
+                throw new SQLException("Volume do frasco insuficiente.");
+            }
+
+            frasco.setVolumeFrasco(frasco.getVolumeFrasco() - doseAplicada);
+
+            vacinacao.setDoseAplicada(doseAplicada);
+
+            frascoRepository.atualizarFrasco(frasco, connection);
+            vacinacaoRepository.inserirVacinacao(vacinacao, connection);
+
+            connection.commit();
+
         } catch (SQLException e) {
             e.getMessage();
             e.printStackTrace();
 
+            if (connection != null) {
+                connection.rollback();
+            }
+
             throw e;
+
+        } finally {
+            if (connection != null) {
+                connection.setAutoCommit(true);
+                connection.close();
+            }
         }
+     
     }
 
     /*

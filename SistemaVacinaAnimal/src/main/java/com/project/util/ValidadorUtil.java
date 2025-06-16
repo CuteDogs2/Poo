@@ -1,7 +1,8 @@
 package com.project.util;
+
+
 import java.util.regex.Pattern;
-
-
+import com.project.exception.ValidationException;
 /**
  * Classe utilitaria para validação de dados.
  */
@@ -21,11 +22,11 @@ public class ValidadorUtil {
      * @param cpf CPF a ser validado (no formato String).
      * @return true se o CPF for válido. false caso contrário.
      */
-    public boolean validarCpf(String cpf) {
-        if(cpf != null && cpf.length() == 11) {
-            return true;
+    public void validarCpf(String cpf) throws ValidationException {
+         if (cpf == null || !cpf.matches("\\d{11}")) {
+            throw new ValidationException("O CPF deve conter exatamente 11 dígitos numéricos.");
         }
-        else return false;
+
     }
 
 
@@ -50,10 +51,9 @@ public class ValidadorUtil {
      * @param email E-mail a ser validado (em formato String).
      * @return true se o e-mail for válido, false caso contrário.
      */
-    public static boolean validarEmail(String email) {
-        if (email == null || email.isEmpty()) {
-            return false;
+    public static void validarEmail(String email) throws ValidationException {
+        if (email == null || email.isEmpty() || !PADRAO_EMAIL_VALIDO.matcher(email).matches()) {
+            throw new ValidationException("O formato do e-mail é inválido.");
         }
-        return PADRAO_EMAIL_VALIDO.matcher(email).matches();
     }
 }

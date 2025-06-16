@@ -119,9 +119,30 @@ public class FrascoRepository {
 
 
     public void atualizarFrasco(Frasco frasco) throws SQLException {
+
+        Connection connection = null;
+
+        try {
+
+            connection = DataBaseUtil.getConnection();
+
+            atualizarFrasco(frasco, connection);
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
+    }
+
+
+
+
+    public void atualizarFrasco(Frasco frasco, Connection connection) throws SQLException {
         String sql = "UPDATE frasco SET volume_frasco = ? WHERE id_frasco = ?";
 
-        try (Connection connection = DataBaseUtil.getConnection(); PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setFloat(1, frasco.getVolumeFrasco());
             preparedStatement.setString(2, frasco.getIdFrasco());
             preparedStatement.executeUpdate();

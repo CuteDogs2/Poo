@@ -5,10 +5,13 @@
 package com.project.controller;
 
 import com.project.model.Animal;
+import com.project.model.Vacinacao;
 import com.project.model.vacina.Vacina;
+import com.project.model.vacina.Frasco;
 import com.project.service.AnimalService;
 import com.project.service.VacinaService;
 import com.project.service.VacinacaoService;
+import com.project.service.FrascoService;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -28,6 +31,7 @@ public class RegistrarVacinacaoController {
 
     @FXML private TextField cpfCliente;
     @FXML private ComboBox<Vacina> vacinaAplicada;
+    @FXML private ComboBox<Frasco> frascoAplicado;
     @FXML private DatePicker dataAplicacao;
     @FXML private DatePicker dataRetorno;
     @FXML private ComboBox<Animal> animalVacinado;
@@ -41,6 +45,8 @@ public class RegistrarVacinacaoController {
     private final VacinacaoService vacinacaoService = new VacinacaoService();
 
     private final VacinaService vacinaService = new VacinaService();
+
+    private final FrascoService frascoService = new FrascoService();
 
 
     
@@ -86,7 +92,19 @@ public class RegistrarVacinacaoController {
 
 
         configurarComboBoxVacinas();
+        configurarComboBoxFrascos();
         carregarVacinas();
+
+        vacinaAplicada.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
+            if(newValue != null) {
+                try {
+                    carregarFrascos(newValue.getIdVacina());
+                } catch (SQLException e) {
+                    e.getMessage();
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
 
@@ -122,8 +140,35 @@ public class RegistrarVacinacaoController {
 
         Vacina vacinaSelecionada = vacinaAplicada.getValue();
 
-        LocalDate dateDeAplicacao = dataAplicacao.getValue();
-        //LocalDate dateDeRetorno = dataRetorno.getValue();
+        Frasco frascoSelecionado = frascoAplicado.getValue();
+
+        LocalDate dataDeAplicacao = dataAplicacao.getValue();
+
+        LocalDate dataDeRetorno = dataRetorno.getValue();
+
+        if (animalSelecionado != null && vacinaSelecionada != null ) {
+            
+            try {
+                Vacinacao vacinacao = new Vacinacao(
+                    animalSelecionado,
+                    vacinaSelecionada,
+                    veterinario,
+                    dataAplicacao,
+                    dataRetorno,
+                    0,
+                    frascoSelecionado.getIdFrasco()
+
+                );
+
+                vacinacaoService.registrarVacinacao(vacinacao);
+
+            } catch (SQLException e) {
+                e.getMessage();
+                e.printStackTrace();
+
+                
+            }
+        }
 
     }
     
@@ -160,6 +205,38 @@ public class RegistrarVacinacaoController {
 
 
 
+    private void configurarComboBoxFrascos() {
+        
+        frascoAplicado.setConverter(new StringConverter<Frasco>() {
+
+
+            @Override
+            public String toString(Frasco frasco) {
+                return frasco == null ? "" : frasco.getIdFrasco() + " (" + frasco.getVolumeFrasco() + "ml)";
+            }
+
+            @Override
+            public Frasco fromString(String string) {
+                return null;
+            }
+        });
+
+        frascoAplicado.setCellFactory(param -> new ListCell<Frasco>() {
+            @Override
+            protected void updateItem(Frasco item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item.getIdFrasco() + " (" + item.getVolumeFrasco() + "ml)");
+                }
+            }
+        });
+    }
+
+
+
+
     private void carregarVacinas() throws SQLException {
 
 
@@ -177,6 +254,20 @@ public class RegistrarVacinacaoController {
             e.printStackTrace();
 
 
+        }
+    }
+
+
+
+
+    private void carregarFrascos(int idVacina) throws SQLException {
+
+        try {
+            List<Frasco> frascos = frascoService.buscarFrascosPorIdVacina(idVacina);
+            frascoAplicado.getItems().setAll(frascos);
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
         }
     }
 }

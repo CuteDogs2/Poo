@@ -26,9 +26,18 @@ public class CadastrarFrascoController {
 
 
     @FXML
-    public void initialize() {
+    public void initialize() throws SQLException {
+        
+        try {
+
         configurarComboBoxLotes();
         carregarLotesDisponiveis();
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+        }
+        
     }
     
     
@@ -75,15 +84,18 @@ public class CadastrarFrascoController {
         
     }
 
-    private void carregarLotesDisponiveis() {
+    private void carregarLotesDisponiveis() throws SQLException {
+
         try {
             
             List<Lote> lotes = loteService.buscarLotesDisponiveis();
             SelecionarIDLote.getItems().clear();
             SelecionarIDLote.getItems().addAll(lotes);
         } catch (SQLException e) {
-
+            e.getMessage();
             e.printStackTrace();
+
+            throw e;
         }
     }
 
@@ -96,6 +108,7 @@ public class CadastrarFrascoController {
         }
 
         try {
+
             String nomeFrasco = Idfrasco.getText();
             float volume = Float.parseFloat(volumeFrasco.getText());
             
@@ -115,7 +128,9 @@ public class CadastrarFrascoController {
             SelecionarIDLote.getSelectionModel().clearSelection();
 
         } catch (SQLException e) {
+            e.getMessage();
             e.printStackTrace();
+            
         } catch (NumberFormatException e) {
             System.err.println("Erro: O volume deve ser um número válido.");
             
