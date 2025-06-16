@@ -195,9 +195,9 @@ public class RegistrarVacinacaoController {
 
             }
 
-            }catch (ValidationException e) {
+            } catch (ValidationException e) {
        
-            exibirAlerta(AlertType.WARNING, "Erro de Validação", e.getMessage());
+                exibirAlerta(AlertType.WARNING, "Erro de Validação", e.getMessage());
 
             } catch (SQLException e) {
                 exibirAlerta(AlertType.ERROR, "Erro de Banco de Dados", "Ocorreu um erro ao salvar os dados.");

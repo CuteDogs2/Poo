@@ -70,14 +70,13 @@ public class VacinacaoService{
             }
 
             float doseAplicada = animal.getPeso() * vacina.getDosagemPorKg();
+            vacinacao.setDoseAplicada(doseAplicada);
 
             if (frasco.getVolumeFrasco() < doseAplicada) {
                 throw new SQLException("Volume do frasco insuficiente.");
             }
 
             frasco.setVolumeFrasco(frasco.getVolumeFrasco() - doseAplicada);
-
-            vacinacao.setDoseAplicada(doseAplicada);
 
             frascoRepository.atualizarFrasco(frasco, connection);
             vacinacaoRepository.inserirVacinacao(vacinacao, connection);
