@@ -12,7 +12,11 @@ public class ValidadorUtil {
 
 
     //Métodos validadores de dados
-
+    public static void validarCampoObrigatorio(String texto, String nomeDoCampo) throws ValidationException {
+        if (texto == null || texto.trim().isEmpty()) {
+            throw new ValidationException("O campo '" + nomeDoCampo + "' é obrigatório.");
+        }
+    }
 
 
 

@@ -50,6 +50,7 @@ public class RegistrarVacinacaoController {
 
     private final FrascoService frascoService = new FrascoService();
 
+    private final VeterinarioService veterinarioService = new VeterinarioService();
 
     
     @FXML
@@ -95,7 +96,10 @@ public class RegistrarVacinacaoController {
 
         configurarComboBoxVacinas();
         configurarComboBoxFrascos();
+        configurarComboBoxVeterinarios();
+
         carregarVacinas();
+        carregarVeterinarios();
 
         vacinaAplicada.getSelectionModel().selectedItemProperty().addListener((options, oldValue, newValue) -> {
             if(newValue != null) {
@@ -144,6 +148,8 @@ public class RegistrarVacinacaoController {
 
         Frasco frascoSelecionado = frascoAplicado.getValue();
 
+        Veterinario veterinario = identificacaoVeterinario.getValue();
+
         LocalDate dataDeAplicacao = dataAplicacao.getValue();
 
         LocalDate dataDeRetorno = dataRetorno.getValue();
@@ -151,12 +157,13 @@ public class RegistrarVacinacaoController {
         if (animalSelecionado != null && vacinaSelecionada != null ) {
             
             try {
+                
                 Vacinacao vacinacao = new Vacinacao(
                     animalSelecionado,
                     vacinaSelecionada,
                     veterinario,
-                    dataAplicacao,
-                    dataRetorno,
+                    dataDeAplicacao,
+                    dataDeRetorno,
                     0,
                     frascoSelecionado.getIdFrasco()
 
@@ -171,7 +178,53 @@ public class RegistrarVacinacaoController {
                 
             }
         }
+    }
 
+
+
+
+    private void configurarComboBoxVeterinarios() {
+
+        identificacaoVeterinario.setConverter(new StringConverter<Veterinario>(){
+            @Override
+            public String toString(Veterinario veterinario) {
+                return veterinario == null ? null : veterinario.getNome();
+            }
+            @Override
+            public Veterinario fromString(String strin) {
+                return null;
+            }
+        });
+
+        identificacaoVeterinario.setCellFactory(param -> new ListCell<Veterinario>() {
+            @Override
+            protected void updateItem(Veterinario item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(item.getNome() + " (CRMV: " + item.getCrmv() + ")");
+                }
+            }
+        });
+    }
+
+
+
+
+    private void carregarVeterinarios() throws SQLException {
+
+        try {
+
+            List<Veterinario> veterinarios = veterinarioService.getVeterinariosDisponiveis();
+            
+            identificacaoVeterinario.getItems().clear();
+            identificacaoVeterinario.getItems().setAll(veterinarios);
+
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+        }
     }
     
 
@@ -265,8 +318,12 @@ public class RegistrarVacinacaoController {
     private void carregarFrascos(int idVacina) throws SQLException {
 
         try {
+
             List<Frasco> frascos = frascoService.buscarFrascosPorIdVacina(idVacina);
+
+            frascoAplicado.getItems().clear();
             frascoAplicado.getItems().setAll(frascos);
+
         } catch (SQLException e) {
             e.getMessage();
             e.printStackTrace();

@@ -71,7 +71,8 @@ public class CadastrarClienteController {
     
             validadorUtil.validarCpf(cpfDoCliente);
             validadorUtil.validarEmail(emailDoCliente);
-
+            validadorUtil.validarCampoObrigatorio(nomeDoCliente, "Nome do Cliente");
+            
             char sexoDoCliente = (sexoCliente.getValue() != null && sexoCliente.getValue().equals("Masculino")) ? 'm' : 'f';
             Cliente cliente = new Cliente(nomeDoCliente, cpfDoCliente, telefoneDoCliente, emailDoCliente, dataNascimentoDoCliente, sexoDoCliente);
 
