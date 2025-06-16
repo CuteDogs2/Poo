@@ -9,12 +9,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fillWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" VBox.vgrow="ALWAYS" stylesheets="/view/app.css">
+<VBox fillWidth="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.controller.VacinasController" VBox.vgrow="ALWAYS" stylesheets="/view/app.css">
 
    <children>
 
       <fx:include source="barraPesquisa.fxml" />
-      <fx:include source="tabela.fxml" />
+      <fx:include fx:id="tabela_dados" source="tabela.fxml" />
 
    </children>
 
