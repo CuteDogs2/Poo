@@ -10,6 +10,7 @@ import com.project.repository.ClienteRepository;
 import com.project.util.DataBaseUtil;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.sql.Connection;
 
 
@@ -88,5 +89,12 @@ public class ClienteService {
                 connection.close();
             }
         }
+    }
+
+
+
+
+    public List<Cliente> buscarTodos() throws SQLException{
+        return clienteRepository.buscarTodos();
     }
 }
