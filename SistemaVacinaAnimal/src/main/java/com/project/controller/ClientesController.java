@@ -31,6 +31,7 @@ public class ClientesController {
 
     private final ObservableList<Cliente> clientesList = FXCollections.observableArrayList();
 
+    @SuppressWarnings("unchecked")
     @FXML
     public void initialize() {
         // Inicializa searchField a partir do barraPesquisaNode incluído

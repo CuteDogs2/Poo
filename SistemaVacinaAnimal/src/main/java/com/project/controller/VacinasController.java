@@ -30,6 +30,7 @@ public class VacinasController {
 
     private final ObservableList<Vacina> vacinasList = FXCollections.observableArrayList();
 
+    @SuppressWarnings("unchecked")
     @FXML
     public void initialize() {
         // Inicializa searchField a partir do barraPesquisaNode incluído
