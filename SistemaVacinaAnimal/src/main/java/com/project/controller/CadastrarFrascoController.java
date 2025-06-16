@@ -28,6 +28,18 @@ public class CadastrarFrascoController {
     private final LoteService loteService = new LoteService();
     private final ValidadorUtil validadorUtil = new ValidadorUtil();
 
+
+
+
+    @FXML
+    private void initialize() {
+        configurarComboBoxLotes();
+        carregarLotesDisponiveis();
+    }
+
+
+
+
     @FXML
     private void exibirAlerta(AlertType tipo, String titulo, String mensagem) {
         Alert alerta = new Alert(tipo);
