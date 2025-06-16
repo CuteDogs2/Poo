@@ -6,12 +6,14 @@ package com.project.controller;
 
 import com.project.model.Animal;
 import com.project.model.Vacinacao;
+import com.project.model.pessoas.Veterinario;
 import com.project.model.vacina.Vacina;
 import com.project.model.vacina.Frasco;
 import com.project.service.AnimalService;
 import com.project.service.VacinaService;
 import com.project.service.VacinacaoService;
 import com.project.service.FrascoService;
+import com.project.service.VeterinarioService;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -35,7 +37,7 @@ public class RegistrarVacinacaoController {
     @FXML private DatePicker dataAplicacao;
     @FXML private DatePicker dataRetorno;
     @FXML private ComboBox<Animal> animalVacinado;
-    @FXML private ComboBox<String> identificacaoVeterinario;
+    @FXML private ComboBox<Veterinario> identificacaoVeterinario;
 
 
 
