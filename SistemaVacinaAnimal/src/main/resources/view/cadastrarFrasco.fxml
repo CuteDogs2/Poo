@@ -26,7 +26,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <TextField fx:id="Idfrasco" promptText="Id do frasco" styleClass="caixas_texto" GridPane.columnSpan="2" />
+      <TextField fx:id="Idfrasco" promptText="Id do frasco" styleClass="caixas_texto" />
       <TextField fx:id="volumeFrasco" promptText="Volume do frasco (ml) " styleClass="caixas_texto" GridPane.columnIndex="1" />
       <Button fx:id="btnCadastrarFrasco" onAction="#onCadastrarFrascoClicked" styleClass="btn_registrar" text="Cadastrar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
       <ComboBox fx:id="SelecionarIDLote" maxWidth="1.7976931348623157E308" promptText="Selecionde o id do Lote" styleClass="seletor_combobox" GridPane.rowIndex="5" />

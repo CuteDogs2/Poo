@@ -13,7 +13,7 @@
 
    <children>
 
-      <fx:include source="barraPesquisa.fxml" />
+      <fx:include fx:id="barraPesquisaNode" source="barraPesquisa.fxml" />
       <fx:include fx:id="tabela_dados" source="tabela.fxml" />
 
    </children>

@@ -9,7 +9,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -17,7 +19,10 @@ import java.util.List;
 public class ClientesController {
 
     @FXML
-    private TextField searchField; // Injetado de barraPesquisa.fxml
+    private HBox barraPesquisaNode; // Nó raiz de barraPesquisa.fxml
+
+    // Este campo será inicializado manualmente a partir do barraPesquisaNode
+    private TextField searchField;
 
     @FXML
     private TableView<Cliente> tabela_dados; // Injetado de tabela.fxml
@@ -28,6 +33,15 @@ public class ClientesController {
 
     @FXML
     public void initialize() {
+        // Inicializa searchField a partir do barraPesquisaNode incluído
+        if (barraPesquisaNode != null) {
+            searchField = (TextField) barraPesquisaNode.lookup("#searchField");
+        }
+
+        if (searchField == null) {
+            // Lança uma exceção ou trata o erro, pois a UI não funcionará corretamente.
+            throw new IllegalStateException("searchField não pôde ser encontrado dentro de barraPesquisaNode. Verifique o fx:id em barraPesquisa.fxml.");
+        }
         // 1. Configura as colunas da tabela dinamicamente
         TableColumn<Cliente, String> colunaNome = new TableColumn<>("Nome");
         colunaNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
