@@ -23,8 +23,8 @@
    </rowConstraints>
    <children>
       <TextField fx:id="idLote" promptText="Id do lote" styleClass="caixas_texto" GridPane.columnSpan="2" />
-      <TextField fx:id="idvacina" promptText="Id vacina" styleClass="caixas_texto" GridPane.rowIndex="1" />
       <DatePicker fx:id="validadeLoteVacina" prefWidth="173.0" promptText="Validade do Lote" styleClass="seletor_data" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Button fx:id="btnCadastrarLote" onAction="#onCadastrarLoteClicked" styleClass="btn_registrar" text="Cadastrar" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+      <ComboBox fx:id="idvacina" maxWidth="1.7976931348623157E308" promptText="Selecionde o id a vacina" styleClass="seletor_combobox" GridPane.rowIndex="1" />
    </children>
 </GridPane>

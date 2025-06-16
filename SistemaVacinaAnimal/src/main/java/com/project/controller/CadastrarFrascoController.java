@@ -1,9 +1,11 @@
 package com.project.controller;
 
 import com.project.model.vacina.Lote;
+import com.project.exception.ValidationException;
 import com.project.model.vacina.Frasco;
 import com.project.service.FrascoService;
-import com.project.service.LoteService; 
+import com.project.service.LoteService;
+import com.project.util.ValidadorUtil;
 import com.project.repository.LoteRepository;
 
 import java.sql.SQLException;
@@ -11,6 +13,7 @@ import java.time.LocalDate;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 import javafx.util.StringConverter;
 import java.util.List;
@@ -23,21 +26,15 @@ public class CadastrarFrascoController {
 
     private final FrascoService frascoService = new FrascoService();
     private final LoteService loteService = new LoteService();
-
+    private final ValidadorUtil validadorUtil = new ValidadorUtil();
 
     @FXML
-    public void initialize() throws SQLException {
-        
-        try {
-
-        configurarComboBoxLotes();
-        carregarLotesDisponiveis();
-
-        } catch (SQLException e) {
-            e.getMessage();
-            e.printStackTrace();
-        }
-        
+    private void exibirAlerta(AlertType tipo, String titulo, String mensagem) {
+        Alert alerta = new Alert(tipo);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null); // Sem texto de cabeçalho
+        alerta.setContentText(mensagem);
+        alerta.showAndWait();
     }
     
     
@@ -84,57 +81,64 @@ public class CadastrarFrascoController {
         
     }
 
-    private void carregarLotesDisponiveis() throws SQLException {
+    private void carregarLotesDisponiveis() {
 
         try {
             
             List<Lote> lotes = loteService.buscarLotesDisponiveis();
             SelecionarIDLote.getItems().clear();
             SelecionarIDLote.getItems().addAll(lotes);
-        } catch (SQLException e) {
-            e.getMessage();
-            e.printStackTrace();
 
-            throw e;
+        } catch (SQLException e) {
+            exibirAlerta(AlertType.ERROR, "Erro de Banco de Dados", "Ocorreu um erro ao salvar os dados. Verifique o console para mais detalhes.");
+            e.printStackTrace();
         }
     }
 
     @FXML
     private void onCadastrarFrascoClicked() {
+    try {
         
-        if (Idfrasco.getText().isEmpty() || volumeFrasco.getText().isEmpty() || SelecionarIDLote.getValue() == null) {
+        String nomeFrasco = Idfrasco.getText();
+        String volumeTexto = volumeFrasco.getText();
+        Lote loteSelecionado = SelecionarIDLote.getValue();
 
-            return;
+        
+        ValidadorUtil.validarCampoObrigatorio(nomeFrasco, "ID do Frasco");
+        ValidadorUtil.validarCampoObrigatorio(volumeTexto, "Volume do Frasco");
+        
+        if (loteSelecionado == null) {
+            
+            throw new ValidationException("É obrigatório selecionar um Lote.");
         }
 
-        try {
+        
+        float volume = Float.parseFloat(volumeTexto);
+        String idLote = loteSelecionado.getIdLote();
 
-            String nomeFrasco = Idfrasco.getText();
-            float volume = Float.parseFloat(volumeFrasco.getText());
-            
-           
-            Lote loteSelecionado = SelecionarIDLote.getValue();
-            String idLote = loteSelecionado.getIdLote(); 
+        Frasco frasco = new Frasco(nomeFrasco, volume, idLote);
+        frascoService.cadastrarFrasco(frasco);
 
-            Frasco frasco = new Frasco(nomeFrasco, volume, idLote);
+        exibirAlerta(AlertType.INFORMATION, "Sucesso", "Frasco cadastrado com sucesso!");
 
-            frascoService.cadastrarFrasco(frasco);
+        // Limpa os campos após o sucesso
+        Idfrasco.clear();
+        volumeFrasco.clear();
+        SelecionarIDLote.getSelectionModel().clearSelection();
 
-            System.out.println("FRASCO CADASTRADO: " + "Id: " + frasco.getIdFrasco() + ", " + "Volume: " + frasco.getVolumeFrasco() + ", " +
-                    "Id do lote: " + frasco.getIdLote());
+    } catch (ValidationException e) {
+       
+        exibirAlerta(AlertType.WARNING, "Erro de Validação", e.getMessage());
 
-            Idfrasco.clear();
-            volumeFrasco.clear();
-            SelecionarIDLote.getSelectionModel().clearSelection();
+    } catch (NumberFormatException e) {
+        
+        exibirAlerta(AlertType.WARNING, "Erro de Formato", "O campo 'Volume do Frasco' deve conter um número válido (ex: 10.5).");
 
-        } catch (SQLException e) {
-            e.getMessage();
-            e.printStackTrace();
-            
-        } catch (NumberFormatException e) {
-            System.err.println("Erro: O volume deve ser um número válido.");
-            
-        }
+    } catch (SQLException e) {
+        exibirAlerta(AlertType.ERROR, "Erro de Banco de Dados", "Ocorreu um erro ao salvar os dados.");
+        e.printStackTrace();
     }
+}
+   
 }
 

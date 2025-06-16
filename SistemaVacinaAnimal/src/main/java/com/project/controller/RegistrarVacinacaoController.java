@@ -4,6 +4,7 @@
 
 package com.project.controller;
 
+import com.project.exception.ValidationException;
 import com.project.model.Animal;
 import com.project.model.Vacinacao;
 import com.project.model.pessoas.Veterinario;
@@ -17,6 +18,7 @@ import com.project.service.VeterinarioService;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.util.StringConverter;
 
 import java.sql.SQLException;
@@ -52,12 +54,12 @@ public class RegistrarVacinacaoController {
 
     private final VeterinarioService veterinarioService = new VeterinarioService();
 
+
     
     @FXML
     public void initialize() throws SQLException {
 
 
-        
 
         animalVacinado.setConverter(new StringConverter<Animal>() {
 
@@ -142,37 +144,45 @@ public class RegistrarVacinacaoController {
     @FXML
     private void onRegistrarVacinacaoClicked() {
 
-        Animal animalSelecionado = animalVacinado.getValue();
+        try { 
 
-        Vacina vacinaSelecionada = vacinaAplicada.getValue();
+            Animal animalSelecionado = animalVacinado.getValue();
 
-        Frasco frascoSelecionado = frascoAplicado.getValue();
+            Vacina vacinaSelecionada = vacinaAplicada.getValue();
 
-        Veterinario veterinario = identificacaoVeterinario.getValue();
+            Frasco frascoSelecionado = frascoAplicado.getValue();
 
-        LocalDate dataDeAplicacao = dataAplicacao.getValue();
+            Veterinario veterinario = identificacaoVeterinario.getValue();
 
-        LocalDate dataDeRetorno = dataRetorno.getValue();
+            LocalDate dataDeAplicacao = dataAplicacao.getValue();
 
-        if (animalSelecionado != null && vacinaSelecionada != null ) {
-            
-            try {
+            LocalDate dataDeRetorno = dataRetorno.getValue();
+
+            if (animalSelecionado != null && vacinaSelecionada != null ) {
                 
-                Vacinacao vacinacao = new Vacinacao(
-                    animalSelecionado,
-                    vacinaSelecionada,
-                    veterinario,
-                    dataDeAplicacao,
-                    dataDeRetorno,
-                    0,
-                    frascoSelecionado.getIdFrasco()
+                
+                    
+                    Vacinacao vacinacao = new Vacinacao(
+                        animalSelecionado,
+                        vacinaSelecionada,
+                        veterinario,
+                        dataDeAplicacao,
+                        dataDeRetorno,
+                        0,
+                        frascoSelecionado.getIdFrasco()
 
-                );
+                    );
 
-                vacinacaoService.registrarVacinacao(vacinacao);
+                    vacinacaoService.registrarVacinacao(vacinacao);
+
+                    exibirAlerta(AlertType.INFORMATION, "Sucesso", "Frasco cadastrado com sucesso!");
+
+            }catch (ValidationException e) {
+       
+            exibirAlerta(AlertType.WARNING, "Erro de Validação", e.getMessage());
 
             } catch (SQLException e) {
-                e.getMessage();
+                exibirAlerta(AlertType.ERROR, "Erro de Banco de Dados", "Ocorreu um erro ao salvar os dados.");
                 e.printStackTrace();
 
                 
@@ -310,6 +320,7 @@ public class RegistrarVacinacaoController {
 
 
         }
+        
     }
 
 
@@ -328,5 +339,14 @@ public class RegistrarVacinacaoController {
             e.getMessage();
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void exibirAlerta(AlertType tipo, String titulo, String mensagem) {
+        Alert alerta = new Alert(tipo);
+        alerta.setTitle(titulo);
+        alerta.setHeaderText(null); // Sem texto de cabeçalho
+        alerta.setContentText(mensagem);
+        alerta.showAndWait();
     }
 }

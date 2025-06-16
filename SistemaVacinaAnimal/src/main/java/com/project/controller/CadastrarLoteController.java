@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public class CadastrarLoteController{
     
     @FXML private TextField idLote;
-    @FXML private TextField idvacina;
+    @FXML private ComboBox idvacina;
     @FXML private DatePicker validadeLoteVacina;
 
     private final LoteService loteService = new LoteService();

@@ -23,6 +23,30 @@ public class VacinaService {
 
 
 
+    public VacinaService() {
+        this.vacinaRepository = new VacinaRepository();
+    }
+
+
+
+
+    public void cadastrarVacina(Vacina vacina) throws SQLException {
+
+        try {
+
+            vacinaRepository.inserirVacina(vacina);
+            
+        } catch (SQLException e){
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
+    }
+
+
+
+
     public List<Vacina> getVacinasDisponiveis() throws SQLException {
 
         try {
