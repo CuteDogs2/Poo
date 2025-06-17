@@ -193,3 +193,24 @@
     -fx-background-color: transparent;
     background-color: transparent;
 }
+
+
+
+
+.btc_plus {
+    -fx-background-color: transparent;
+    background-color: transparent;
+    -fx-border-color: transparent;
+    border-color: transparent;
+    -fx-cursor: hand;
+    cursor: hand;
+}
+
+.btn_plus {
+    -fx-cursor: hand;
+    cursor: hand;
+}
+
+.btn_plus:pressed {
+    -fx-effect: innershadow(gaussian, #222, 8, 0.4, 0, 2);
+}

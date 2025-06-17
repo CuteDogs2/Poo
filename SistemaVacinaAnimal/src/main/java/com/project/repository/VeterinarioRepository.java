@@ -17,6 +17,9 @@ import java.util.List;
 
 
 public class VeterinarioRepository {
+
+
+    
     
     public List<Veterinario> buscarTodos() throws SQLException {
 

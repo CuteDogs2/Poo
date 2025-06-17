@@ -18,6 +18,10 @@ import javafx.util.StringConverter;
 
 import java.sql.SQLException;
 
+
+/**
+ * @author João Falcoão
+ */
 public class CadastrarLoteController{
     
     @FXML private TextField idLote;
@@ -140,6 +144,9 @@ private void onCadastrarLoteClicked() {
 }
 
 
+    /**
+     * @author Guthierrys
+     */
     @FXML
     private void exibirAlerta(AlertType tipo, String titulo, String mensagem) {
         Alert alerta = new Alert(tipo);

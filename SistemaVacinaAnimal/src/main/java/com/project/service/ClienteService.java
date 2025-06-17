@@ -97,4 +97,12 @@ public class ClienteService {
     public List<Cliente> buscarTodos() throws SQLException{
         return clienteRepository.buscarTodos();
     }
+
+
+
+
+    public Cliente buscarClientePorCpf(String cpf) throws SQLException{
+        return clienteRepository.buscarClientePorCpf(cpf);
+    }
+
 }

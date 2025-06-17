@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 
 public class MenuController {
 
-    public interface Listener { void onMenuItem(String fxml); }
+    protected interface Listener { void onMenuItem(String fxml); }
     private Listener listener;
     public void setListener(Listener l) {listener = l;}
 

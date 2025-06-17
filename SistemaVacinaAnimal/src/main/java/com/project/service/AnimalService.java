@@ -31,5 +31,22 @@ public class AnimalService {
         }
 
     }
+
+
+
+
+    public void cadastrarAnimal(Animal animal) throws SQLException {
+
+        try {
+            animalRepository.inserirAnimal(animal);
+        
+        } catch (SQLException e) {
+            e.getMessage();
+            e.printStackTrace();
+
+            throw e;
+        }
+
+    }
     
 }

@@ -28,6 +28,8 @@ CREATE TABLE IF NOT EXISTS `clinica`.`veterinario` (
   PRIMARY KEY (`crmv`))
 ENGINE = InnoDB;
 
+INSERT INTO `clinica`.`veterinario` (`crmv`) VALUES ('12345MS');
+
 
 -- -----------------------------------------------------
 -- Table `clinica`.`pessoa`
@@ -50,6 +52,8 @@ CREATE TABLE IF NOT EXISTS `clinica`.`pessoa` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
+
+INSERT INTO `clinica`.`pessoa` (`nome`, `cpf`, `telefone`, `email`, `data_nascimento`, `sexo`, `funcionario_crmv`) VALUES ('Dr. Carlos Elias', '123.456.789-00', '(11) 98765-4321', 'joao.silva@email.com', '1985-05-20', 'm', '12345MS');
 
 
 -- -----------------------------------------------------
